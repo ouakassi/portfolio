@@ -1,0 +1,7 @@
+tabindex ..
+slider 
+js slider issue 
+change photos and text
+add color pickup and header ( for fun )
+
+im ouakassi oussama in header animated with js
