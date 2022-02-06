@@ -26,7 +26,7 @@
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
-
+  --biggest-font-size: 5rem;
   --big-font-size: 3.2rem;
   --h1-font-size: 2.4rem;
   --h2-font-size: 2rem;
@@ -189,10 +189,20 @@ img {
 }
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 3rem;
 }
 .section__title {
   font-size: var(--h1-font-size);
+  background-image: linear-gradient(
+    120deg,
+    rgb(19, 216, 223),
+    rgb(58, 206, 161) 50%,
+    rgb(11, 245, 214) 70%
+  );
+  background-repeat: no-repeat;
+  background-size: 10% 10px;
+  background-position: 50% 100%;
+  border-radius: 5px;
 }
 .section__subtitle {
   display: block;
@@ -203,6 +213,64 @@ img {
 .section__subtitle {
   text-align: center;
 }
+
+/*==================== BUTTONS ====================*/
+.button {
+  display: inline-block;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1rem;
+  background-image: linear-gradient(
+    120deg,
+    rgb(29, 181, 236),
+    rgb(58, 231, 179) 50%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 1rem;
+  background-position: 0px 110%;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.button:hover,
+.button:focus {
+  color: #fff;
+  background-size: 100% 100%;
+  background-position: 0px 110%;
+  border-radius: 10px;
+  text-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+.button__icon {
+  font-size: 2rem;
+  margin-left: var(--mb-0-5);
+  transition: 0.3s;
+}
+.button--white {
+  background-color: #fff;
+  color: var(--first-color);
+}
+.button--white:hover {
+  background-color: #fff;
+}
+.button--flex {
+  display: inline-flex;
+  align-items: center;
+}
+.button--small {
+  padding: 1.2rem 1.6rem;
+}
+.button--link {
+  padding: 0;
+  background-color: transparent;
+  color: var(--first-color);
+}
+.button--link:hover {
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
 /*==================== LAYOUT ====================*/
 .container {
   max-width: 768px;
@@ -332,32 +400,66 @@ img {
   max-width: 30rem;
   border-radius: 10px;
   z-index: var(--z-tooltip);
+  box-shadow: rgb(68 141 255) -5px 5px 0px, rgb(0 255 178) -10px 10px 0px;
+  transition: 0.2s;
 }
-.home__blob {
-  width: 220px;
-  height: 180px;
-  fill: var(--first-color);
+.home__img__container-img:hover {
+  box-shadow: rgb(68 141 255) -7px 7px 0px, rgb(0 255 178) -12px 12px 0px;
 }
-.home__blob-img {
-  width: 120px;
-}
+
 .home__data {
   grid-column: 1/3;
 }
 .home__title {
-  font-size: var(--big-font-size);
-  color: var(--first-color-alt);
-  font-weight: 900;
+  font-size: 8rem;
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(27, 217, 232, 1) 0%,
+    rgb(29, 181, 236) 46%,
+    rgb(58, 231, 179) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  line-height: 0.8;
+  position: relative;
+  margin-bottom: var(--mb-0-5);
+  text-shadow: rgb(0 0 0 / 14%) 4px 6px 8px, rgb(0 0 0 / 0%) 0px 0px 0px;
 }
-
+.home__title-first {
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(27, 217, 232, 1) 0%,
+    rgb(29, 181, 236) 46%,
+    rgb(58, 231, 179) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: absolute;
+  bottom: 52px;
+  left: 0;
+}
 .home__subtitle {
   font-size: var(--h3-font-size);
-  color: var(--text-color);
+  color: var(--title-color);
   font-family: var(--font-medium);
-  margin-bottom: var(--mb-0-75);
+  margin: var(--mb-0-75) 0;
+  display: inline;
+  background-image: linear-gradient(
+    120deg,
+    rgb(19, 216, 223),
+    rgb(58, 206, 161) 50%,
+    rgb(11, 245, 214) 70%
+  );
+  background-repeat: no-repeat;
+  background-size: 90% 0.4rem;
+  background-position: 50px 110%;
+  border-radius: 5px;
 }
 .home__description {
   margin-bottom: var(--mb-2);
+  color: var(--text-color-light);
 }
 .home__scroll {
   /* display: none; */
@@ -382,45 +484,44 @@ img {
   font-size: 2rem;
 }
 
-/*==================== BUTTONS ====================*/
-.button {
-  display: inline-block;
-  background-color: var(--first-color);
-  color: #fff;
-  padding: 1.6rem;
+/*==================== Portfolio ====================*/
+
+.portfolio__container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 2rem;
+}
+
+.portfolio__content {
+  display: flex;
+  flex-flow: row wrap;
+
+  padding: 1rem;
+  transition: transform 0.5s;
+  /* width: 100vw; */
+}
+
+.portfolio__img {
+  width: 20rem;
   border-radius: 0.8rem;
-  font-weight: var(--font-medium);
+  margin-bottom: var(--mb-0-75);
 }
-.button:hover {
-  background-color: var(--first-color-alt);
-}
-.button__icon {
-  font-size: 2rem;
-  margin-left: var(--mb-0-5);
-  transition: 0.3s;
-}
-.button--white {
-  background-color: #fff;
-  color: var(--first-color);
-}
-.button--white:hover {
-  background-color: #fff;
-}
-.button--flex {
-  display: inline-flex;
+
+.portfolio__data {
+  display: flex;
+  /* flex-flow: column nowrap; */
+  align-items: flex-start;
   align-items: center;
+  text-align: center;
+  padding: 1rem;
 }
-.button--small {
-  padding: 1.2rem 1.6rem;
+.portfolio__title {
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-0-5);
 }
-.button--link {
-  padding: 0;
-  background-color: transparent;
-  color: var(--first-color);
-}
-.button--link:hover {
-  background-color: transparent;
-  color: var(--first-color-alt);
+.portfolio__description {
+  margin-bottom: var(--mb-2);
+  max-width: 50rem;
 }
 
 /*==================== ABOUT ====================*/
@@ -703,99 +804,7 @@ img {
   opacity: 1;
   visibility: visible;
 }
-/*==================== Portfolio ====================*/
 
-.portfolio__container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  height: 45rem;
-  overflow: hidden;
-  padding: 2rem;
-}
-
-.portfolio__content {
-  position: absolute;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  transition: transform 0.5s;
-  width: 100vw;
-}
-
-.portfolio__img {
-  width: 20rem;
-  border-radius: 0.8rem;
-  margin-bottom: var(--mb-0-75);
-}
-
-.portfolio__data {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
-}
-.portfolio__title {
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-0-5);
-}
-.portfolio__description {
-  margin-bottom: var(--mb-2);
-  max-width: 50rem;
-}
-.slider__btn {
-  position: absolute;
-  font-size: 3rem;
-  z-index: var(--z-tooltip);
-  color: var(--first-color);
-  cursor: pointer;
-}
-.slider__btn--right {
-  top: 40%;
-  right: 5%;
-}
-.slider__btn--left {
-  top: 40%;
-  left: 5%;
-}
-
-.dots {
-  position: absolute;
-  bottom: 0;
-  left: calc(50% - 30px);
-  z-index: var(--z-tooltip);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.dots__dot {
-  border: none;
-  background-color: var(--text-color-light);
-  opacity: 0.5;
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  margin-right: 2rem;
-  cursor: pointer;
-  transition: all 0.5s;
-}
-.dots__dot:last-child {
-  margin-right: 0rem;
-}
-
-.dots__dot--active {
-  background-color: var(--first-color);
-  opacity: 1;
-}
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;
@@ -1155,7 +1164,7 @@ img {
     margin: 0;
   }
   .section {
-    padding: 9.6rem 0 3.2rem;
+    margin: 9.6rem 0 3.2rem;
   }
   .section__subtitle {
     margin-bottom: 6.4rem;
@@ -1356,10 +1365,7 @@ img {
   html {
     font-size: 65%;
   }
-  .home__blob {
-    width: 400px;
-    height: 300px;
-  }
+
   .container {
     max-width: 1024px;
   }
@@ -1371,32 +1377,9 @@ img {
   .portfolio__container {
     flex-direction: row;
     align-items: center;
-    height: 40rem;
-  }
-  .portfolio__content {
-    flex-flow: row nowrap;
+    /* height: 40rem; */
   }
 
-  .portfolio__img {
-    width: 40rem;
-    margin-right: 1rem;
-  }
-
-  .portfolio__data {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    text-align: initial;
-    padding: 2rem;
-  }
-  .portfolio__title {
-    font-size: var(--h3-font-size);
-    margin-bottom: var(--mb-0-5);
-  }
-  .portfolio__description {
-    margin-bottom: var(--mb-2);
-    max-width: 50rem;
-  }
   .slider__btn {
     font-size: 4rem;
   }
