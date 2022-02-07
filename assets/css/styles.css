@@ -189,7 +189,7 @@ img {
 }
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 2rem 0 3rem;
+  padding: 8rem 0 3rem;
 }
 .section__title {
   font-size: var(--h1-font-size);
@@ -235,6 +235,7 @@ img {
 .button:hover,
 .button:focus {
   color: #fff;
+  transform: scale(1.1);
   background-size: 100% 100%;
   background-position: 0px 110%;
   border-radius: 10px;
@@ -400,7 +401,9 @@ img {
   max-width: 30rem;
   border-radius: 10px;
   z-index: var(--z-tooltip);
-  box-shadow: rgb(68 141 255) -5px 5px 0px, rgb(0 255 178) -10px 10px 0px;
+  box-shadow: rgb(68 141 255) -5px 5px 0px, rgb(0 255 178) -10px 10px 0px,
+    rgb(3 249 182 / 30%) -13px 15px 20px 1px;
+
   transition: 0.2s;
 }
 .home__img__container-img:hover {
@@ -486,42 +489,82 @@ img {
 
 /*==================== Portfolio ====================*/
 
-.portfolio__container {
+.project__container {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  padding: 1rem 5rem;
+}
+
+.project__content {
+  max-width: 40rem;
+  height: 50rem;
+  display: flex;
+  flex-flow: column nowrap;
+  background-image: linear-gradient(
+    120deg,
+    rgb(25 28 28 / 10%) 10%,
+    rgb(4 4 4 / 20%) 30%,
+    rgb(1 43 53 / 30%) 90%
+  );
+
   padding: 2rem;
+  margin: calc(8rem + 2rem) 2rem;
+  border-radius: 10px;
+  transition: 0.2s;
+  box-shadow: inset rgb(68 255 229 / 25%) 3px 3px 0px 0px,
+    inset rgb(0 255 178 / 25%) -3px -3px 0px 0px, rgb(0 0 0 / 16%) 0px 1px 4px;
 }
-
-.portfolio__content {
-  display: flex;
-  flex-flow: row wrap;
-
-  padding: 1rem;
-  transition: transform 0.5s;
-  /* width: 100vw; */
+.project__content:hover,
+.project__content:focus {
+  box-shadow: inset rgb(68, 255, 230) 3px 3px 0px 0px,
+    inset rgb(0, 255, 179) -3px -3px 0px 0px;
 }
-
-.portfolio__img {
-  width: 20rem;
-  border-radius: 0.8rem;
-  margin-bottom: var(--mb-0-75);
+.project__content:hover .project__img {
+  box-shadow: rgb(68 141 255) 0px 0px 0px 1px, rgb(0 255 178) 0 0px 0px 2px,
+    rgb(3 249 182 / 30%) 0 0 16px 0px;
 }
-
-.portfolio__data {
-  display: flex;
-  /* flex-flow: column nowrap; */
-  align-items: flex-start;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
+.project__img {
+  width: 35rem;
+  border-radius: 5px;
+  margin-bottom: var(--mb-1);
+  box-shadow: rgba(68, 140, 255, 0.5) 0px 0px 0px 1px,
+    rgba(0, 255, 179, 0.5) 0 0px 0px 2px;
 }
-.portfolio__title {
-  font-size: var(--h3-font-size);
+.project__data,
+.project__img {
+  transform: translateY(-8rem);
+}
+.project__data {
+  width: 35rem;
+}
+.project__title {
+  margin-bottom: var(--mb-1);
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(27, 217, 232, 1) 0%,
+    rgb(29, 181, 236) 46%,
+    rgb(58, 231, 179) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+.project__description {
+  margin-bottom: var(--mb-1);
+  max-height: 12rem;
+  overflow-y: auto;
+  transition: 0.2s;
+}
+.project__languages {
   margin-bottom: var(--mb-0-5);
 }
-.portfolio__description {
-  margin-bottom: var(--mb-2);
-  max-width: 50rem;
+.project__languages-icon {
+  font-size: 3rem;
+  border-radius: 1rem;
+}
+.project__links {
 }
 
 /*==================== ABOUT ====================*/
@@ -805,32 +848,6 @@ img {
   visibility: visible;
 }
 
-/*==================== PROJECT IN MIND ====================*/
-.project {
-  text-align: center;
-}
-.project__bg {
-  background-color: var(--first-color-second);
-  padding-top: 4.8rem;
-}
-.project__data {
-  padding: 1rem;
-}
-.project__title {
-  font-size: var(--h2-font-size);
-  margin-bottom: var(--mb-0-75);
-}
-.project__description {
-  margin-bottom: var(--mb-1-5);
-}
-.project__title,
-.project__description {
-  color: #fff;
-}
-.project__img {
-  width: 232px;
-  justify-self: center;
-}
 /*==================== TESTIMONIAL ====================*/
 
 .testimonial__container {
@@ -1057,7 +1074,7 @@ img {
 }
 /*========== SCROLL BAR ==========*/
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.5rem;
   background-color: var(--scroll-bar-color);
   border-radius: 0.8rem;
 }
@@ -1111,9 +1128,6 @@ img {
     padding: 0 0.8rem;
   }
 
-  .project__img {
-    width: 200px;
-  }
   .testimonial__content {
     padding: 1rem 2rem;
   }
@@ -1133,7 +1147,6 @@ img {
 
   .about__container,
   .skills__container,
-  .project__container,
   .contact__container,
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1164,7 +1177,7 @@ img {
     margin: 0;
   }
   .section {
-    margin: 9.6rem 0 3.2rem;
+    margin: 6rem 0 3.2rem;
   }
   .section__subtitle {
     margin-bottom: 6.4rem;
@@ -1252,23 +1265,6 @@ img {
     padding: 9.6rem 0 3.2rem 4rem;
   }
 
-  .project {
-    text-align: initial;
-  }
-  .project__bg {
-    background: none;
-  }
-  .project__container {
-    background-color: var(--first-color-alt);
-    border-radius: 3rem;
-    padding: 4.8rem 4rem 0;
-    grid-template-columns: 1fr max-content;
-    column-gap: 4.8rem;
-  }
-  .project__data {
-    padding-top: 1rem;
-  }
-
   .testimonial__content {
     flex-flow: row nowrap;
     padding: 1rem 8rem;
@@ -1349,10 +1345,6 @@ img {
     font-size: 3.5rem;
   }
 
-  .project__bg {
-    padding: 0 10rem;
-  }
-
   .contact__form {
     width: 500px;
   }
@@ -1388,14 +1380,6 @@ img {
   }
   .slider__btn--left {
     left: 8%;
-  }
-
-  .project__bg {
-    max-width: 1250px;
-    margin: 0 auto;
-  }
-  .project__container {
-    padding: 5.8rem 5rem 0;
   }
 
   .testimonial__content {
