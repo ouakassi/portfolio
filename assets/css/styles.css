@@ -160,6 +160,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  background-image: url(./img/background.jpg);
 }
 
 h1,
@@ -550,6 +551,27 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
+  position: relative;
+}
+.project__title::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 4px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    120deg,
+    rgb(19, 216, 223),
+    rgb(58, 206, 161) 50%,
+    rgb(11, 245, 214) 70%
+  );
+  /* background-repeat: no-repeat; */
+  /* background-size: 90% 0.4rem; */
+  /* background-position: 50px 110%; */
+  border-radius: 5px;
 }
 .project__description {
   margin-bottom: var(--mb-1);
@@ -560,11 +582,23 @@ img {
 .project__languages {
   margin-bottom: var(--mb-0-5);
 }
-.project__languages-icon {
-  font-size: 3rem;
-  border-radius: 1rem;
+.project__languages img {
+  width: 3.5rem;
+  border-radius: 5px;
 }
 .project__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.project__links img:first-of-type {
+  /* new way to color svg inside image */
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(137deg)
+    brightness(103%) contrast(101%);
+  width: 3rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 /*==================== ABOUT ====================*/
