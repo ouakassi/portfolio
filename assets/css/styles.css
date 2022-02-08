@@ -160,7 +160,6 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  background-image: url(./img/background.jpg);
 }
 
 h1,
@@ -227,9 +226,9 @@ img {
     rgb(58, 231, 179) 50%
   );
   background-repeat: no-repeat;
-  background-size: 100% 1rem;
-  background-position: 0px 110%;
-  border-radius: 5px;
+  background-size: 100% 0.5rem;
+  background-position: 0px 100%;
+  border-radius: 10px;
   transition: 0.2s;
 }
 
@@ -237,8 +236,13 @@ img {
 .button:focus {
   color: #fff;
   transform: scale(1.1);
+  background-image: linear-gradient(
+    120deg,
+    rgba(29, 181, 236, 0.8),
+    rgba(58, 231, 179, 0.8) 50%
+  );
   background-size: 100% 100%;
-  background-position: 0px 110%;
+  background-position: 0px 100%;
   border-radius: 10px;
   text-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
     rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
@@ -457,8 +461,8 @@ img {
     rgb(11, 245, 214) 70%
   );
   background-repeat: no-repeat;
-  background-size: 90% 0.4rem;
-  background-position: 50px 110%;
+  background-size: 90% 0.3rem;
+  background-position: 20px 100%;
   border-radius: 5px;
 }
 .home__description {
@@ -488,42 +492,69 @@ img {
   font-size: 2rem;
 }
 
-/*==================== Portfolio ====================*/
+/*================================ Portfolio ==================================================*/
 
 .project__container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  padding: 1rem 5rem;
+  padding: 1rem 3rem;
+}
+
+/*==================== Portfolio big project ====================*/
+
+.project__content:first-child {
+  max-width: none;
+  width: max-content;
+  padding: 4rem;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.project__content:first-child .project__img {
+  align-self: center;
+  width: 55rem;
+  max-width: 100%;
+
+  margin-right: 5rem;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.project__content:first-child .project__img,
+.project__content:first-child .project__data {
+  transform: translateY(0);
+}
+
+.project__content:hover .project__img {
+  box-shadow: rgb(68 141 255) 0px 0px 0px 1px, rgb(0 255 178) 0 0px 0px 2px,
+    rgb(3 249 182 / 30%) 0 0 16px 0px;
 }
 
 .project__content {
-  max-width: 40rem;
-  height: 50rem;
   display: flex;
   flex-flow: column nowrap;
+  max-width: 40rem;
+  height: 50rem;
+  padding: 2rem;
+  margin: 8rem 2rem;
   background-image: linear-gradient(
     120deg,
     rgb(25 28 28 / 10%) 10%,
     rgb(4 4 4 / 20%) 30%,
     rgb(1 43 53 / 30%) 90%
   );
-
-  padding: 2rem;
-  margin: calc(8rem + 2rem) 2rem;
   border-radius: 10px;
-  transition: 0.2s;
   box-shadow: inset rgb(68 255 229 / 25%) 3px 3px 0px 0px,
-    inset rgb(0 255 178 / 25%) -3px -3px 0px 0px, rgb(0 0 0 / 16%) 0px 1px 4px;
+    inset rgb(0 255 178 / 10%) -3px -3px 0px 0px, rgb(0 0 0 / 50%) 0px 1px 4px;
+  transition: 0.2s;
 }
 .project__content:hover,
 .project__content:focus {
   box-shadow: inset rgb(68, 255, 230) 3px 3px 0px 0px,
     inset rgb(0, 255, 179) -3px -3px 0px 0px;
-}
-.project__content:hover .project__img {
-  box-shadow: rgb(68 141 255) 0px 0px 0px 1px, rgb(0 255 178) 0 0px 0px 2px,
-    rgb(3 249 182 / 30%) 0 0 16px 0px;
 }
 .project__img {
   width: 35rem;
@@ -568,9 +599,6 @@ img {
     rgb(58, 206, 161) 50%,
     rgb(11, 245, 214) 70%
   );
-  /* background-repeat: no-repeat; */
-  /* background-size: 90% 0.4rem; */
-  /* background-position: 50px 110%; */
   border-radius: 5px;
 }
 .project__description {
@@ -580,10 +608,10 @@ img {
   transition: 0.2s;
 }
 .project__languages {
-  margin-bottom: var(--mb-0-5);
+  margin-bottom: var(--mb-1);
 }
 .project__languages img {
-  width: 3.5rem;
+  width: 3rem;
   border-radius: 5px;
 }
 .project__links {
@@ -592,13 +620,8 @@ img {
   align-items: center;
   gap: 2rem;
 }
-.project__links img:first-of-type {
-  /* new way to color svg inside image */
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(137deg)
-    brightness(103%) contrast(101%);
-  width: 3rem;
-  margin-right: 0.5rem;
-  vertical-align: middle;
+.project__link {
+  font-size: 2rem;
 }
 
 /*==================== ABOUT ====================*/
