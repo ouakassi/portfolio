@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="928.004" height="738.288" viewBox="0 0 928.004 738.288">
-  <defs>
-    <pattern id="pattern" width="1" height="1" viewBox="0 -27.214 928.004 738.288">
-      <image preserveAspectRatio="xMidYMid slice" width="928.004" height="929.82" xlink:href="../Oussama.png"/>
-    </pattern>
-  </defs>
-  <path id="Oussama" d="M848.838,164.179c42.374,133.779-70.4,318.158-222.122,424.9-151.726,106.053-342.409,133.779-488.668,40.2C-7.528,535.71-108.678,320.139-56.053,173.19-2.743,25.549,202.976-53.471,405.277-52.085S805.78,31.094,848.838,164.179Z" transform="translate(70.165 52.103)" fill="url(#pattern)"/>
-</svg>

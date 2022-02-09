@@ -10,19 +10,27 @@
   --hue-color: 200; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
   /* HSL color mode */
-  --first-color: hsl(var(--hue-color), 69%, 61%);
-  --first-color-second: hsl(var(--hue-color), 69%, 61%);
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: linear-gradient(90deg, rgb(10, 28, 59) 10%, rgb(1 13 31) 50%);
+  --container-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color), 15%, 70%);
+  --scroll-thumb-color: rgb(0, 211, 255);
+  --scroll-thumb-color-hover: hsl(var(--hue-color), 85%, 40%);
+
+  --first-color: rgb(0, 211, 248);
   --first-color-alt: hsl(var(--hue-color), 57%, 55%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --title-color: hsl(var(--hue-color), 8%, 15%);
-  --text-color: hsl(var(--hue-color), 8%, 45%);
   --text-color-light: hsl(var(--hue-color), 8%, 65%);
-  --input-color: hsl(var(--hue-color), 70%, 96%);
-  --body-color: hsl(var(--hue-color), 60%, 99%);
-  --container-color: #fff;
-  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
-  --scroll-thumb-color: hsl(var(--hue-color), 40%, 70%);
-  --scroll-thumb-color-hover: hsl(var(--hue-color), 80%, 50%);
+
+  --background-color: linear-gradient(
+    120deg,
+    rgb(19, 216, 223),
+    rgb(58, 206, 161) 50%,
+    rgb(11, 245, 214) 70%
+  );
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -69,18 +77,6 @@
   }
 }
 
-/*========== Variables Dark theme ==========*/
-body.dark-theme {
-  --first-color-second: hsl(var(--hue-color), 30%, 8%);
-  --title-color: hsl(var(--hue-color), 8%, 95%);
-  --text-color: hsl(var(--hue-color), 8%, 75%);
-  --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: hsl(var(--hue-color), 28%, 12%);
-  --container-color: hsl(var(--hue-color), 29%, 16%);
-  --scroll-bar-color: hsl(var(--hue-color), 15%, 70%);
-  --scroll-thumb-color: hsl(var(--hue-color), 85%, 30%);
-  --scroll-thumb-color-hover: hsl(var(--hue-color), 85%, 40%);
-}
 /*========== Button Dark/Light ==========*/
 .nav__btns {
   display: flex;
@@ -154,12 +150,16 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0 0 var(--header-height) 0;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color);
+  background: rgb(1 13 31);
+  background-image: var(--body-color);
   color: var(--text-color);
+}
+.background {
 }
 
 h1,
@@ -185,20 +185,32 @@ img {
   bottom: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: var(--body-color);
+  background-image: var(--body-color);
 }
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
   padding: 8rem 0 3rem;
 }
+.home {
+  background-image: url("../img/colored-patterns.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+
+  /* background-image: url("../img/colored-patterns.svg"),
+    url("../img/background1.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-clip: content-box; */
+}
+.projects {
+  background-image: url("../img/Colored-Patterns1.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  /* background-position: 10% 5%; */
+  background-size: contain;
+}
 .section__title {
   font-size: var(--h1-font-size);
-  background-image: linear-gradient(
-    120deg,
-    rgb(19, 216, 223),
-    rgb(58, 206, 161) 50%,
-    rgb(11, 245, 214) 70%
-  );
+  background: var(--background-color);
   background-repeat: no-repeat;
   background-size: 10% 10px;
   background-position: 50% 100%;
@@ -236,11 +248,7 @@ img {
 .button:focus {
   color: #fff;
   transform: scale(1.1);
-  background-image: linear-gradient(
-    120deg,
-    rgba(29, 181, 236, 0.8),
-    rgba(58, 231, 179, 0.8) 50%
-  );
+
   background-size: 100% 100%;
   background-position: 0px 100%;
   border-radius: 10px;
@@ -314,7 +322,7 @@ img {
     bottom: -100%;
     left: 0;
     width: 100%;
-    background-color: var(--body-color);
+    background-image: var(--body-color);
     padding: 3.2rem 2.4rem 6.4rem;
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 2.4rem 2.4rem 0 0;
@@ -454,12 +462,7 @@ img {
   font-family: var(--font-medium);
   margin: var(--mb-0-75) 0;
   display: inline;
-  background-image: linear-gradient(
-    120deg,
-    rgb(19, 216, 223),
-    rgb(58, 206, 161) 50%,
-    rgb(11, 245, 214) 70%
-  );
+  background: var(--background-color);
   background-repeat: no-repeat;
   background-size: 90% 0.3rem;
   background-position: 20px 100%;
@@ -511,14 +514,15 @@ img {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  box-shadow: none;
+  background: none;
 }
 
 .project__content:first-child .project__img {
   align-self: center;
   width: 55rem;
   max-width: 100%;
-
-  margin-right: 5rem;
+  margin-right: 8rem;
   box-shadow: none;
   margin-bottom: 0;
 }
@@ -541,10 +545,10 @@ img {
   padding: 2rem;
   margin: 8rem 2rem;
   background-image: linear-gradient(
-    120deg,
-    rgb(25 28 28 / 10%) 10%,
+    321deg,
+    rgb(1 19 41) 10%,
     rgb(4 4 4 / 20%) 30%,
-    rgb(1 43 53 / 30%) 90%
+    rgb(1 17 33) 90%
   );
   border-radius: 10px;
   box-shadow: inset rgb(68 255 229 / 25%) 3px 3px 0px 0px,
@@ -570,14 +574,12 @@ img {
 .project__data {
   width: 35rem;
 }
+.project__data h3 {
+  margin-bottom: var(--mb-1);
+}
 .project__title {
   margin-bottom: var(--mb-1);
-  background: -webkit-linear-gradient(
-    180deg,
-    rgba(27, 217, 232, 1) 0%,
-    rgb(29, 181, 236) 46%,
-    rgb(58, 231, 179) 100%
-  );
+  background: var(--background-color);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -593,12 +595,7 @@ img {
   background: #000;
   left: 0;
   bottom: 0;
-  background-image: linear-gradient(
-    120deg,
-    rgb(19, 216, 223),
-    rgb(58, 206, 161) 50%,
-    rgb(11, 245, 214) 70%
-  );
+  background-image: var(--background-color);
   border-radius: 5px;
 }
 .project__description {
@@ -613,6 +610,7 @@ img {
 .project__languages img {
   width: 3rem;
   border-radius: 5px;
+  margin-right: 1rem;
 }
 .project__links {
   display: flex;
@@ -1122,7 +1120,7 @@ img {
   background-color: var(--first-color-alt);
 }
 .scrollup__icon {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   color: #fff;
 }
 /* Show scroll */
