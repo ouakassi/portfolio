@@ -596,10 +596,10 @@ img {
 .project__content {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 40rem;
-  height: 50rem;
+  max-width: 55rem;
+  height: 48rem;
   padding: 2rem;
-  margin: 8rem 2rem;
+  margin: 12rem 5rem;
   background-image: linear-gradient(
     321deg,
     rgb(1 19 41) 10%,
@@ -617,7 +617,8 @@ img {
     inset rgb(0 255 179) 0 0 0px 5px;
 }
 .project__img {
-  width: 35rem;
+  align-self: center;
+  width: 40rem;
   border-radius: 5px;
   margin-bottom: var(--mb-1);
   box-shadow: rgba(68, 140, 255, 0.5) 0px 0px 0px 1px,
@@ -625,10 +626,10 @@ img {
 }
 .project__data,
 .project__img {
-  transform: translateY(-8rem);
+  transform: translateY(-13rem);
 }
 .project__data {
-  width: 35rem;
+  width: 50rem;
 }
 .project__data h3 {
   margin-bottom: var(--mb-1);
