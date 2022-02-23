@@ -727,7 +727,7 @@ img {
   left: -1.5rem;
   bottom: 0;
   background: var(--background-color);
-  border-radius: 0 5px 5px 1;
+  border-radius: 0 5px 5px 0;
 }
 /*==================== QUALIFICATION ====================*/
 .qualification__tabs {
