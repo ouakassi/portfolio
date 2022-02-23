@@ -57,6 +57,8 @@
   --mb-2: 3.2rem;
   --mb-2-5: 3.8rem;
   --mb-3: 4.8rem;
+  --mb-4: 7rem;
+  --mb-5: 9rem;
 
   /*========== z index ==========*/
   --z-tooltip: 10;
@@ -638,7 +640,7 @@ img {
   justify-content: center;
   align-items: center;
   max-width: 80rem;
-  margin-bottom: var(--mb-3);
+  margin-bottom: var(--mb-5);
   border-radius: 100px;
   background-color: rgba(2, 2, 46, 0.26);
   color: #fff;
@@ -675,7 +677,7 @@ img {
   flex-flow: column;
 }
 .about__stats__data span:first-child {
-  font-size: 5rem;
+  font-size: 4rem;
   background: -webkit-linear-gradient(
     180deg,
     rgba(27, 217, 232, 1) 0%,
@@ -691,7 +693,7 @@ img {
   color: rgb(0, 236, 224);
 }
 .about__stats__icon {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 .about__stack__container {
@@ -699,11 +701,19 @@ img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
 }
 .about__stack__languages {
+  display: flex;
+  flex-flow: row wrap;
+  width: 50rem;
+}
+.about__stack__languages img {
+  max-width: 5rem;
+  margin: 2rem;
 }
 .about__stack__paragraphs {
+  max-width: 60rem;
 }
 .about__stack__paragraphs p {
   position: relative;
@@ -717,7 +727,7 @@ img {
   left: -1.5rem;
   bottom: 0;
   background: var(--background-color);
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 1;
 }
 /*==================== QUALIFICATION ====================*/
 .qualification__tabs {
