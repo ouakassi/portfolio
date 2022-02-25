@@ -6,25 +6,18 @@
   --header-height: 4.8rem;
 
   /*========== Colors ==========*/
-  /* Change favorite color */
-  --hue-color: 200; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
-  /* HSL color mode */
-  --first-color-second: hsl(var(--hue-color), 30%, 8%);
-  --title-color: hsl(var(--hue-color), 8%, 95%);
-  --text-color: hsl(var(--hue-color), 8%, 75%);
-  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --title-color: rgb(248, 248, 248);
+  --text-color: rgb(180, 207, 209);
+  --input-color: rgb(3, 45, 51);
   --body-color: linear-gradient(90deg, rgb(10, 28, 59) 10%, rgb(1 13 31) 50%);
-  --container-color: #fff;
+  --container-color: rgb(1 13 31);
   --scroll-bar-color: rgb(1 13 31);
   --scroll-thumb-color: rgb(19, 216, 223);
   --scroll-thumb-color-hover: rgb(58, 206, 161);
 
-  --first-color: rgb(0, 211, 248);
-  --first-color-alt: hsl(var(--hue-color), 57%, 55%);
-  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --text-color-light: hsl(var(--hue-color), 8%, 65%);
-
+  --first-color: rgb(19, 216, 223);
+  --first-color-alt: rgb(11, 245, 214);
   --background-color: linear-gradient(
     120deg,
     rgb(19, 216, 223),
@@ -764,7 +757,7 @@ img {
 }
 .qualification__calendar {
   font-size: var(--smaller-font-size);
-  color: var(--text-color-light);
+  color: var(--text-color-alt);
 }
 .qualification__rounder {
   display: inline-block;
@@ -933,7 +926,7 @@ img {
 }
 .testimonial__client {
   font-size: var(--small-font-size);
-  color: var(--text-color-light);
+  color: var(--text-color-alt);
 }
 .testimonial__description {
   margin-bottom: var(--mb-2-5);
@@ -970,7 +963,7 @@ img {
 }
 .testimonial__dots-dot {
   border: none;
-  background-color: var(--text-color-light);
+  background-color: var(--text-color-alt);
   opacity: 0.5;
   height: 1rem;
   width: 1rem;
@@ -1009,7 +1002,7 @@ img {
 
 .contact__subtitle {
   font-size: var(--small-font-size);
-  color: var(--text-color-light);
+  color: var(--text-color-alt);
 }
 
 .contact__content {
