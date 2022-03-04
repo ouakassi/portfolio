@@ -1,5 +1,5 @@
-Add Blog posts section 
-add tech stack icons 
+Add Blog posts section              Pending
+add tech stack icons                Done
 
 
 redesign footer with minimalistic style 
@@ -9,3 +9,9 @@ redesign contact section
 
 add whatsapp / facebook buttons to contact
 
+rewrite website's text 
+minimise css CLASSES
+add animation
+navbar scrolling effect
+remove unused css CLASSES
+recreate media queries

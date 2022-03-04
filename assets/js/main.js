@@ -107,111 +107,111 @@ modalCloses.forEach((modalClose) => {
 
 /*==================== PORTFOLIO Slider  ====================*/
 
-// const slider = function (
-//   slidesClass,
-//   btnLeftClass,
-//   btnRightClass,
-//   dotsClass,
-//   dotsButton
-// ) {
-//   const slides = document.querySelectorAll(slidesClass);
-//   const btnLeft = document.querySelector(btnLeftClass);
-//   const btnRight = document.querySelector(btnRightClass);
-//   const dotContainer = document.querySelector(dotsClass);
+const slider = function (
+  slidesClass,
+  btnLeftClass,
+  btnRightClass,
+  dotsClass,
+  dotsButton
+) {
+  const slides = document.querySelectorAll(slidesClass);
+  const btnLeft = document.querySelector(btnLeftClass);
+  const btnRight = document.querySelector(btnRightClass);
+  const dotContainer = document.querySelector(dotsClass);
 
-//   let curSlide = 0;
-//   const maxSlide = slides.length;
+  let curSlide = 0;
+  const maxSlide = slides.length;
 
-//   // Functions
-//   const createDots = function () {
-//     slides.forEach(function (_, i) {
-//       dotContainer.insertAdjacentHTML(
-//         "beforeend",
-//         `<button class="${dotsButton}" data-slide="${i}"></button>`
-//       );
-//     });
-//   };
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        "beforeend",
+        `<button class="${dotsButton}" data-slide="${i}"></button>`
+      );
+    });
+  };
 
-//   const activateDot = function (slide) {
-//     document
-//       .querySelectorAll(`.${dotsButton}`)
-//       .forEach((dot) => dot.classList.remove(`${dotsButton}--active`));
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll(`.${dotsButton}`)
+      .forEach((dot) => dot.classList.remove(`${dotsButton}--active`));
 
-//     document
-//       .querySelector(`.${dotsButton}[data-slide="${slide}"]`)
-//       .classList.add(`${dotsButton}--active`);
-//   };
+    document
+      .querySelector(`.${dotsButton}[data-slide="${slide}"]`)
+      .classList.add(`${dotsButton}--active`);
+  };
 
-//   const goToSlide = function (slide) {
-//     slides.forEach(
-//       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-//     );
-//   };
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
 
-//   // Next slide
-//   const nextSlide = function () {
-//     if (curSlide === maxSlide - 1) {
-//       curSlide = 0;
-//     } else {
-//       curSlide++;
-//     }
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
 
-//     goToSlide(curSlide);
-//     activateDot(curSlide);
-//   };
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
 
-//   const prevSlide = function () {
-//     if (curSlide === 0) {
-//       curSlide = maxSlide - 1;
-//     } else {
-//       curSlide--;
-//     }
-//     goToSlide(curSlide);
-//     activateDot(curSlide);
-//   };
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
 
-//   const init = function () {
-//     goToSlide(0);
-//     createDots();
+  const init = function () {
+    goToSlide(0);
+    createDots();
 
-//     activateDot(0);
-//   };
-//   init();
+    activateDot(0);
+  };
+  init();
 
-//   // Event handlers
-//   btnRight.addEventListener("click", nextSlide);
-//   btnLeft.addEventListener("click", prevSlide);
+  // Event handlers
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
 
-//   document.addEventListener("keydown", function (e) {
-//     if (e.key === "ArrowLeft") prevSlide();
-//     e.key === "ArrowRight" && nextSlide();
-//   });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") prevSlide();
+    e.key === "ArrowRight" && nextSlide();
+  });
 
-//   dotContainer.addEventListener("click", function (e) {
-//     if (e.target.classList.contains(`${dotsButton}`)) {
-//       const { slide } = e.target.dataset;
-//       goToSlide(slide);
-//       activateDot(slide);
-//     }
-//   });
-// };
-// slider(
-//   ".portfolio__content",
-//   ".slider__btn--left",
-//   ".slider__btn--right",
-//   ".dots",
-//   "dots__dot"
-// );
+  dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains(`${dotsButton}`)) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider(
+  ".articles__container",
+  ".blog__btn--left",
+  ".blog__btn--right",
+  ".blog__dots",
+  "blog__dots-dot"
+);
 
 // ///////////////////////////////////////
 // /*==================== TESTIMONIAL ====================*/
-// slider(
-//   ".testimonial__content",
-//   ".testimonial__btn--left",
-//   ".testimonial__btn--right",
-//   ".testimonial__dots",
-//   "testimonial__dots-dot"
-// );
+slider(
+  ".testimonial__content",
+  ".testimonial__btn--left",
+  ".testimonial__btn--right",
+  ".testimonial__dots",
+  "testimonial__dots-dot"
+);
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
@@ -247,9 +247,15 @@ window.addEventListener("scroll", scrollHeader);
 /*==================== SHOW SCROLL UP ====================*/
 function scrollUp() {
   const scrollUp = document.getElementById("scroll-up");
+  const nav = document.querySelector(".header");
   // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-  if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
-  else scrollUp.classList.remove("show-scroll");
+  if (this.scrollY >= 560) {
+    scrollUp.classList.add("show-scroll");
+    nav.classList.add("hide-nav");
+  } else {
+    scrollUp.classList.remove("show-scroll");
+    nav.classList.remove("hide-nav");
+  }
 }
 window.addEventListener("scroll", scrollUp);
 /*==================== DARK LIGHT THEME ====================*/
