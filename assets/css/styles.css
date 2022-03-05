@@ -216,8 +216,8 @@ img {
   text-transform: uppercase;
   background-image: linear-gradient(
     120deg,
-    rgb(29, 181, 236),
-    rgb(58, 231, 179) 50%
+    rgb(29, 181, 236) 5%,
+    rgb(58, 231, 179) 85%
   );
   background-repeat: no-repeat;
   background-size: 100% 0.5rem;
@@ -848,6 +848,8 @@ img {
 }
 .article__data {
   position: relative;
+  display: flex;
+  flex-flow: column nowrap;
   margin-right: 5rem;
   max-width: 32rem;
   /* height: 36rem; */
@@ -888,20 +890,24 @@ img {
   width: fit-content;
   height: fit-content;
   position: absolute;
-  top: 50%;
   margin: auto;
+  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
 }
 .article__data:hover a {
   display: block;
 }
-
-.article__data:hover :not(a) {
-  opacity: 0;
+.article__data:hover h3 {
+  position: absolute;
+  top: 20%;
+  align-self: center;
+  padding: 1rem;
 }
-.article__data:hover i {
-  opacity: 1;
+.article__data:hover img,
+.article__data:hover p {
+  opacity: 0;
 }
 
 .blog__btns {
