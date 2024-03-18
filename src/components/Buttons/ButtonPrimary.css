@@ -1,0 +1,21 @@
+.button-primary {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    var(--first-color) 5%,
+    var(--first-color-alt) 85%
+  );
+  background-repeat: no-repeat;
+  background-position: 0px 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .button-primary {
+    padding: 0.2rem;
+  }
+}

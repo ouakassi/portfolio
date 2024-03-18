@@ -1,0 +1,11 @@
+textarea {
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  resize: none;
+  font-size: var(--fs-l);
+  outline: none;
+}

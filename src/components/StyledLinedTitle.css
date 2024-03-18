@@ -1,0 +1,27 @@
+.styled__Lined__title {
+  font-family: var(--font-2);
+  line-height: 1.8;
+  font-size: var(--fs-l);
+  margin-bottom: 2rem;
+  background: var(--text-gradient-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  position: relative;
+  align-self: center;
+  text-transform: capitalize;
+}
+.styled__Lined__title::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 90%;
+  height: 3px;
+  left: 0;
+  right: 0;
+  bottom: -10%;
+  margin: 0 auto;
+  background-image: var(--text-gradient-color);
+  border-radius: 5px;
+}

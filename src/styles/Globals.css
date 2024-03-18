@@ -1,0 +1,121 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap");
+@font-face {
+  font-family: "Cubano";
+  src: local("Cubano"), url(./fonts/Cubano.ttf) format("woff");
+}
+
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+  --header-height: 4.8rem;
+
+  /*========== Colors ==========*/
+
+  /* text */
+
+  --first-color: rgb(19, 216, 223);
+  --first-color-light: rgba(19, 216, 223, 0.1);
+  --first-color-light: rgba(19, 216, 223, 0.6);
+
+  --first-color-alt: rgb(0, 255, 200);
+  --first-color-alt-light: rgba(0, 255, 200, 0.2);
+
+  --second-color: #03001c;
+  --second-color-light: rgba(8, 5, 49, 0.5);
+
+  --title-color: rgb(255, 255, 255);
+  --text-color: rgb(180, 207, 209);
+
+  --text-gradient-color: linear-gradient(
+    120deg,
+    rgb(29 181 236),
+    rgb(58 231 179) 50%,
+    rgb(58 231 179) 70%
+  );
+
+  /* background  */
+  --background-color-light: rgba(0, 20, 63, 0.7);
+  --background-color: rgb(0 31 97);
+  --background-color-2: rgb(3, 2, 31);
+
+  --scroll-bar-color: rgb(0 5 63);
+  --scroll-thumb-color: rgb(19, 216, 223);
+  --scroll-thumb-color-hover: rgb(11, 245, 214);
+  /* 
+  --body-color: linear-gradient(90deg, rgb(2 31 94) 10%, rgb(1 5 57) 79%);
+  --body-color: linear-gradient(90deg, #01012d, rgb(0 5 63)); */
+
+  /* --body-color: linear-gradient(90deg, rgb(0, 14, 44) 10%, rgb(4, 22, 59) 79%); */
+
+  /*========== Box Shadows  ==========*/
+
+  --box-shadow-1: rgb(0 0 0 / 70%) 0px 5px 10px 0px;
+  --box-shadow-2: rgb(0 0 0 / 40%) 0px 2px 4px,
+    rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --font-1: "Changa", sans-serif;
+  --font-2: "Cubano", sans-serif;
+
+  --fs-6xl: 10rem;
+  --fs-5xl: 5rem;
+  --fs-4xl: 5rem;
+  --fs-3xl: 3.2rem;
+  --fs-2xl: 2.4rem;
+  --fs-xl: 2rem;
+  --fs-l: 1.8rem;
+  --fs-m: 1.5rem;
+  --fs-s: 1.3rem;
+  --fs-xs: 1.2rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+  :root {
+    --fs-6xl: 12rem;
+    --fs-5xl: 8rem;
+    --fs-4xl: 6rem;
+    --fs-3xl: 4.8rem;
+    --fs-2xl: 3.8rem;
+    --fs-xl: 2.4rem;
+    --fs-l: 2rem;
+    --fs-m: 1.6rem;
+    --fs-s: 1.4rem;
+    --fs-xs: 1.3rem;
+  }
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-color-hover);
+}
+
+/*========== Selection ==========*/
+
+::selection {
+  color: var(--text-color);
+  background: var(--first-color-light);
+}

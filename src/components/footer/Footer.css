@@ -1,0 +1,32 @@
+.footer__container {
+  display: block;
+  margin: 5rem auto 1rem auto;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+}
+.footer__link:hover {
+  color: var(--first-color-lighter);
+}
+
+.footer__social {
+  font-size: var(--fs-xl);
+}
+.footer__social:hover {
+  color: var(--first-color-lighter);
+}
+.footer__copyright {
+  font-size: var(--fs-xs);
+  text-align: center;
+  color: var(--title-color);
+  margin-top: 2rem;
+}
+
+.footer__link,
+.footer__social {
+  color: #fff;
+}

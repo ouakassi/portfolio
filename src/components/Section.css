@@ -1,0 +1,60 @@
+/*==================== REUSABLE CSS CLASSES ====================*/
+.section {
+  padding: 8rem 0 3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  bottom: -20%;
+  /* left: -20%; */
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    108deg,
+    rgb(64 0 255) 5.73%,
+    rgb(0, 174, 255) 70.74%,
+    rgba(255, 0, 144, 0.717) 10.49%,
+    rgba(255, 0, 13, 0.717) 10.49%
+  );
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.section__title {
+  font-size: var(--fs-2xl);
+  font-family: var(--font-2);
+  background: var(--text-gradient-color);
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  max-width: fit-content;
+  margin: 0 auto;
+  text-transform: uppercase;
+  /* font-weight: 700; */
+  line-height: 1.8;
+  letter-spacing: 0.5rem;
+  text-shadow: 1px 1px #000;
+  position: relative;
+}
+.section__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  margin: 0.25rem 0 3rem 0;
+  text-transform: capitalize;
+}
+.section__title,
+.section__subtitle {
+  text-align: center;
+}
+.section__icon {
+  margin-right: 0.75rem;
+  color: var(--first-color-alt);
+}
+
+@media screen and (max-width: 767px) {
+  .section {
+    padding: 5rem 0 3rem;
+  }
+}

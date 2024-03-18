@@ -1,0 +1,17 @@
+.styles__paragraph {
+  position: relative;
+  margin: 0 0 2rem 1.5rem;
+  font-size: var(--fs-m);
+  backdrop-filter: blur(5px);
+  transform: translate3d(0, 0, 0);
+}
+.styles__paragraph::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 100%;
+  left: -1.5rem;
+  bottom: 0;
+  background: var(--text-gradient-color);
+  border-radius: 0 5px 5px 0;
+}

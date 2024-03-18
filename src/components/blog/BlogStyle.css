@@ -1,0 +1,25 @@
+/* .blog {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.articles__container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2rem;
+}
+
+@media screen and (min-width: 769px) {
+  .articles__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 1200px) {
+} */

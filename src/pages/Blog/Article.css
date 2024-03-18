@@ -1,0 +1,12 @@
+.blog-body {
+  background: hsl(210deg, 30%, 8%);
+}
+
+.blog-header {
+  /* background: hsl(210deg, 38%, 15%); */
+  background: transparent;
+}
+.article-ds {
+  /* font-size: calc(1.6rem); */
+  color: aliceblue;
+}

@@ -1,0 +1,13 @@
+.floated-contact {
+  position: fixed;
+  right: 5%;
+  bottom: 18%;
+  font-size: var(--fs-2xl);
+}
+
+.floated-contact i {
+  color: var(--first-color);
+}
+.floated-contact i:hover {
+  color: var(--first-color-alt);
+}

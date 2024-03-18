@@ -1,0 +1,15 @@
+.show-more__button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: var(--title-color);
+  text-transform: uppercase;
+  padding: 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  user-select: none;
+  box-shadow: var(--first-color) 0px 0px 0px 2px;
+}
+.show-more__button:hover {
+  box-shadow: var(--first-color-alt) 0px 0px 0px 3px;
+}
