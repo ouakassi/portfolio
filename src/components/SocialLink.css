@@ -1,10 +1,19 @@
 .social-icon {
-  font-size: var(--fs-xl);
-  color: var(--first-color);
+  font-size: var(--fs-l);
+  color: rgb(255 255 255);
   transition: 0.2s;
   margin: 0 0.5rem;
+  border: 2px solid var(--first-color-alt-light);
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
 }
 .social-icon:hover {
-  color: var(--first-color-alt);
-  transform: scale(1.2);
+  color: var(--first-color);
+  transform: scale(1.1);
+  border-color: var(--first-color);
 }

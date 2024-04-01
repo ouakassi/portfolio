@@ -93,7 +93,11 @@ const Hero = () => {
             <GlowingText text={<AnimatedText text={"Web Developer"} />} />
 
             <p className="home__description">
-              <div className="bg"></div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1, transition: { duration: 1 } }}
+                className="bg"
+              ></motion.div>
               An avid Web developer, building websites that you would love
               using. <br /> I develop a Complete Responsive Websites using
               <b> MERN technologies </b>: MongoDB, React, NodeJS , Express.
@@ -104,7 +108,7 @@ const Hero = () => {
               reality. <br /> Let's collaborate to bring your vision to life and
               create an online presence that leaves a lasting impact.
             </p>
-            <div className="home__buttons">
+            {/* <div className="home__buttons">
               <ButtonPrimary
                 title="Let's Talk"
                 icon="uil uil-message"
@@ -123,7 +127,7 @@ const Hero = () => {
                 <span className="home__scroll-name">My Projects ?</span>
                 <i className="uil uil-angle-double-down home__scroll-arrow" />
               </a>
-            </div>
+            </div> */}
           </div>
           {/* <motion.div
             initial={{ y: -100, opacity: 0 }}

@@ -46,8 +46,6 @@ const Header = () => {
     };
   }, [prevScroll]);
 
-  // const windowHeight = useWindowHeight();
-
   const handleClick = (state) => {
     setToggleNav(state);
   };

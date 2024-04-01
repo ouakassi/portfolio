@@ -10,14 +10,14 @@ export const ShowMoreButton = ({
   img,
 }) => {
   const animationVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
+
       transition: { type: "spring", stiffness: 400, damping: 17 },
     },
-    whileHover: { scale: 1.1 },
-    whileTap: { scale: 0.9 },
+    whileHover: { scale: 1.05 },
+    whileTap: { scale: 0.95 },
   };
 
   return (
@@ -39,5 +39,3 @@ export const ShowMoreButton = ({
     </motion.span>
   );
 };
-
-// uil uil-direction

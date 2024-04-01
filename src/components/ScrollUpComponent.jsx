@@ -1,6 +1,6 @@
 import "./ScrollUpComponent.css";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import useWindowHeight from "../hooks/useWindowHeight";
 
 const ScrollUpComponent = () => {
@@ -8,18 +8,22 @@ const ScrollUpComponent = () => {
 
   const handlClick = () => window.scrollTo(0, 0);
 
-  if (windowHeight >= 500)
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ transition: 0.5 }}
-        onClick={handlClick}
-        className="scrollup"
-      >
-        <i className="uil uil-arrow-up scrollup__icon" />
-      </motion.div>
-    );
+  return (
+    <AnimatePresence>
+      {windowHeight >= 500 && (
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ transition: 0.5 }}
+          onClick={handlClick}
+          className="scrollup"
+        >
+          <i className="uil uil-arrow-up scrollup__icon" />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 };
 
 export default ScrollUpComponent;

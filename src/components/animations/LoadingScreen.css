@@ -1,0 +1,22 @@
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color-2);
+  z-index: var(--z-modal);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-screen p {
+  position: absolute;
+  font-size: calc(var(--fs-3xl) + 3rem);
+  font-family: var(--font-3);
+  background: var(--text-gradient-color);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+}

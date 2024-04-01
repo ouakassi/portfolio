@@ -7,14 +7,14 @@ import Services from "../../components/Services/Services";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Hero />
       <LatestProjects />
       <Services />
       <About />
       <Experience />
       <Contact />
-    </div>
+    </>
   );
 };
 

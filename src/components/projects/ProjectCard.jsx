@@ -20,6 +20,10 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+  const newTitle = title.split("");
+
+  console.log(newTitle);
+
   useLayoutEffect(() => {
     const cardElement = cardRef.current;
 
@@ -64,6 +68,26 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
     };
   }, []);
 
+  const sentenceAnimation = {
+    hidden: { x: 50, y: -20, opacity: 0 },
+    visible: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const lettersAnimation = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+    },
+  };
+
   const cardAnimation = {
     initial: {
       y: 90,
@@ -107,7 +131,24 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
           <img src={image} alt={title} />
         </motion.div>
         <div className="project__data">
-          <StyledLinedTitle>{title}</StyledLinedTitle>
+          <motion.div
+            variants={sentenceAnimation}
+            initial="hidden"
+            whileInView="visible"
+          >
+            <StyledLinedTitle>
+              {" "}
+              {title.split("").map((char, i) => {
+                return (
+                  <>
+                    <motion.span key={i} variants={lettersAnimation}>
+                      {char}
+                    </motion.span>
+                  </>
+                );
+              })}
+            </StyledLinedTitle>
+          </motion.div>
           <StyledParagraph
             style={{
               padding: "0.5rem",

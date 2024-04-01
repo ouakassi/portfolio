@@ -11,10 +11,18 @@ import ScrollUpComponent from "./components/ScrollUpComponent";
 import ScrollToTop from "./hooks/useScrollToTop";
 import Routes from "./pages/Routes";
 import ContactIcon from "./components/contact/ContactIcon";
-import Pointer from "./components/Pointer";
+import LoadingScreen from "./components/animations/LoadingScreen";
+import { useEffect, useState } from "react";
 
 const App = () => {
-  return (
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setShowLoader(false), 2000);
+  }, []);
+  return showLoader ? (
+    <LoadingScreen />
+  ) : (
     <>
       <Header />
       <ScrollToTop />
@@ -22,7 +30,6 @@ const App = () => {
       <Footer />
       <ContactIcon />
       <ScrollUpComponent />
-      <Pointer />
     </>
   );
 };

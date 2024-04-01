@@ -5,6 +5,7 @@ import FilterTags from "../../components/projects/FilterTags";
 
 import "./ProjectPage.css";
 import ProjectsContainer from "../../components/projects/ProjectsContainer";
+import CurveAnimation from "../../components/animations/CurveAnimation";
 
 const ProjectsPage = () => {
   const [selectedFilter, setSelectedFilter] = useState("");

@@ -32,7 +32,7 @@ const ProjectsContainer = ({ filteredProjects, limitProjectsCount = null }) => {
         { id, imgurl, description, slug, title, tags, website, github },
         index
       ) => (
-        <div className="project__container">
+        <div className="project__container container">
           <ProjectCard
             key={id}
             title={title}
