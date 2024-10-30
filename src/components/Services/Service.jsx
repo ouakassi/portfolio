@@ -20,19 +20,23 @@ export default function Service({ icon, title, text, bgColor }) {
           <motion.span
             initial={{ width: "10%" }}
             whileInView={{ width: "90%" }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 1 }}
             style={{ backgroundColor: bgColor }}
             className="hline"
           ></motion.span>
         </div>
       </header>
       <main>
-        <pre className="htmlcode">&lt;p&gt;</pre>
+        <pre className="code" style={{ color: bgColor }}>
+          &lt;p&gt;
+        </pre>
         <div>
-          <span className="vline"></span>
+          <span className="vline" style={{ backgroundColor: bgColor }}></span>
           <p>{text}</p>
         </div>
-        <pre className="htmlcode">&lt;p&gt;</pre>
+        <pre className="code" style={{ color: bgColor }}>
+          &lt;p&gt;
+        </pre>
       </main>
     </div>
   );

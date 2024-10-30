@@ -23,26 +23,22 @@ export default function PageAnimation({ children }) {
   };
 
   const perspective = {
-    initial: { y: -200, opacity: 0, scale: 1 },
+    initial: { opacity: 0 },
     enter: {
-      y: 0,
-      scale: 1,
       opacity: 1,
-      transition: { delay: 0.2, duration: 0.8, easing: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.8, easing: [0.76, 0, 0.24, 1] },
     },
     exit: {
-      y: 500,
-      scale: 0.8,
       opacity: 0,
       transition: { duration: 0.5, easing: [0.76, 0, 0.24, 1] },
     },
   };
 
   const slider = {
-    initial: { top: "0" },
-    enter: { top: "100vh", transition: { duration: 0.8 } },
+    initial: { top: "100vh" },
+    enter: { top: "-100vh", transition: { duration: 0.8 } },
     exit: {
-      top: "100vh",
+      top: "-100vh",
       transition: { easing: [0.76, 0, 0.24, 1] },
     },
   };
@@ -58,7 +54,6 @@ export default function PageAnimation({ children }) {
   return (
     <div>
       <motion.div className="slider" {...anim(slider)}></motion.div>
-      {/* <motion.div className="slider2" {...anim(slider2)}></motion.div> */}
       <motion.div {...anim(perspective)}>
         <motion.div {...anim(opacity)}>{children}</motion.div>
       </motion.div>

@@ -5,17 +5,18 @@ import { motion } from "framer-motion";
 import GlowingText from "../GlowingText";
 import IMAGES from "../../images";
 import AnimatedText from "../animations/AnimatedText";
+import { FaGithub, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
 
 const SOCIAL_LINKS = [
   {
     link: "https://www.linkedin.com/in/oussama-ouakassi-28372216a/",
-    icon: "uil uil-linkedin-alt",
+    icon: <FaLinkedin />,
   },
   {
     link: "https://github.com/ouakassi",
-    icon: "uil uil-github-alt",
+    icon: <FaGithub />,
   },
-  { link: "https://twitter.com/OuakassiOussama", icon: "uil uil-twitter" },
+  { link: "https://twitter.com/OuakassiOussama", icon: <FaSquareXTwitter /> },
 ];
 
 const Hero = () => {
@@ -73,11 +74,9 @@ const Hero = () => {
             >
               {name.split("").map((char, i) => {
                 return (
-                  <>
-                    <motion.span key={i} variants={lettersAnimation}>
-                      {char}
-                    </motion.span>
-                  </>
+                  <motion.span key={i} variants={lettersAnimation}>
+                    {char}
+                  </motion.span>
                 );
               })}
               <br />
@@ -93,20 +92,22 @@ const Hero = () => {
             <GlowingText text={<AnimatedText text={"Web Developer"} />} />
 
             <p className="home__description">
-              <motion.div
+              <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1, transition: { duration: 1 } }}
                 className="bg"
-              ></motion.div>
-              An avid Web developer, building websites that you would love
-              using. <br /> I develop a Complete Responsive Websites using
-              <b> MERN technologies </b>: MongoDB, React, NodeJS , Express.
-              <br /> I've helped companies to launch production web applications
-              to their customers. <br /> I love programming , creating,
-              launching, learning, and Gaming.
-              <br />I believe in the power of technology to transform ideas into
-              reality. <br /> Let's collaborate to bring your vision to life and
-              create an online presence that leaves a lasting impact.
+              ></motion.span>
+              I’m an avid web developer passionate about building websites
+              you’ll love to use. Specializing in Frontend and Backend
+              technologies React, Next.js and Node.js, craft fully responsive
+              and performance-driven web applications. <br /> I’ve helped
+              businesses successfully launch production-ready solutions,
+              enhancing their digital presence. I’m driven by a love for
+              programming, creating, and continuously learning. Oh, and I enjoy
+              gaming too! I believe in the transformative power of technology to
+              turn ideas into reality. <br />
+              Let’s collaborate and bring your vision to life, creating an
+              online experience that leaves a lasting impact.
             </p>
             {/* <div className="home__buttons">
               <ButtonPrimary

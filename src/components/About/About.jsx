@@ -1,9 +1,10 @@
 import "./AboutStyle.css";
 
 import Section from "../Section";
-import checkColor from "../projects/checkColor";
+import checkColor from "./../../utils/checkColor";
 import StyledParagraph from "../StyledParagrapgh";
 import IMAGES from "../../images";
+import { FaUserNinja } from "react-icons/fa6";
 
 const stackLangs = [
   "html",
@@ -36,7 +37,7 @@ export default function About() {
     <Section
       className="about"
       id="about"
-      icon="uil uil-user-square"
+      icon={<FaUserNinja />}
       sectionTitle="About me"
       sectionSubtitle="everything about me"
     >

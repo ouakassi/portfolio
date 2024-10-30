@@ -43,7 +43,7 @@ const LoadingScreen = () => {
             animate={{
               opacity: 1,
               y: 0,
-              transition: { delay: 0.2 },
+              x: 0,
             }}
             exit={
               currentWordIndex % 2
@@ -53,7 +53,6 @@ const LoadingScreen = () => {
             transition={{
               easings: [0, 0, 0.23, 1],
               delay: 0.2,
-              // ease: "easeOut",
             }}
           >
             {words[currentWordIndex]}

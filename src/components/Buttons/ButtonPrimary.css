@@ -1,4 +1,6 @@
 .button-primary {
+  display: flex;
+  align-items: center;
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   padding: 0.5rem 2rem;

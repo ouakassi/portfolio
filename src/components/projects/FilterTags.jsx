@@ -51,7 +51,7 @@ export default function FilterTags({ onClickFilterButton }) {
     },
     {
       filterName: "landing-page",
-      filterTag: "landing",
+      filterTag: "landing-page",
       filterIcon: IMAGES.landingPageIcon,
     },
     {

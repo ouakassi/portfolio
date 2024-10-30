@@ -12,24 +12,23 @@ const Section = ({
   <section className={` section ${className}`} id={id}>
     <motion.h2
       initial={{
-        opacity: 0,
-        y: -20,
         backgroundPosition: "100% 100%",
-        backgroundSize: "100% 50%",
+
+        backgroundSize: "100% 20%",
       }}
       whileInView={{
-        opacity: 1,
-        y: 0,
-        backgroundPosition: "50% 100%",
-        backgroundSize: "70% 5px",
+        backgroundPosition: "100% 100%",
+        backgroundSize: "25% 20%",
+        // borderRadius: "10px",
       }}
-      viewport={{ once: true }}
-      transition={{ type: "tween", delay: 0.5 }}
+      // viewport={{ once: true }}
+      transition={{ delay: 0.4, duration: 0.8 }}
+      // viewport={{ once: true, amount: 1 }}
       className="section__title"
     >
-      <div className="bg"></div>
+      {/* <div className="bg"></div> */}
 
-      <i className={icon + " section__icon"} />
+      <span className="section__icon">{icon}</span>
       {sectionTitle}
     </motion.h2>
     <motion.span

@@ -34,8 +34,12 @@ export const ShowMoreButton = ({
       onClick={onClick}
     >
       {img && img}
+      {icon && (
+        <span style={iconStyle} className="button__icon">
+          {icon}
+        </span>
+      )}
       {title ? title : "Show More"}
-      {icon && <i style={iconStyle} className={`${icon} button__icon`}></i>}
     </motion.span>
   );
 };

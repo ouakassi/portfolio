@@ -1,28 +1,43 @@
 .project__box {
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
   align-items: center;
-  padding: 2rem;
-  margin: 4rem 0;
-  box-shadow: var(--first-color-alt) 0px 0px 0px 2px;
-  border-radius: 10px;
-  background-position: right;
-  background-color: #01042c;
+  padding: 6rem 2rem;
+  margin: 0 0 5rem 0;
+  box-shadow: var(--first-color-light) 0px 0px 0px 2px,
+    var(--first-color-alt) 0px 0px 0px 1px;
+  border-radius: 50px 10px 10px 50px;
   color: var(--text-color);
   transform-style: preserve-3d;
   transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY))
     scale3d(1, 1, 1);
-  transition: all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s;
+  transition: 0.1s;
   background-position-x: var(--positionX);
   background-position-y: var(--positionY);
   background-repeat: no-repeat;
+  background-color: var(--background-color-2);
 }
 .project__box:hover,
 .project__box:focus {
   box-shadow: var(--first-color-alt-light) 0px 6px 0px 2px,
     var(--first-color-alt) 0px 0px 0px 2px;
   filter: brightness(1.1);
+  position: relative;
+}
+
+.project__type {
+  position: absolute;
+  top: 0%;
+  right: 5%;
+  padding: 1rem;
+  background-color: var(--first-color-alt-light);
+  box-shadow: var(--box-shadow-2);
+  text-transform: uppercase;
+  font-family: var(--font-2);
+  letter-spacing: 2px;
+  border-radius: 0 0 10px 10px;
+  color: var(--first-color);
+  text-shadow: 0px 4px 1px var(--first-color-alt-light);
 }
 
 .project__data {
@@ -31,9 +46,20 @@
   width: 100%;
 }
 
+.project__title {
+  font-size: var(--fs-xl);
+  font-family: var(--font-2);
+  /* text-align: center; */
+  margin-bottom: 2rem;
+  color: white;
+}
+.project__descreption {
+  background: none;
+}
 .project__img {
   max-width: fit-content;
   margin-bottom: 2rem;
+  z-index: 110;
 }
 .project__img img {
   border-radius: 5px;
@@ -63,10 +89,7 @@
   font-weight: 600;
   cursor: pointer;
 }
-.project__language:hover,
-.project__language:focus {
-  transform: scale(1.1);
-}
+
 .project__language img {
   width: 2rem;
   border-radius: 5px;
@@ -76,8 +99,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 769px) {
@@ -95,4 +118,22 @@
   .project__img img {
     transform: skewY(356deg) translateX(-50px);
   }
+}
+
+.project__box .bgg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* transform: translate(0%, 0%); */
+  z-index: 1000;
+  background: linear-gradient(
+    108deg,
+    rgba(124, 0, 158, 0.2) 50%,
+    rgba(89, 0, 255, 0.3) 50%
+  );
+  filter: blur(100px);
+  transform: translateZ(0);
+  z-index: -1;
 }

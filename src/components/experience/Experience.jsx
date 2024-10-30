@@ -7,6 +7,7 @@ import ExperienceJobsTab from "./ExperienceJobsTab";
 import ExperienceEducationTab from "./ExperienceEducationTab";
 import { motion } from "framer-motion";
 import IMAGES from "../../images/index.js";
+import { FaRegIdCard } from "react-icons/fa6";
 
 const selectors = [
   { title: "education", icon: IMAGES.educationIcon },
@@ -45,7 +46,7 @@ export default function Experience() {
     <Section
       className="experience"
       id="experience"
-      icon="uil uil-users-alt"
+      icon={<FaRegIdCard />}
       sectionTitle="professional experience"
       sectionSubtitle="my all experience in the field"
     >
@@ -70,8 +71,9 @@ export default function Experience() {
 
       <motion.div layout className="slider__container">
         <div className="tab__buttons-container">
-          {selectors.map(({ title, icon }) => (
+          {selectors.map(({ title, icon }, i) => (
             <motion.span
+              key={i}
               whileTap={{ scale: 0.9 }}
               className="tab__button"
               style={activeSelectedTab === title ? activeSelectorStyle : null}

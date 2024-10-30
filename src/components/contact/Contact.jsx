@@ -4,6 +4,9 @@ import Section from "../../components/Section";
 import ContactBox from "./ContactBox";
 import SocialLink from "../SocialLink";
 import { motion } from "framer-motion";
+import { IoCallSharp } from "react-icons/io5";
+
+import { FaGithub, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const CONTACT_DATA = [
@@ -24,7 +27,7 @@ const Contact = () => {
     <Section
       className="contact"
       id="contact"
-      icon="uil uil-calling"
+      icon={<IoCallSharp />}
       sectionTitle="contact me"
       sectionSubtitle="get in touch with me!"
     >
@@ -46,13 +49,13 @@ const Contact = () => {
             </b>{" "}
             or shoot me a DM on
             <SocialLink
-              icon="uil uil-linkedin-alt"
+              icon=<FaLinkedin />
               link="https://www.linkedin.com/in/oussama-ouakassi-28372216a/"
             />
             or
             <SocialLink
-              icon="uil uil-twitter-alt"
-              link="https://www.linkedin.com/in/oussama-ouakassi-28372216a/"
+              icon=<FaSquareXTwitter />
+              link="https://twitter.com/OuakassiOussama"
             />
           </motion.p>
           {/* {CONTACT_DATA.map(({ icon, title, data }, i) => {

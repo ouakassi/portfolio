@@ -1,6 +1,6 @@
-import LanguageComponent from "./LanguageComponent";
+import LanguageComponent from "../components/projects/LanguageComponent";
 
-import IMAGES from "../../images";
+import IMAGES from "../images";
 
 const languageColors = {
   javascript: {

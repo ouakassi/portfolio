@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { ShowMoreButton } from "../../components/Buttons/ShowMoreButton";
 import Section from "../../components/Section";
 import "./NotFound.css";
+import { RiHome5Line } from "react-icons/ri";
+import IMAGES from "../../images";
+import { MdError } from "react-icons/md";
 
 export default function NotFound() {
   // const navigate = useNavigate();
@@ -17,22 +20,19 @@ export default function NotFound() {
 
   return (
     <Section
-      className="notfound"
+      className="not-found"
       id="notfound"
-      icon="uil uil-cloud-slash"
-      sectionTitle="404 not found"
-      sectionSubtitle="sorry nothing here"
+      icon={<MdError />}
+      sectionTitle="page not found"
     >
-      <div className="notfound__container">
-        <h1>
-          <i class="uil uil-sad"></i> oh page not found
+      <div className="not-found__container">
+        {/* <h1>
+          <i class="uil uil-sad"></i> oh sorry page not found ☹️
         </h1>
-        <p>
-          we c'ant seem to find the page that you're looking for ! Back in
-          {}
-        </p>
-        <Link to={-1}>
-          <ShowMoreButton title="go back" icon="uil uil-corner-up-left" />
+        <p>we c'ant seem to find the page that you're looking for ! Back in</p> */}
+        <img src={IMAGES.pageNotfound} alt="page not found" />
+        <Link to={"/"}>
+          <ShowMoreButton title="go to Home page" icon={<RiHome5Line />} />
         </Link>
       </div>
     </Section>

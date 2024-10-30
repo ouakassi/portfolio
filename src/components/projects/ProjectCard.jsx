@@ -7,22 +7,34 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import IMAGES from "../../images";
 import { useLayoutEffect, useRef } from "react";
+import { FaCodeBranch } from "react-icons/fa6";
+import { PiHardDrives } from "react-icons/pi";
+import { IoHardwareChip } from "react-icons/io5";
+import { BsBrowserChrome } from "react-icons/bs";
 
 const patternBackground = IMAGES.coloredPattern;
 
-const ProjectCard = ({ image, title, description, tags, link }) => {
+const ProjectCard = ({
+  slug,
+  image,
+  title,
+  description,
+  tags,
+  link,
+  githubLink,
+  websiteLink,
+  projectType,
+}) => {
   const cardRef = useRef();
+
+  const formattedProjectType = projectType.split("-").join(" ");
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
-    offset: ["0 1", "1.3 1"],
+    offset: ["0 1", "1.4 1"],
   });
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-  const newTitle = title.split("");
-
-  console.log(newTitle);
 
   useLayoutEffect(() => {
     const cardElement = cardRef.current;
@@ -38,8 +50,8 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
 
       // get offset from middle as a percentage
       // and tone it down a little
-      const offsetX = ((x - middleX) / middleX) * 15;
-      const offsetY = ((y - middleY) / middleY) * 15;
+      const offsetX = ((x - middleX) / middleX) * 20;
+      const offsetY = ((y - middleY) / middleY) * 20;
 
       // set rotation
       cardElement.style.setProperty("--rotateX", -1 * offsetX + "deg");
@@ -68,51 +80,10 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
     };
   }, []);
 
-  const sentenceAnimation = {
-    hidden: { x: 50, y: -20, opacity: 0 },
-    visible: {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1.5,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const lettersAnimation = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-    },
-  };
-
-  const cardAnimation = {
-    initial: {
-      y: 90,
-      opacity: 0,
-      scale: 1,
-      // backgroundPositionY: "50%",
-    },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-      transition: { ease: "easeOut", duration: 0.5 },
-    },
-    whileHover: { scale: 1.01 },
-  };
-
   return (
     <motion.div
-      variants={cardAnimation}
-      // initial="initial"
-      // whileInView="whileInView"
-      // whileHover="whileHover"
-      transition={{ type: "spring", mass: 0.5 }}
-      viewport={{ once: true, amount: 0.4 }}
-      ref={cardRef}
       style={{ scale: scaleProgress, opacity: opacityProgress }}
+      ref={cardRef}
     >
       <div
         className="project__box"
@@ -121,59 +92,40 @@ const ProjectCard = ({ image, title, description, tags, link }) => {
         }}
       >
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          transition={{ delay: 0.2, transition: 1 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 1 }}
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{
+            y: 0,
+            opacity: 1,
+            transition: { delay: 0.2, duration: 0.6 },
+          }}
+          viewport={{ amount: 1, once: true }}
           className="project__img"
-          ref={cardRef}
         >
-          <img src={image} alt={title} />
+          <Link to={"./" + slug}>
+            <img src={image} alt={title} />
+          </Link>
         </motion.div>
         <div className="project__data">
-          <motion.div
-            variants={sentenceAnimation}
-            initial="hidden"
-            whileInView="visible"
-          >
-            <StyledLinedTitle>
-              {" "}
-              {title.split("").map((char, i) => {
-                return (
-                  <>
-                    <motion.span key={i} variants={lettersAnimation}>
-                      {char}
-                    </motion.span>
-                  </>
-                );
-              })}
-            </StyledLinedTitle>
-          </motion.div>
-          <StyledParagraph
-            style={{
-              padding: "0.5rem",
-              borderRadius: "10px",
-              backgroundColor: "rgb(1 4 44 / 60%)",
-            }}
-            className="project__description"
-          >
-            {description.slice(0, 200)}...
-          </StyledParagraph>
+          <span className="project__title">{title}</span>
+
+          <div className="bgg"></div>
+          <p className="project__description">{description.slice(0, 200)}...</p>
           <div className="project__languages">{tags}</div>
           <div className="project__links">
             <ButtonPrimary
               title="Github"
-              icon="uil uil-github"
+              icon={<FaCodeBranch />}
               link="https://www.google.com"
             />
             <ButtonPrimary
               title="Website"
-              icon="uil uil-globe"
+              icon={<BsBrowserChrome />}
               link="https://www.google.com"
             />
-            <Link to={link}>Details</Link>
+            {/* <Link to={link}>Details</Link> */}
           </div>
         </div>
+        <span className="project__type">{formattedProjectType}</span>
       </div>
     </motion.div>
   );

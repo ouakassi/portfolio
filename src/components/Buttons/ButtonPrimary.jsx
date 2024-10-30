@@ -20,8 +20,9 @@ export default function ButtonPrimary({ link, title, icon }) {
       href={link}
       // rel="noreferrer noopener"
     >
+      <span className="button__icon">{icon}</span>
       {title}
-      <i className={`${icon} button__icon`}></i>
+      {/* <i className={`${icon} `}></i> */}
     </motion.a>
   );
 }

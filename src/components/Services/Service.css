@@ -1,11 +1,12 @@
 .service__box {
   max-width: 40rem;
-  padding: 4rem 4rem;
+  padding: 4rem;
   border: 2px solid var(--first-color-alt-light);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  min-height: 42rem;
 }
-.service__box .htmlcode {
+.service__box .code {
   font-family: var(--font-1);
   color: var(--first-color-light);
 }
@@ -59,8 +60,8 @@
   height: 10rem;
   margin-right: 1rem;
   width: 2px;
-  background-color: var(--first-color);
-  background-color: var(--text-color);
+  /* background-color: var(--first-color); */
+  /* background-color: var(--text-color); */
 }
 .service__box main div {
   display: flex;

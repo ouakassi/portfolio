@@ -28,10 +28,10 @@
   background-size: 100% 20%;
 }
 
-.button__icon {
+/* .button__icon {
   transition: 0.5s;
   margin-left: 1rem;
-}
+} */
 .button-submit:hover .button__icon {
   transform: translateX(10px);
 }

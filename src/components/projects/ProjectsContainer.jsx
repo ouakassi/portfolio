@@ -1,5 +1,5 @@
 import ProjectCard from "./ProjectCard";
-import checkColor from "./checkColor";
+import checkColor from "./../../utils/checkColor";
 
 const ProjectsContainer = ({ filteredProjects, limitProjectsCount = null }) => {
   if (limitProjectsCount !== null) {
@@ -8,13 +8,23 @@ const ProjectsContainer = ({ filteredProjects, limitProjectsCount = null }) => {
       .slice(0, limitProjectsCount)
       .map(
         (
-          { id, imgurl, description, slug, title, tags, website, github },
+          {
+            id,
+            imgUrl,
+            description,
+            slug,
+            title,
+            tags,
+            website,
+            github,
+            projectType,
+          },
           index
         ) => (
           <ProjectCard
             key={id}
             title={title}
-            image={imgurl}
+            image={imgUrl}
             tags={tags.map((tag, i) => {
               return checkColor(tag, i, "project__language");
             })}
@@ -22,6 +32,7 @@ const ProjectsContainer = ({ filteredProjects, limitProjectsCount = null }) => {
             website={website}
             github={github}
             link={slug}
+            projectType={projectType}
           />
         )
       );
@@ -29,21 +40,32 @@ const ProjectsContainer = ({ filteredProjects, limitProjectsCount = null }) => {
     // If no limitProjectsCount is provided, render all filtered projects
     return filteredProjects.map(
       (
-        { id, imgurl, description, slug, title, tags, website, github },
+        {
+          id,
+          imgUrl,
+          description,
+          slug,
+          title,
+          tags,
+          websiteLink,
+          githubLink,
+          projectType,
+        },
         index
       ) => (
-        <div className="project__container container">
+        <div key={id} className="project__container container">
           <ProjectCard
-            key={id}
             title={title}
-            image={imgurl}
+            image={imgUrl}
             tags={tags.map((tag, i) => {
               return checkColor(tag, i, "project__language");
             })}
             description={description}
-            website={website}
-            github={github}
+            website={websiteLink}
+            github={githubLink}
             link={slug}
+            projectType={projectType}
+            slug={slug}
           />
         </div>
       )

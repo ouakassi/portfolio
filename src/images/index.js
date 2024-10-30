@@ -8,7 +8,7 @@ const IMAGES = {
   tsImg: require("./languages/ts.svg").default,
   expressImg: require("./languages/express.svg").default,
 
-  logo: require("./logos/logo.svg").default,
+  logo: require("./logos/logo.png"),
   highSchoolLogo: require("./logos/high-school.jpg"),
   freelanceLogo: require("./logos/freelance-logo.webp"),
   ofpptLogo: require("./logos/ofppt-logo.png"),
@@ -16,6 +16,8 @@ const IMAGES = {
   sodev: require("./logos/sodev.png"),
   jobsIcon: require("./logos/jobs.png"),
   educationIcon: require("./logos/education.png"),
+
+  pageNotfound: require("./errors/page-notfound.png"),
 
   allIcon: require("./projects/all.png"),
   backendIcon: require("./projects/backend.png"),
@@ -41,6 +43,9 @@ const IMAGES = {
   patternThree: require("./patterns/pattern3.svg").default,
   coloredPattern: require("./patterns/colored-patterns.svg").default,
   patternFour: require("./patterns/pattern4.png"),
+  // grain: require("./patterns/gggrain.svg"),
+
+  // navLine: require("./patterns/navline.svg").default,
 };
 
 export default IMAGES;
