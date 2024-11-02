@@ -35,3 +35,17 @@
 .svg-two {
   transform: rotate(180deg);
 }
+
+.projects .home__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+/* .projects .home__bg-svg {
+  z-index: -3;
+  opacity: 0.5;
+} */

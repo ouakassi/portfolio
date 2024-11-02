@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
 @font-face {
   font-family: "Cubano";
@@ -44,8 +45,8 @@
   --background-color-2: rgb(3, 2, 31);
 
   --scroll-bar-color: rgb(0 5 63);
-  --scroll-thumb-color: rgb(19, 216, 223);
-  --scroll-thumb-color-hover: rgb(11, 245, 214);
+  --scroll-thumb-color: var(--first-color);
+  --scroll-thumb-color-hover: var(--first-color-light);
   /* 
   --body-color: linear-gradient(90deg, rgb(2 31 94) 10%, rgb(1 5 57) 79%);
   --body-color: linear-gradient(90deg, #01012d, rgb(0 5 63)); */
@@ -59,11 +60,12 @@
     rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
 
   /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
+
   --font-1: "Changa", sans-serif;
   --font-2: "Cubano", sans-serif;
   --font-3: "Rakkas", serif;
   --font-4: "Oxanium", sans-serif;
+  --font-5: "Russo One", sans-serif;
 
   --fs-6xl: 10rem;
   --fs-5xl: 5rem;
@@ -105,9 +107,9 @@
 
 /*========== SCROLL BAR ==========*/
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: var(--scroll-bar-color);
+  width: 1rem;
+  height: 1rem;
+  /* background-color: var(--scroll-bar-color); */
   border-radius: 0.8rem;
 }
 ::-webkit-scrollbar-thumb {

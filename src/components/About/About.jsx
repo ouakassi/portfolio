@@ -1,10 +1,11 @@
-import "./AboutStyle.css";
+import "./About.css";
 
 import Section from "../Section";
 import checkColor from "./../../utils/checkColor";
 import StyledParagraph from "../StyledParagrapgh";
 import IMAGES from "../../images";
 import { FaUserNinja } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const stackLangs = [
   "html",
@@ -72,6 +73,45 @@ export default function About() {
           {descriptionText.map(({ id, text }) => {
             return <StyledParagraph key={id}>{text}</StyledParagraph>;
           })}
+        </div>
+        <div className="about__bg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 800 800"
+            opacity="1"
+            // width="800"
+            // height="800"
+            // className="about__bg-svg"
+          >
+            <g strokeWidth="0.2" stroke="var(--first-color-alt)" fill="none">
+              {/* Squares */}
+              {[...Array(20)].map((_, row) =>
+                [...Array(20)].map((_, col) => (
+                  <motion.rect
+                    // initial={{ x: 0, y: 0 }}
+                    // animate={{ x: col * 30, y: row * 30 }}
+                    // transition={{ duration: 0.5, delay: 0.2 }}
+                    key={`${row}-${col}`}
+                    width="200"
+                    height="200"
+                    // fill="url(#hero)"
+                    x={col * 200}
+                    y={row * 200}
+                    animate={{
+                      // scale: [1, 4, 0.6, 0.5],
+                      opacity: [0, 1, 0.5, 0, 0.2],
+                      // fill: ["#ffffff20", "#ffffff80", "#ffffff20"]
+                    }}
+                    transition={{
+                      duration: 1,
+                      ease: "easeInOut",
+                      delay: (row + col) * 0.05, // Stagger animation based on position
+                    }}
+                  />
+                ))
+              )}
+            </g>
+          </svg>
         </div>
       </div>
     </Section>

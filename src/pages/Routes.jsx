@@ -20,14 +20,15 @@ export default function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence>
-      <div style={{ marginTop: "4rem" }}>
+      {/* <div style={{ marginTop: "4rem" }}> */}
+      <div>
         <Routes location={location} key={location.pathname}>
           {routes.map((route, index) => (
             <Route
               key={index}
               path={route.path}
-              element=<PageAnimation>{route.element}</PageAnimation>
-              // element=<div>{route.element}</div>
+              // element=<PageAnimation>{route.element}</PageAnimation>
+              element=<div>{route.element}</div>
             />
           ))}
         </Routes>

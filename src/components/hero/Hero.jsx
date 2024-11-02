@@ -47,9 +47,9 @@ const Hero = () => {
 
   return (
     <section
-      style={{
-        background: `url(${patternBackground}) right top no-repeat `,
-      }}
+      // style={{
+      //   background: `url(${patternBackground}) right top no-repeat `,
+      // }}
       className="home section"
     >
       <div className="home__container container ">
@@ -146,6 +146,7 @@ const Hero = () => {
           </motion.div> */}
         </div>
       </div>
+      <div className="hero__bg-gradient"></div>
     </section>
   );
 };

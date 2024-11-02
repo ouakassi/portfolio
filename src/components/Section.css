@@ -26,13 +26,13 @@
 .section__title {
   font-size: calc(var(--fs-3xl) + 1rem);
   font-family: var(--font-2);
-  background: var(--text-gradient-color);
+  /* background: var(--text-gradient-color);
   --text-gradient-color: linear-gradient(
     120deg,
     rgb(29 181 236),
     rgb(58 231 179) 50%,
     rgb(58 231 179) 70%
-  );
+  ); */
   background-repeat: no-repeat;
   border-radius: 5px;
   max-width: fit-content;

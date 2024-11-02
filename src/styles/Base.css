@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--body-font);
+  font-family: var(--font-1);
   font-size: var(--fs-m);
   background: var(--second-color);
   background-image: var(--body-color);

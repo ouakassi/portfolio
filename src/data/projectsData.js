@@ -12,6 +12,8 @@ const projects = [
     tags: ["javascript", "css"],
     projectType: "frontend",
     websiteLink: "google.com",
+    createdAt: "2022-08-01",
+    updatedAt: "2023-08-02",
   },
   {
     id: 2,

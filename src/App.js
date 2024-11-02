@@ -18,7 +18,7 @@ const App = () => {
   const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setShowLoader(false), 2000);
+    setTimeout(() => setShowLoader(false), 1);
   }, []);
   return showLoader ? (
     <LoadingScreen />

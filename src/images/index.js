@@ -34,7 +34,7 @@ const IMAGES = {
   serviceSoftwareIcon: require("./services/software.png"),
   codeBg: require("./services/code.png"),
 
-  projectOneImg: require("./projects/project-1.jpg"),
+  projectOneImg: require("./projects/project-1.webp"),
   projectTwoImg: require("./projects/project-2.jpg"),
 
   background: require("./patterns/background.png"),
@@ -43,6 +43,8 @@ const IMAGES = {
   patternThree: require("./patterns/pattern3.svg").default,
   coloredPattern: require("./patterns/colored-patterns.svg").default,
   patternFour: require("./patterns/pattern4.png"),
+  // homeBg: require("./patterns/home-bg.svg").default,
+
   // grain: require("./patterns/gggrain.svg"),
 
   // navLine: require("./patterns/navline.svg").default,

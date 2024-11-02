@@ -19,18 +19,7 @@ export default function ProjectPage() {
   const [tocHeaders, setTocHeaders] = useState([]);
   const [activeId, setActiveId] = useState(null);
 
-  useEffect(() => {
-    if (projectMarkdown) {
-      const headers = document.querySelectorAll(
-        ".markdown h1 , .markdown h2 , .markdown h3 , .markdown h4 , .markdown h5 , .markdown h6"
-      );
-      setTocHeaders([...headers]);
-    }
-  }, [projectMarkdown]);
-
-  const param = useParams();
-
-  const projectSlug = param.slug;
+  const { slug: projectSlug } = useParams();
 
   const {
     title,
@@ -42,7 +31,15 @@ export default function ProjectPage() {
     // projectType,
     // websiteLink,
     // githubLink,
+    createdAt,
+    updatedAt,
   } = projects.find((project) => project.slug === projectSlug);
+
+  const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   // function to fetch the markdown file content
   const fetchProjectMarkdown = useCallback(async () => {
@@ -63,6 +60,16 @@ export default function ProjectPage() {
     fetchProjectMarkdown();
   }, [fetchProjectMarkdown]);
 
+  // extract headers from markdown
+  useEffect(() => {
+    if (projectMarkdown) {
+      const headers = document.querySelectorAll(
+        ".markdown h1 , .markdown h2 , .markdown h3 , .markdown h4 , .markdown h5 , .markdown h6"
+      );
+      setTocHeaders([...headers]);
+    }
+  }, [projectMarkdown]);
+
   // IntersectionObserver to highlight the active header
   useEffect(() => {
     if (projectMarkdown) {
@@ -79,7 +86,7 @@ export default function ProjectPage() {
             }
           });
         },
-        { rootMargin: "0px 0px -90% 0px" } // Trigger when headers are partially visible
+        { rootMargin: "0% 0px -80% 0px", threshold: 0 }
       );
 
       headers.forEach((header) => observer.observe(header));
@@ -98,16 +105,25 @@ export default function ProjectPage() {
     }
   }, []);
 
+  const tocContainerAnimation = {
+    hidden: {
+      x: "-10%",
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+
+      transition: {
+        delay: 1,
+      },
+    },
+  };
+
   return (
     <div className="project__page  ">
-      <div className="back"></div>
-      <div className="back2"></div>
-
       <Section className="project" id="project" sectionTitle={title} />
-      {/* {isLoading && <Loader />} */}
-      {/* <div style={{ maxWidth: "4rem", position: "absolute", top: "1rem" }}>
-        <Loader />
-      </div> */}
+      <span className="created">{`Created on ${formattedDate}`}</span>
       <div className="project__tags">
         {tags.map((tag, i) => {
           return checkColor(tag, i, "project__language");
@@ -123,35 +139,37 @@ export default function ProjectPage() {
         </ReactMarkdown>
 
         <nav className="content__table">
-          <header className="title">Table of Contents:</header>
-          <div className="headers">
-            <ul>
-              {tocHeaders.map((header, index) => {
-                return (
-                  <li key={index}>
-                    <Link
-                      onClick={(e) => handleLinkClick(e, header.id)}
-                      reloadDocument
-                      to={`#${header.id}`}
-                    >
-                      {React.createElement(
-                        header.tagName.toLowerCase(),
-                        {
-                          key: index,
-                          className: `${
-                            activeId === header.id ? "active" : ""
-                          }`,
-                        },
-                        header.textContent
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <header className="title">On this Page:</header>
+          <motion.div
+            className="headers"
+            variants={tocContainerAnimation}
+            initial="hidden"
+            animate="visible"
+          >
+            {tocHeaders.map((header, index) => {
+              return (
+                <Link
+                  onClick={(e) => handleLinkClick(e, header.id)}
+                  reloadDocument
+                  to={`#${header.id}`}
+                  key={index}
+                >
+                  {React.createElement(
+                    header.tagName.toLowerCase(),
+                    {
+                      key: index,
+                      className: `${activeId === header.id ? "active" : ""}`,
+                    },
+                    header.textContent
+                  )}
+                </Link>
+              );
+            })}
+          </motion.div>
         </nav>
       </div>
+      <div className="lines__background"></div>
+      <div className="gradient__background"></div>
     </div>
   );
 }
