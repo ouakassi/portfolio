@@ -6,28 +6,33 @@ import ButtonPrimary from "../Buttons/ButtonPrimary";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import IMAGES from "../../images";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FaCodeBranch } from "react-icons/fa6";
 import { PiHardDrives } from "react-icons/pi";
 import { IoHardwareChip } from "react-icons/io5";
 import { BsBrowserChrome } from "react-icons/bs";
+import checkColor from "../../utils/checkColor";
 
 const patternBackground = IMAGES.coloredPattern;
 
-const ProjectCard = ({
-  slug,
-  image,
-  title,
-  description,
-  tags,
-  link,
-  githubLink,
-  websiteLink,
-  projectType,
-}) => {
+const ProjectCard = ({ project }) => {
   const cardRef = useRef();
 
-  const formattedProjectType = projectType.split("-").join(" ");
+  // const {
+  //   id,
+  //   slug,
+  //   title,
+  //   description,
+  //   imgUrl,
+  //   tags,
+  //   projectType,
+  //   githubLink,
+  //   websiteLink,
+  //   createdAt,
+  //   updatedAt,
+  // } = project;
+
+  const formattedProjectType = project.projectType.split("-").join(" ");
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -35,6 +40,7 @@ const ProjectCard = ({
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  // const yProgress = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   useLayoutEffect(() => {
     const cardElement = cardRef.current;
@@ -101,28 +107,31 @@ const ProjectCard = ({
           viewport={{ amount: 1, once: true }}
           className="project__img"
         >
-          <Link to={"./" + slug}>
-            <img src={image} alt={title} />
+          <Link to={"./" + project.slug}>
+            <img src={project.imgUrl} alt={project.title} />
           </Link>
         </motion.div>
         <div className="project__data">
-          <span className="project__title">{title}</span>
-
-          <div className="bgg"></div>
-          <p className="project__description">{description.slice(0, 200)}...</p>
-          <div className="project__languages">{tags}</div>
+          <span className="project__title">{project.title}</span>
+          <p className="project__description">
+            {project.description?.slice(0, 200)}...
+          </p>
+          <div className="project__languages">
+            {project.tags.map((tag) => checkColor(tag))}
+          </div>
           <div className="project__links">
             <ButtonPrimary
               title="Github"
               icon={<FaCodeBranch />}
-              link="https://www.google.com"
+              link={project.githubLink}
             />
             <ButtonPrimary
               title="Website"
               icon={<BsBrowserChrome />}
-              link="https://www.google.com"
+              link={project.websiteLink}
             />
             {/* <Link to={link}>Details</Link> */}
+            <div className="bgg"></div>
           </div>
         </div>
         <span className="project__type">{formattedProjectType}</span>

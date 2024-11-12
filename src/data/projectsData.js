@@ -3,15 +3,15 @@ import IMAGES from "../images";
 const projects = [
   {
     id: 1,
-    slug: "project-1",
-    imgUrl: IMAGES.projectOneImg,
-    title: "Task Manager",
+    slug: "sodev",
+    imgUrl: IMAGES.projectSodev,
+    title: "Sodev",
     description:
-      "Our web app project aims to simplify and streamline task management for individuals and teams. With a user-friendly interface, it allows users to create, assign, and track tasks effortlessly. Features include task prioritization, deadlines, notifications, and progress tracking.",
-    githubLink: "github.com",
-    tags: ["javascript", "css"],
+      "SODEV's landing page showcases its digital services with a professional, multilingual design that caters to diverse audiences. ",
+    tags: ["html", "css", "javascript", "next"],
     projectType: "frontend",
-    websiteLink: "google.com",
+    githubLink: "github.com",
+    websiteLink: "https://sodevtherealworld.com/",
     createdAt: "2022-08-01",
     updatedAt: "2023-08-02",
   },
@@ -84,7 +84,7 @@ const projects = [
       "A dedicated tool for teams to manage tasks efficiently. Simplify task assignment, progress tracking, and collaboration.",
     githubLink: "github.com",
     tags: ["javascript", "html", "css"],
-    projectType: "landing-page",
+    projectType: "ui",
     websiteLink: "google.com",
   },
   {

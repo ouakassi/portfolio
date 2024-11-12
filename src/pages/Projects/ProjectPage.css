@@ -167,6 +167,7 @@
 .markdown p {
   margin: 2rem auto;
   font-size: var(--fs-l);
+  color: #e4e4e4;
 }
 
 .markdown :is(ul, ol, blockquote) {

@@ -1,28 +1,30 @@
 import { motion } from "framer-motion";
-const LanguageComponent = ({ mainColor, className, image, tag }) => (
-  <>
-    <motion.span
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{
-        opacity: 1,
-        scale: 1,
-        transition: {
-          type: "spring",
-          bounce: 0.4,
-          duration: 0.8,
-        },
-      }}
-      whileHover={{ y: -5 }}
-      style={{
-        color: mainColor || "#00ffb3",
-        backgroundColor: `${mainColor}33` || "#00ffb333",
-      }}
-      className={className}
-    >
-      <img src={image || "./images/languages/code.svg"} alt={tag} />
-      <span>{tag}</span>
-    </motion.span>
-  </>
+import "./LanguageComponent.css";
+import IMAGES from "../../images";
+
+// IMAGES.mongoImg
+
+const DEFAULT_LANGUAGE_IMG = IMAGES.defaultLanguageImg;
+const DEFAULT_LANGUAGE_COLOR = "#fff";
+const LanguageComponent = ({
+  mainColor = DEFAULT_LANGUAGE_COLOR,
+  className,
+  image = DEFAULT_LANGUAGE_IMG,
+  tag,
+}) => (
+  <motion.span
+    style={{
+      color: mainColor,
+      backgroundColor: `${
+        mainColor === "#000" ? DEFAULT_LANGUAGE_COLOR : mainColor + 33
+      }`,
+    }}
+    className={`language__tag-container ${className}`}
+  >
+    <img src={image} alt={tag} />
+
+    <span>{tag}</span>
+  </motion.span>
 );
 
 export default LanguageComponent;

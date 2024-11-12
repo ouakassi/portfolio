@@ -14,18 +14,18 @@ export default function FilterTags({ onClickFilterButton }) {
     backgroundColor: "var(--first-color-light)",
     // fontWeight: "700",
     fontFamily: "var(--font-2)",
-    width: "18rem",
+    // width: "18rem",
 
-    transform: "scale(1.1)",
+    // transform: "scale(1.1)",
   };
 
   const nonActiveFilterStyle = {
     boxShadow: "var(--first-color) 0px 0px 0px 2px",
     // color: "var(--first-color)",
-    // fontWeight: "700",
+    fontWeight: "normal",
     // fontFamily: "var(--font-2)",
     // width: "20rem",
-    transform: "scale(1)",
+    // transform: "scale(1)",
   };
 
   const filterTags = [
@@ -49,11 +49,11 @@ export default function FilterTags({ onClickFilterButton }) {
       filterTag: "fullstack",
       filterIcon: IMAGES.fullstackIcon,
     },
-    {
-      filterName: "landing-page",
-      filterTag: "landing-page",
-      filterIcon: IMAGES.landingPageIcon,
-    },
+    // {
+    //   filterName: "landing-page",
+    //   filterTag: "landing-page",
+    //   filterIcon: IMAGES.landingPageIcon,
+    // },
     {
       filterName: "ui elements",
       filterTag: "ui",

@@ -1,13 +1,14 @@
-import ProjectsContainer from "./ProjectsContainer";
-import projectsData from "../../data/projectsData";
+import projects from "../../data/projectsData";
 
 import Section from "../Section";
 import { ShowMoreButton } from "../Buttons/ShowMoreButton";
 
 import { Link } from "react-router-dom";
 import { FaFolderTree, FaServer } from "react-icons/fa6";
+import ProjectCard from "./ProjectCard";
 
 export default function LatestProjects() {
+  const LIMIT = 4;
   return (
     <Section
       className="projects"
@@ -17,15 +18,13 @@ export default function LatestProjects() {
       sectionSubtitle="latest projects"
     >
       <div className="project__container container">
-        <ProjectsContainer
-          filteredProjects={projectsData}
-          limitProjectsCount={2}
-        />
-        <div>
-          <Link to={"/projects"}>
-            <ShowMoreButton icon={<FaServer />} title="see all projects" />
-          </Link>
-        </div>
+        {projects?.slice(0, LIMIT).map((project, index) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+
+        <Link to={"/projects"}>
+          <ShowMoreButton icon={<FaServer />} title="see all projects" />
+        </Link>
       </div>
     </Section>
   );

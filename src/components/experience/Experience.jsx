@@ -48,7 +48,7 @@ export default function Experience() {
       id="experience"
       icon={<FaRegIdCard />}
       sectionTitle="professional experience"
-      sectionSubtitle="my all experience in the field"
+      sectionSubtitle="all my experience in the field"
     >
       {/* <div className="exp__selector">
         {selectors.map(({ title, icon }, i) => {

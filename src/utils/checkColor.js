@@ -11,6 +11,10 @@ const languageColors = {
     color: "#58c6e5",
     image: IMAGES.reactImg,
   },
+  next: {
+    color: "#000",
+    image: IMAGES.nextImg,
+  },
   node: {
     color: "#16b501",
     image: IMAGES.nodeImg,

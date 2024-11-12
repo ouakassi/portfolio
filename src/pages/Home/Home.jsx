@@ -25,7 +25,7 @@ const Home = () => {
           // height="800"
           className="home__bg-svg"
         >
-          <g strokeWidth="0.1" stroke="var(--first-color-alt)" fill="none">
+          <g strokeWidth="0.1" stroke="var(--first-color)" fill="none">
             {/* Squares */}
             {[...Array(15)].map((_, row) =>
               [...Array(30)].map((_, col) => (

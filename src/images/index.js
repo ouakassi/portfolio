@@ -7,6 +7,8 @@ const IMAGES = {
   cssImg: require("./languages/css.svg").default,
   tsImg: require("./languages/ts.svg").default,
   expressImg: require("./languages/express.svg").default,
+  nextImg: require("./languages/next.svg").default,
+  defaultLanguageImg: require("./languages/code.svg").default,
 
   logo: require("./logos/logo.png"),
   highSchoolLogo: require("./logos/high-school.jpg"),
@@ -34,7 +36,8 @@ const IMAGES = {
   serviceSoftwareIcon: require("./services/software.png"),
   codeBg: require("./services/code.png"),
 
-  projectOneImg: require("./projects/project-1.webp"),
+  projectSodev: require("./projects/sodev.png"),
+  projectOneImg: require("./projects/project-1.jpg"),
   projectTwoImg: require("./projects/project-2.jpg"),
 
   background: require("./patterns/background.png"),
