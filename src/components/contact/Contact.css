@@ -1,0 +1,22 @@
+.contact__container {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  position: relative;
+  margin-bottom: 4rem;
+}
+.contact__container H2 {
+  font-size: var(--fs-2xl);
+  font-family: var(--font-2);
+}
+.contact__container svg {
+  max-width: 20rem;
+  max-height: 20rem;
+  position: absolute;
+  bottom: -100%;
+  right: 5%;
+  transform: rotate(90deg);
+}
+.contact__container button {
+  justify-self: end;
+}

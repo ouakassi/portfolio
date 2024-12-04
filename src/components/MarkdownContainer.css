@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;400;500;600;700&display=swap");
+
+.project__more .project__more-container {
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  width: clamp(40rem, 100rem, 90vw);
+}
+
+/* .project__more .markdown__container {
+  padding: 2rem;
+  margin-left: 2rem;
+} */
+
+.markdown {
+  margin: 0px;
+  line-height: 2.4;
+  -webkit-font-smoothing: antialiased;
+  color: rgb(222, 222, 222);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.markdown h1,
+.markdown h2 {
+  color: rgb(201 26 101);
+  font-weight: 700;
+  margin: 8rem 0 2rem 0;
+}
+
+.markdown b,
+strong {
+  color: var(--second-color);
+}
+.markdown em {
+  font-family: "Lato", sans-serif;
+}
+.markdown a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  color: var(--main-color);
+}
+.markdown ul {
+  list-style-type: unset;
+}
+
+.markdown pre {
+  display: block;
+  background-color: #0b1a29;
+  padding: 2rem;
+  margin: 2rem 0 2rem 2rem;
+  border-radius: 1px 10px 10px 2px;
+  /* border-radius: 6px 6px 6px 6px; */
+  transition: background-color 350ms ease 0s;
+  border-left: 3px solid var(--main-color);
+}

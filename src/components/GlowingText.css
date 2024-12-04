@@ -1,0 +1,7 @@
+.glowing__text {
+  font-size: var(--fs-xl);
+  color: var(--title-color);
+  font-family: var(--font-medium);
+  margin: 1rem 0;
+  text-shadow: 0px 0px 8px var(--main-color);
+}

@@ -1,0 +1,48 @@
+.exp__selector {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+div.exp__selector > span:nth-child(1) {
+  margin-right: 4rem;
+}
+.exp__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.slider__container {
+  display: grid;
+  flex-flow: column;
+  margin-bottom: 2rem;
+}
+.tab__buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tab__button img {
+  width: 4rem;
+}
+.tab__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-width: 15rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-family: var(--font-2);
+  padding: 1rem;
+}
+
+.tab__slider {
+  background: var(--main-color);
+  height: 5px;
+  border-radius: 0 0 10px 10px;
+  width: 50%;
+  justify-self: end;
+  /* display: flex; */
+}

@@ -1,0 +1,21 @@
+.show-more__button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: var(--title-color);
+  text-transform: uppercase;
+  padding: 1.5rem;
+  cursor: pointer;
+  border-radius: 20px;
+  user-select: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--bg-color-3) 0%,
+    var(--bg-color-2) 50%,
+    var(--bg-color) 100%
+  );
+  box-shadow: white 0px 0px 2px 0px;
+}
+.show-more__button:hover {
+  box-shadow: var(--second-color) 0px 0px 2px 1px;
+}

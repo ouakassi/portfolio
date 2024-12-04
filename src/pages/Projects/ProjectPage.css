@@ -1,0 +1,269 @@
+.project__page {
+  max-width: 1400px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.project__page .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  height: 100%;
+  /* position: relative; */
+  /* margin: 5rem 0; */
+}
+
+.project__page .project__tags {
+  display: flex;
+}
+
+.lines__background,
+.gradient__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /* background-attachment: fixed; */
+  z-index: -1;
+}
+.lines__background {
+  /* background-image: url("../../images/patterns/nnnoisee.svg"); */
+  background-image: url("../../images/patterns/ooorganize.svg");
+  background-repeat: repeat;
+  background-size: 400px 400px;
+}
+.gradient__background {
+  /* left: -10%; */
+  background: var(--background-color-2);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 14, 92, 0.1) 10%,
+    rgba(14, 0, 92, 0.1) 20%,
+    rgba(111, 7, 180, 0.1) 50%
+  );
+  /* background-image: radial-gradient(
+    circle 600px at 50% 50.2%,
+    rgba(195, 0, 255, 0.1) 2%,
+    rgb(0 12 33 / 80%) 98%
+  );
+  filter: blur(100px); */
+
+  background: linear-gradient(
+    90deg,
+    rgba(18, 4, 99, 0.1) 0%,
+    rgba(84, 4, 138, 0.2) 75%
+  );
+
+  background: linear-gradient(
+    90deg,
+    rgb(11 6 45 / 10%) 0%,
+    rgb(83 9 85 / 20%) 75%
+  );
+}
+
+/* ------------------------------- Table of contents ------------------------------- */
+
+.project__page .content__table {
+  font-family: var(--font-1);
+  position: sticky;
+  top: 60px;
+  align-self: flex-start;
+  /* max-width: 30%; */
+  width: clamp(20%, 30rem, 30%);
+}
+.content__table .title {
+  color: white;
+  margin-bottom: 2rem;
+  font-size: var(--fs-xl);
+  font-family: var(--font-2);
+  color: hotpink;
+}
+.project__page .content__table .headers {
+  /* max-width: 30rem; */
+  /* max-height: 60vh; */
+  /* overflow-y: auto; */
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* opacity: 0.8; */
+}
+
+.project__page .content__table .active {
+  background-color: hsla(329, 51%, 58%, 0.2);
+  position: relative;
+  color: hotpink;
+  font-weight: bold;
+  padding-left: calc(1rem + 5px);
+  transition: all 0.4s;
+}
+
+.project__page .content__table .active::before {
+  content: "";
+  background-color: hotpink;
+  width: 4px;
+  border-radius: 0 30px 30px 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+}
+.project__page .content__table h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.project__page .content__table h2 {
+  font-size: 1.6rem;
+  color: #c0c0c0;
+  padding-left: 1rem;
+}
+.project__page .content__table h3 {
+  font-size: 1.4rem;
+  color: #c0c0c0;
+  padding-left: 2rem;
+}
+.project__page .content__table:is(h4, h5, h6) {
+  font-size: 1.2rem;
+  padding-left: 3rem;
+  color: #c0c0c0;
+}
+.headers :is(h1, h2, h3, h4, h5, h6):hover {
+  color: hotpink;
+  transition: all 0.2s;
+}
+
+/* ------------------------------- Markdown ------------------------------- */
+.project__page .markdown {
+  max-width: 70%;
+  font-family: var(--font-4);
+  line-height: 1.6;
+  color: white;
+  padding: 2rem;
+}
+
+.markdown :is(h1, h2, h3, h4, h5, h6) {
+  margin: 4rem auto;
+  text-shadow: 0px 5px 1px var(--second-color-lite);
+  font-weight: bold;
+}
+
+.markdown h1 {
+  color: var(--main-color);
+  font-size: var(--fs-2xl);
+}
+.markdown h2 {
+  font-size: var(--fs-xl);
+  /* color: var(--second-color); */
+}
+
+.markdown h3 {
+  font-size: var(--fs-l);
+}
+
+.markdown h4 {
+  font-size: var(--fs-m);
+}
+
+.markdown p {
+  margin: 2rem auto;
+  font-size: var(--fs-l);
+  color: #e4e4e4;
+}
+
+.markdown :is(ul, ol, blockquote) {
+  margin: 2rem auto;
+}
+.markdown blockquote {
+  position: relative;
+  padding: 0.5rem 2rem;
+  background: var(--background-color-2);
+  color: white;
+
+  margin-top: 2rem;
+}
+.markdown blockquote::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  background-color: var(--second-color);
+  height: 100%;
+  width: 6px;
+  border-radius: 0 20px 20px 0;
+}
+
+/* .markdown blockquote::after {
+  content: "”";
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: bold;
+  margin-left: 1rem;
+  right: 0;
+} */
+
+.markdown li {
+  margin: 1rem auto;
+  padding-left: 10px;
+}
+.markdown ul li::before {
+  content: "\25B6"; /* Unicode character or font icon, e.g., \2713 for checkmark */
+  color: hotpink; /* Change color to match your theme */
+  font-size: 1.2rem; /* Adjust size as needed */
+  margin-right: 10px; /* Space between icon and text */
+  display: inline-block; /* Ensures it aligns with text */
+}
+
+.markdown a {
+  color: hotpink;
+  /* text-decoration: none; */
+  font-weight: bold;
+  /* box-shadow: 0 1.5px 0 var(--main-color); */
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.markdown a:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.markdown ol {
+  counter-reset: cupcake;
+  padding-left: 32px;
+}
+
+.markdown ol {
+  list-style-type: none;
+  padding: 0;
+}
+.markdown ol li {
+  counter-increment: cupcake;
+}
+.markdown ol li:before {
+  content: counters(cupcake, ".") ". ";
+  /* Whatever custom styles you want here */
+  color: hotpink;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.markdown code {
+  padding: 0.5rem 1rem;
+  background-color: #04152c;
+  color: var(--main-color);
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.markdown img {
+  display: block;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+@media (width <= 1024px) {
+  .content__table {
+    display: none;
+  }
+}

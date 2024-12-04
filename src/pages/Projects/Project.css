@@ -1,0 +1,11 @@
+.project-body,
+.project-header {
+  background: var(--background-color);
+}
+
+.project__more .project__more-container {
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+  width: clamp(40rem, 100rem, 90vw);
+}

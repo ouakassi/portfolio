@@ -1,0 +1,8 @@
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--main-color-lite);
+  border-radius: 10px;
+}

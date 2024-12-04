@@ -1,0 +1,135 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&family=Space+Grotesk:wght@300..700&display=swap");
+
+@font-face {
+  font-family: "Cubano";
+  src: local("Cubano"), url(./fonts/Cubano.ttf) format("woff");
+}
+
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+  --header-height: 4.8rem;
+
+  /*========== Colors ==========*/
+
+  /* text */
+
+  --main-color: rgb(19, 216, 223);
+  /* --first-color-light: rgba(19, 216, 223, 0.1); */
+  --main-color-lite: rgba(19, 216, 223, 0.6);
+  --main-color-extra-lite: rgba(19, 216, 223, 0.3);
+
+  --second-color: rgb(0, 255, 200);
+  --second-color-lite: rgba(0, 255, 200, 0.2);
+
+  /* --bg-color: #01030e; */
+  --bg-color: #000000;
+  --bg-color-2: rgb(16, 16, 18);
+  --bg-color-3: hsl(240 3.7% 15.9%);
+
+  --title-color: rgb(255, 255, 255);
+  --text-color: rgb(180, 207, 209);
+
+  --text-gradient-color: linear-gradient(
+    120deg,
+    rgb(29 181 236),
+    rgb(58 231 179) 50%,
+    rgb(58 231 179) 70%
+  );
+
+  --scroll-bar-color: var(--bg-color);
+  --scroll-thumb-color: var(--main-color);
+  --scroll-thumb-color-hover: var(--main-color-lite);
+
+  /*========== Box Shadows  ==========*/
+
+  --box-shadow-1: rgb(0 0 0 / 70%) 0px 5px 10px 0px;
+  --box-shadow-2: rgb(0 0 0 / 40%) 0px 2px 4px,
+    rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+
+  /*========== Font and typography ==========*/
+
+  --font-1: "Changa", sans-serif;
+  --font-2: "Cubano", sans-serif;
+  --font-3: "Rakkas", serif;
+  --font-4: "Oxanium", sans-serif;
+  --font-5: "Russo One", sans-serif;
+  --font-6: "Moirai One", system-ui;
+  --font-7: "Space Grotesk", sans-serif;
+
+  /* --fs-6xl: 10rem;
+  --fs-5xl: 5rem;
+  --fs-4xl: 5rem;
+  --fs-3xl: 3.2rem;
+  --fs-2xl: 2.4rem;
+  --fs-xl: 2rem;
+  --fs-l: 1.8rem;
+  --fs-m: 1.5rem;
+  --fs-s: 1.3rem;
+  --fs-xs: 1.2rem; */
+
+  --fs-6xl: 12rem;
+  --fs-5xl: 8rem;
+  --fs-4xl: 6rem;
+  --fs-3xl: 4.8rem;
+  --fs-2xl: 3.8rem;
+  --fs-xl: 2.4rem;
+  --fs-l: 2rem;
+  --fs-m: 1.6rem;
+  --fs-s: 1.4rem;
+  --fs-xs: 1.3rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+  /* :root {
+    --fs-6xl: 12rem;
+    --fs-5xl: 8rem;
+    --fs-4xl: 6rem;
+    --fs-3xl: 4.8rem;
+    --fs-2xl: 3.8rem;
+    --fs-xl: 2.4rem;
+    --fs-l: 2rem;
+    --fs-m: 1.6rem;
+    --fs-s: 1.4rem;
+    --fs-xs: 1.3rem;
+  } */
+}
+
+/*========== SCROLL BAR ==========*/
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 1rem;
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-color-hover);
+}
+
+/*========== Selection ==========*/
+
+::selection {
+  color: white;
+  background: var(--first-color-light);
+}

@@ -1,0 +1,15 @@
+.language__tag-container {
+  display: flex;
+  max-width: fit-content;
+  padding: 0.2rem 1rem;
+  border-radius: 15px;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.language__tag-container img {
+  /* align-self: center;
+  justify-self: center; */
+  width: 3rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+}

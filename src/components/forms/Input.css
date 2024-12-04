@@ -1,0 +1,48 @@
+.input__container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 3rem 0;
+  border-radius: 10px;
+  background-color: var(--background-color-2);
+  position: relative;
+}
+.input__container label {
+  text-transform: uppercase;
+  margin-right: 2rem;
+  position: absolute;
+  color: var(--title-color);
+}
+.input__container label {
+  top: -15px;
+}
+.login__icon {
+  margin-left: 2rem;
+  transition: 0.4s;
+}
+.input__container input {
+  height: inherit;
+  width: 100%;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--title-color);
+  font-size: var(--fs-l);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: all 5000s ease-in-out 0s;
+}
+
+.input__container input:focus + .login__icon,
+.input__container:focus {
+  color: var(--main-color);
+  transform: scale(1.5);
+}
+.input__container input:focus .button {
+  margin-top: 5rem;
+  font-size: var(--fs-l);
+}

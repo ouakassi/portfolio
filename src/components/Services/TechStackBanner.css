@@ -1,0 +1,141 @@
+.banner-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 10rem;
+  position: relative;
+  width: fit-content;
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.orbit__container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /* transform: rotate(344deg); */
+}
+
+.orbit__container-two {
+  /* transform: rotate(344deg); */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.next__icon,
+.node__icon,
+.react__icon,
+.express__icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 10rem;
+  height: 10rem;
+  /* z-index: 10; */
+}
+
+.next__icon {
+  right: -150%;
+  max-width: 8rem;
+  max-height: 8rem;
+}
+
+.node__icon {
+  left: -220%;
+}
+
+.react__icon {
+  right: -220%;
+}
+
+.express__icon {
+  left: -150%;
+  max-width: 8rem;
+  max-height: 8rem;
+}
+.banner-icons .js__icon {
+  /* width: 25rem; */
+  max-width: 25rem;
+  width: 100%;
+  height: 100%;
+}
+
+.about-icon {
+  /* max-width: 10rem;
+  max-height: 10rem; */
+  border-radius: 50%;
+  display: flex;
+  padding: 1rem;
+  background: linear-gradient(240deg, #eeecec13, #f7f7f71f, #8f8f8f44);
+}
+
+.about-icon {
+  box-shadow: var(--box-shadow-2);
+  z-index: 10;
+}
+.about-icon > svg {
+  width: 100%;
+  height: 100%;
+  fill: #dbdbdb;
+  border-radius: inherit;
+}
+
+.banner-icons .js__icon svg {
+  fill: #ffb006;
+}
+
+.banner-icons .js__icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #0c0c0c80, rgb(71, 71, 71));
+  z-index: -2;
+  border-radius: inherit;
+}
+
+.banner-icons > .js__icon > span:nth-child(4) {
+  background: radial-gradient(
+    circle,
+    rgb(121, 121, 121) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  z-index: -1;
+}
+
+/* .banner-icons > *:not(:nth-child(3)) {
+  max-width: 8rem;
+  max-height: 8rem;
+} */
+
+/* .banner-icons > *:nth-child(3) {
+  position: relative;
+  padding: 2rem;
+} */
+/* .banner-icons > *:nth-child(3) svg {
+  fill: #ffb006;
+  z-index: 3;
+} */
+
+/* .banner-icons > *:nth-child(3) > span:nth-child(3) {
+    background: linear-gradient(240deg, transparent, #10be53);
+  } */
+
+/* .about__title {
+  font-size: var(--fs-3xl);
+  font-family: var(--font-2);
+  text-align: center;
+  text-shadow: 0px 5px 2px #ffae0079;
+
+  margin: 8rem 0;
+} */

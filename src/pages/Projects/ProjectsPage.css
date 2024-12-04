@@ -1,0 +1,49 @@
+.projects__container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8rem;
+  padding: 1rem;
+  max-width: 1000px;
+}
+
+.projects .tags {
+  width: 100%;
+  margin-bottom: 6rem;
+  margin: 5rem auto;
+}
+
+.projects .tags p {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.grain__svg {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 70%;
+  height: 100vh;
+  /* opacity: 0.1; */
+}
+
+.svg-two {
+  transform: rotate(180deg);
+}
+
+.projects .home__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+/* .projects .home__bg-svg {
+  z-index: -3;
+  opacity: 0.5;
+} */

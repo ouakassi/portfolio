@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="100" viewBox="0 0 314 291">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linejoin: round;
+        strokeWidth: 8px;
+        font-size: 506px;
+        stroke: url(#radial-gradient);
+      fill: rgba(19, 216, 223, 0);
+        font-family: "Colonna MT";
+        text-transform: uppercase;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="156.5" cy="146" r="152.079" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#13d8df"/>
+      <stop offset="0.368" stopColor="#1b76ff"/>
+      <stop offset="0.685" stopColor="#36bfff"/>
+      <stop offset="1.16" stopColor="#00ffc8"/>
+    </radialGradient>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <text id="o" class="cls-1" x="-7" y="278.375">o</text>
+  </g>
+</svg>

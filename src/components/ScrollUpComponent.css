@@ -1,0 +1,23 @@
+/*========== SCROLL UP ==========*/
+.scrollup {
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+  background-color: var(--main-color);
+  cursor: pointer;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+  z-index: var(--z-tooltip);
+  box-shadow: 0 4px 5px rgb(0 0 0 / 50%);
+}
+.scrollup:hover {
+  background-color: var(--second-color);
+}
+.scrollup__icon {
+  font-size: var(--fs-xl);
+  color: #fff;
+}
+/* Show scroll */
+.show-scroll {
+  bottom: 8rem;
+}

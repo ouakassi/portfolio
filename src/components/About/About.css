@@ -1,0 +1,138 @@
+.about__container {
+  position: relative;
+}
+
+.about__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5rem 0 8rem;
+  gap: 15rem;
+}
+
+.about__heading div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--fs-3xl);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+.about__me-quote {
+  position: absolute;
+  color: var(--second-color);
+  font-size: var(--fs-6xl);
+}
+
+.about__me-img {
+  max-width: 40rem;
+  border-radius: 10px;
+}
+
+.about__me-img img {
+  border-radius: inherit;
+}
+
+.image__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.about__me-text {
+  position: relative;
+  color: #fff;
+  font-size: var(--fs-4xl);
+  font-weight: var(--font-bold);
+  font-family: var(--font-5);
+  background-image: linear-gradient(to right, rgb(0 255 221), #00f6ff99);
+  color: #b80bf500;
+  -webkit-background-clip: text;
+}
+
+.about__me-text svg {
+  position: absolute;
+  bottom: -23px;
+  left: -55px;
+  width: 125%;
+  height: 100%;
+}
+
+.about__text {
+  font-weight: bold;
+  color: white;
+  font-size: var(--fs-l);
+  text-align: center;
+}
+
+.about__heading span:first-child {
+  top: -100px;
+  left: -30px;
+}
+
+.about__heading span:last-child {
+  bottom: -100px;
+  right: -30px;
+}
+
+@media screen and (max-width: 769px) {
+  .about__heading {
+    flex-flow: column;
+    margin: 2rem 0 6rem;
+  }
+
+  .about__heading > div:first-child {
+    width: 30rem;
+    height: 30rem;
+    margin: 4rem 0 6rem;
+  }
+
+  .about__heading span:first-child {
+    top: -73px;
+    left: -60px;
+  }
+  .about__heading span:last-child {
+    bottom: -105px;
+    right: -45px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .about__me-dots {
+    position: absolute;
+    right: 0px;
+    top: -52px;
+  }
+  .about__heading > div:first-child {
+    width: 25rem;
+    height: 25rem;
+    margin: 2rem 0 4rem;
+  }
+  .about__heading span:first-child {
+    top: -60px;
+    left: -40px;
+  }
+  .about__heading span:last-child {
+    bottom: -120px;
+    right: -40px;
+  }
+
+  .about__heading div {
+    font-size: var(--fs-2xl);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about__heading > div:first-child {
+    width: 20rem;
+    height: 20rem;
+    margin: 2rem 0 4rem;
+  }
+}

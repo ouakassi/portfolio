@@ -1,0 +1,146 @@
+.card__container {
+  position: relative;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 25px;
+  background: var(--bg-color-2);
+  background: linear-gradient(
+    to bottom,
+    var(--bg-color-2) 0%,
+    rgb(31, 31, 31) 50%,
+    #000000 100%
+  );
+  /* width: clamp(90%, calc(100% - 2rem), 100%); */
+  /* width: 60rem; */
+  cursor: pointer;
+  box-shadow: rgba(53, 53, 53, 0.05) 0px 0px 0px 1px,
+    rgba(119, 119, 119, 0.226) 0px 0px 0px 1px inset;
+  margin: 1rem auto;
+  /* transition: 0.1s; */
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY))
+    scale3d(1, 1, 1);
+}
+
+.card__container:hover {
+  /* padding-inline: 1.5rem; */
+  box-shadow: rgba(156, 156, 156, 0.4) 0px 2px 1px,
+    rgba(145, 145, 145, 0.3) 0px 7px 1px -3px,
+    rgba(141, 141, 141, 0.2) 0px -3px 0px inset;
+}
+
+.card__container:hover .card__content {
+  background: radial-gradient(
+    circle,
+    var(--bg-color-3) 0%,
+    rgb(14, 14, 14) 100%
+  );
+}
+.card__container:hover .card__icon {
+  transform: rotate(45deg);
+}
+
+.card__container .card__type {
+  position: absolute;
+  top: -10px;
+  right: 5%;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-2);
+  color: var(--main-color);
+  background: linear-gradient(
+    90deg,
+    #c0c0c0,
+    #e6e6e6,
+    #c0c0c0
+  ); /* Silver gradient */
+  -webkit-background-clip: text; /* Clipping background to text */
+  -webkit-text-fill-color: transparent; /* Making text transparent to show the gradient */
+  font-weight: bold; /* Optional: Enhances the look */
+}
+.card__content {
+  position: relative;
+  background: var(--bg-color-3);
+  background: radial-gradient(circle, var(--bg-color-3) 0%, rgb(0, 0, 0) 100%);
+  padding: 2rem 2rem 0 2rem;
+  border: 1px solid rgba(83, 83, 83, 0.658);
+  border-radius: 25px;
+}
+.card__content::after,
+.card__container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 01),
+    rgba(255, 255, 255, 0)
+  );
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.5);
+}
+
+.card__content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.card__content header h1 {
+  color: #e4e4e4; /* Silver */
+  text-shadow: 0px 0px 5px #aaa, 0 0 2px #fff; /* Adds a metallic glow effect */
+  font-weight: bold; /* Optional: Enhances the look */
+  font-family: var(--font-5);
+}
+
+.card__content header .card__description {
+  max-width: 80%;
+  color: var(--text-color);
+}
+
+.card__content header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.card__content .card__stack {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.card__content .img__container {
+  display: flex;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  padding-inline: 2rem;
+  max-height: 50rem;
+  min-height: 50rem;
+}
+.card__content .img__container img {
+  border-radius: inherit;
+  width: 90%;
+  /* transition: all 0.2s ease-in-out; */
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /* height: 40rem; */
+}
+
+.card__icon {
+  transition: all 0.3s ease-in-out;
+  color: var(--main-color);
+  font-size: var(--fs-xl);
+  padding: 2rem;
+}
+
+/* @media (min-width: 768px) {
+  .card__container {
+    width: 90%;
+  }
+} */
