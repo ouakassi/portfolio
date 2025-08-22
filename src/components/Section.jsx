@@ -28,9 +28,10 @@ const Section = ({
         className="section__title-container"
       >
         <motion.h1
-          initial={{ y: 70 }}
-          whileInView={{ y: 0 }}
-          transition={{ delay: 0.4, duration: 1 }}
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.4, ease: "easeInOut" }}
           className="section__title"
         >
           <span className="section__icon">{icon}</span>
