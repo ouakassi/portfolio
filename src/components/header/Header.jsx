@@ -23,10 +23,10 @@ const NAV_ITEMS = [
     icon: <FaUserNinja />,
   },
 
-  {
-    name: "contact",
-    icon: <IoCallSharp />,
-  },
+  // {
+  //   name: "contact",
+  //   icon: <IoCallSharp />,
+  // },
 ];
 
 const Header = () => {
@@ -69,7 +69,12 @@ const Header = () => {
           transition={{ duration: 0.4, delay: 0.1 }}
           className="header headerShadow"
         >
-          <nav className="nav">
+          <motion.nav
+            initial={{ gap: "16rem" }}
+            animate={{ gap: "8rem" }}
+            transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
+            className="nav"
+          >
             <Link to="/">
               <motion.div
                 // whileHover={{ scale: 1.05 }}
@@ -218,43 +223,11 @@ const Header = () => {
                       >
                         {({ isActive, isPending, isTransitioning }) => (
                           <>
-                            <span className="nav__icon">{icon}</span>
+                            {icon}
                             {/* <i className={`${icon} nav__icon`} /> */}
                             <span>{name === "" ? "home" : name}</span>
 
-                            {isActive && (
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 800 200"
-                                className="line"
-                              >
-                                <motion.path
-                                  initial={{ pathLength: 0, opacity: 0 }}
-                                  animate={{ pathLength: 1, opacity: 1 }}
-                                  transition={{ duration: 1, delay: 0.2 }}
-                                  d="M708.9686279296875,39.461883544921875C605.530657450358,40.95665168762207,89.83557637532552,41.55455780029297,88.34080505371094,48.43049240112305C86.84603373209636,55.306427001953125,696.4125556945801,72.34678840637207,700,80.71749114990234C703.5874443054199,89.08819389343262,148.57996877034506,91.62929789225261,109.86547088623047,98.65470886230469C71.15097300211588,105.68011983235677,408.07175572713214,118.83408228556316,467.7130126953125,122.86995697021484"
-                                  fill="none"
-                                  strokeWidth="20"
-                                  stroke="url(#SvgjsLinearGradient1002)"
-                                  strokeLinecap="round"
-                                />
-                                <defs>
-                                  <linearGradient
-                                    id="SvgjsLinearGradient1002"
-                                    gradientTransform="rotate(96, 0.5, 0.5)"
-                                  >
-                                    <stop
-                                      stopColor="hsl(187, 100%, 58% , 80%)"
-                                      offset="0"
-                                    />
-                                    <stop
-                                      stopColor="hsl(160, 100%, 58%)"
-                                      offset="1"
-                                    />
-                                  </linearGradient>
-                                </defs>
-                              </svg>
-                            )}
+                            {isActive && <NavLinkUnderline />}
                           </>
                         )}
                       </NavLink>
@@ -262,17 +235,8 @@ const Header = () => {
                   );
                 })}
               </ul>
-              <i
-                className="uil uil-times nav__close"
-                onClick={() => handleClick(false)}
-              />
             </div>
-            {/* <div className="nav__btns">
-              <div className="nav__toggle" onClick={() => handleClick(true)}>
-                <i className="uil uil-apps"></i>
-              </div>
-            </div> */}
-          </nav>
+          </motion.nav>
         </motion.header>
       )}
     </AnimatePresence>
@@ -280,3 +244,33 @@ const Header = () => {
 };
 
 export default Header;
+
+const NavLinkUnderline = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 800 200"
+      className="line"
+    >
+      <motion.path
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3, easings: "easeInOut" }}
+        d="M708.9686279296875,39.461883544921875C605.530657450358,40.95665168762207,89.83557637532552,41.55455780029297,88.34080505371094,48.43049240112305C86.84603373209636,55.306427001953125,696.4125556945801,72.34678840637207,700,80.71749114990234C703.5874443054199,89.08819389343262,148.57996877034506,91.62929789225261,109.86547088623047,98.65470886230469C71.15097300211588,105.68011983235677,408.07175572713214,118.83408228556316,467.7130126953125,122.86995697021484"
+        fill="none"
+        strokeWidth="20"
+        stroke="url(#SvgjsLinearGradient1002)"
+        strokeLinecap="round"
+      />
+      <defs>
+        <linearGradient
+          id="SvgjsLinearGradient1002"
+          gradientTransform="rotate(96, 0.5, 0.5)"
+        >
+          <stop stopColor="hsl(187, 100%, 58% , 80%)" offset="0" />
+          <stop stopColor="hsl(160, 100%, 58%)" offset="1" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
