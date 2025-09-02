@@ -2,6 +2,7 @@ import projectsData from "../../data/projectsData";
 import Section from "../../components/Section";
 import { useEffect, useRef, useState } from "react";
 import FilterTags from "../../components/projects/FilterTags";
+import { FaFilter } from "react-icons/fa6";
 
 import "./ProjectsPage.css";
 
@@ -27,7 +28,7 @@ const ProjectsPage = () => {
 
   return (
     <Section
-      className="projects"
+      className="projects__page"
       id="projects"
       icon={<FaFolderTree />}
       sectionTitle="Projects"
@@ -36,10 +37,13 @@ const ProjectsPage = () => {
     >
       <div className="projects__container container">
         <div className="tags">
-          <p>filter by:</p>
+          <p>
+            <FaFilter />
+            filter by:
+          </p>
           <FilterTags onClickFilterButton={handleFilter} />
         </div>
-        <div className="home__bg">
+        <div className="projects__page-bg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 800 800"

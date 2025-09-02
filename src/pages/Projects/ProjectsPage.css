@@ -1,15 +1,20 @@
+.projects__page {
+  /* margin-top: 2rem; */
+}
+
 .projects__container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 8rem;
+  gap: 3rem;
   padding: 1rem;
   max-width: 1000px;
+  width: 100%;                         
 }
 
 .projects .tags {
-  width: 100%;
-  margin-bottom: 6rem;
-  margin: 5rem auto;
+  /* width: 100%; */
+  /* margin-bottom: 6rem; */
+  /* margin: 5rem auto; */
 }
 
 .projects .tags p {
@@ -34,7 +39,7 @@
   transform: rotate(180deg);
 }
 
-.projects .home__bg {
+.projects__page .projects__page-bg {
   position: fixed;
   top: 0;
   left: 0;
