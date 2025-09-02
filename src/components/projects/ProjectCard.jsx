@@ -1,7 +1,13 @@
 import "./ProjectCard.css";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { GiArmoredBoomerang } from "react-icons/gi";
@@ -11,12 +17,12 @@ import AnimatedText from "../animations/AnimatedText";
 import checkColor from "../../utils/checkColor";
 
 export default function Card({ project }) {
-  const mouseInitialPosition = { x: 500, y: 500 };
-  const [mousePosition, setMousePosition] = useState(mouseInitialPosition);
   const [isHovering, setIsHovering] = useState(false);
-
-  const cardRef = useRef();
+  const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { amount: 0.8 });
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   // Format project type
   const formattedProjectType = useMemo(
@@ -25,61 +31,83 @@ export default function Card({ project }) {
   );
 
   // Handle mouse movement for rotation and gradient
-  const handleMouseMove = useCallback((e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left; // Mouse X relative to the card
-    const y = e.clientY - rect.top; // Mouse Y relative to the card
+  const handleMouseMove = useCallback(
+    (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    setMousePosition({ x, y });
-    setIsHovering(true);
+      setIsHovering(true);
 
-    // Calculate rotation based on mouse position
-    const middleX = rect.width / 2;
-    const middleY = rect.height / 2;
-    const offsetX = ((x - middleX) / middleX) * 10; // Adjust rotation intensity
-    const offsetY = ((y - middleY) / middleY) * 10;
+      // Set CSS custom properties
+      const card = cardRef.current;
+      card.style.setProperty("--mouseX", `${x}px`);
+      card.style.setProperty("--mouseY", `${y}px`);
+      card.style.setProperty("--project-color", project.color);
 
-    cardRef.current.style.setProperty("--rotateX", -1 * offsetY + "deg");
-    cardRef.current.style.setProperty("--rotateY", -1 * offsetX + "deg");
-  }, []);
+      // Calculate rotation based on mouse position
+      const middleX = rect.width / 2;
+      const middleY = rect.height / 2;
+      const offsetX = ((x - middleX) / middleX) * 10;
+      const offsetY = ((y - middleY) / middleY) * 10;
+
+      mouseX.set(x);
+      mouseY.set(y);
+
+      card.style.setProperty("--rotateX", `${-offsetY}deg`);
+      card.style.setProperty("--rotateY", `${offsetX}deg`);
+    },
+    [mouseX, mouseY, project.color]
+  );
 
   // Reset rotation and gradient on mouse leave
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     setIsHovering(false);
-    setMousePosition(mouseInitialPosition);
-    cardRef.current.style.setProperty("--rotateX", "0deg");
-    cardRef.current.style.setProperty("--rotateY", "0deg");
-  };
+    const card = cardRef.current;
+
+    // Reset to center and no rotation
+    card.style.setProperty("--mouseX", "250px");
+    card.style.setProperty("--mouseY", "200px");
+    card.style.setProperty("--rotateX", "0deg");
+    card.style.setProperty("--rotateY", "0deg");
+  }, []);
 
   return (
-    <div
+    <motion.div
+      ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="card__container"
-      ref={cardRef}
-      style={{
-        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, ${project.color} 5%, #000 200%)`,
+      animate={{
+        scale: isHovering ? 1.02 : 1,
+      }}
+      transition={{
+        scale: { duration: 0.4, ease: "easeOut" },
       }}
     >
       <motion.span
+        style={{
+          top: mouseY,
+          left: mouseX,
+        }}
         animate={
           isHovering
             ? {
                 opacity: 1,
-                x: mousePosition.x - 0, // Offset for better positioning
-                y: mousePosition.y - 60,
-                scale: 1.1, // Slightly larger on hover
+                scale: 1.1,
+                y: 20,
               }
             : {
                 opacity: 0,
-                scale: 0.8, // Shrink when not hovering
+                scale: 0,
+                y: 0,
               }
         }
         transition={{
           type: "spring",
           stiffness: 300,
           damping: 20,
-          opacity: { duration: 0.2 }, // Faster fade-in/out
+          opacity: { duration: 0.2 },
         }}
         className="card__link"
       >
@@ -89,18 +117,8 @@ export default function Card({ project }) {
       <Link to={"/projects/" + project.slug}>
         <motion.div
           className="card__content"
-          initial={{
-            background: `radial-gradient(circle at ${mouseInitialPosition.x}px ${mouseInitialPosition.y}px, rgb(49 49 49 / 20%) 10%, rgba(0, 0, 0, 1) 100%)`,
-          }}
-          animate={{
-            background: isHovering
-              ? `radial-gradient(circle at ${mousePosition.x}px ${
-                  mousePosition.y
-                }px, ${
-                  project.color || "rgb(49 49 49 / 20%)"
-                } 10%, rgba(0, 0, 0, 1) 100%)`
-              : `radial-gradient(circle at ${mouseInitialPosition.x}px ${mouseInitialPosition.y}px, rgb(49 49 49 / 20%) 10%, rgba(0, 0, 0, 1) 100%)`,
-          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
           transition={{
             duration: isHovering ? 0.1 : 2,
             ease: "easeOut",
@@ -125,7 +143,10 @@ export default function Card({ project }) {
             ))}
           </div>
 
-          <div className="img__container">
+          <motion.div
+            style={{ scale: isHovering ? 1.02 : 1 }}
+            className="img__container"
+          >
             <motion.img
               initial={{ opacity: 0, y: 50 }}
               animate={isCardInView ? { opacity: 1, y: 10 } : { y: 100 }}
@@ -142,10 +163,10 @@ export default function Card({ project }) {
                 alt={project.title}
               />
             )}
-          </div>
+          </motion.div>
         </motion.div>
       </Link>
       <span className="card__type">{formattedProjectType}</span>
-    </div>
+    </motion.div>
   );
 }
