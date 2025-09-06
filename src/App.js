@@ -14,13 +14,20 @@ import ContactIcon from "./components/contact/ContactIcon";
 
 const App = () => {
   return (
-    <ReactLenis root options={{ duration: 2, smoothWheel: true }}>
+    <ReactLenis
+      root
+      options={{
+        duration: 1.6, // smaller duration feels more natural
+        smoothWheel: true, // smooth mousewheel
+        smoothTouch: false, // prevent jank on touch devices
+      }}
+    >
       <Header />
       <ScrollToTop />
       <Routes />
       <Footer />
-      <ContactIcon />
-      <ScrollUpComponent />
+      {/* <ContactIcon /> */}
+      {/* <ScrollUpComponent /> */}
     </ReactLenis>
   );
 };
