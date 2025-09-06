@@ -1,54 +1,255 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./TechStackBanner.css";
 
-import { motion } from "framer-motion";
-
-const orbitAnimation = (duration, delay, reverse = false) => ({
-  initial: { rotate: reverse ? "360deg" : "0deg" },
-  animate: { rotate: reverse ? "0deg" : "360deg" },
-  transition: {
-    duration,
-    ease: "linear",
-    repeat: Infinity,
-    repeatType: "loop",
-    delay,
-  },
-});
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import StackBox from "../About/StackBox";
+import { stacks, stacksTwo } from "../../data/stackData";
+import AnimatedText from "../animations/AnimatedText";
+import Section from "../Section";
+import { FaComputer } from "react-icons/fa6";
 
 const fadeInScale = (delay) => ({
   initial: { scale: 0, opacity: 0 },
   whileInView: { scale: 1, opacity: 1 },
-  transition: { delay, duration: 1 },
+  transition: { delay, duration: 2 },
+});
+
+const orbitAnimation = (
+  duration,
+  delay,
+  reverse = false,
+  isContainerInView
+) => ({
+  initial: { rotate: reverse ? "360deg" : "0deg" },
+  animate: { rotate: reverse ? "0deg" : "360deg" },
+  transition: isContainerInView
+    ? {
+        duration,
+        ease: "linear",
+        repeat: Infinity,
+        repeatType: "loop",
+        delay,
+      }
+    : { duration: 0 },
 });
 
 export default function TechStackBanner() {
+  const cardRef = useRef(null);
+  const textContainerRef = useRef(null);
+
+  const isCardInView = useInView(cardRef);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["end end", "end center"],
+  });
+
+  const { scrollYProgress: stackScrollYProgress } = useScroll({
+    target: textContainerRef,
+    offset: ["start end", "center center"],
+  });
+
+  const { scrollYProgress: stackTwoScrollYProgress } = useScroll({
+    target: textContainerRef,
+    offset: ["start end", "center center"],
+  });
+
+  const rotateX = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const rotateZ = useTransform(scrollYProgress, [0, 1], [0, 43]); // stays the same
+  const y = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const z = useTransform(scrollYProgress, [0, 1], [0, 30]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  const textX = useTransform(stackScrollYProgress, [0, 1], [100, -100]);
+  const stackTwotextX = useTransform(
+    stackTwoScrollYProgress,
+    [0, 1],
+    [-100, 100]
+  );
+
   return (
-    <>
-      <div className="banner-icons">
-        <JavascriptIcon className="js__icon" />
-        <div className="orbit">
-          <motion.div className="orbit__container" {...orbitAnimation(10, 1.2)}>
-            <IconWrapper className="next__icon" animation={fadeInScale(0.4)}>
-              <NextJsIcon />
-            </IconWrapper>
-            <IconWrapper className="express__icon" animation={fadeInScale(0.4)}>
-              <ExpressIcon />
-            </IconWrapper>
-          </motion.div>
-          <motion.div
-            className="orbit__container-two"
-            {...orbitAnimation(20, 1.5, true)}
-          >
-            <IconWrapper className="node__icon" animation={fadeInScale(0.4)}>
-              <NodeIcon />
-            </IconWrapper>{" "}
-            <IconWrapper className="react__icon" animation={fadeInScale(0.4)}>
-              <ReactIcon />
-            </IconWrapper>
-          </motion.div>
+    <Section
+      className="home__stack"
+      id="stack"
+      icon={<FaComputer />}
+      sectionTitle="Stack"
+      sectionSubtitle="my go to stack"
+    >
+      <div className="home__techstack">
+        <div ref={cardRef} className="stack-entry">
+          <div className="home__techstack-text">
+            {/* <h1>One Language, Endless Possibilities</h1> */}
+            <h1 className="hero__title">
+              <AnimatedText
+                speed={0.05}
+                text={"Code. Create. Scale. With JavaScript."}
+              />
+            </h1>
+          </div>{" "}
+          <div className="techstack__container">
+            <motion.div
+              style={{
+                "--x": x,
+                "--y": y,
+                "--z": z,
+                "--rotateX": rotateX,
+                "--rotateZ": rotateZ,
+                // opacity,
+              }}
+              className="tech-stack-banner"
+            >
+              <div className="banner-icons">
+                <JavascriptIcon
+                  isCardInView={isCardInView}
+                  className="js__icon"
+                />
+
+                <div className="orbit">
+                  <>
+                    <motion.div
+                      className="orbit__container"
+                      key={isCardInView ? "orbitt-running" : "orbitt-stopped"}
+                      {...orbitAnimation(20, 1.2, false, isCardInView)}
+                    >
+                      <IconWrapper
+                        className="next__icon"
+                        animation={fadeInScale(0.4)}
+                      >
+                        <NextJsIcon />
+                      </IconWrapper>
+                      <IconWrapper
+                        className="express__icon"
+                        animation={fadeInScale(0.6)}
+                      >
+                        <ExpressIcon />
+                      </IconWrapper>
+                    </motion.div>
+
+                    <motion.div
+                      className="orbit__container-two"
+                      key={isCardInView ? "orbit-running" : "orbit-stopped"}
+                      {...orbitAnimation(30, 0.4, false, isCardInView)}
+                    >
+                      <IconWrapper
+                        className="node__icon"
+                        animation={fadeInScale(0.8)}
+                      >
+                        <NodeIcon />
+                      </IconWrapper>
+                      <IconWrapper
+                        className="react__icon"
+                        animation={fadeInScale(1.0)}
+                      >
+                        <ReactIcon />
+                      </IconWrapper>
+                    </motion.div>
+                  </>
+                </div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 800 800"
+                opacity="1"
+                className="tech-stack__bg"
+              >
+                <g strokeWidth="1" stroke="var(--second-color)" fill="none"></g>
+              </svg>
+              <motion.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 800 800"
+                opacity="1"
+                className="tech-stack__bg-two"
+                style={{
+                  "--x": x,
+                  "--y": y,
+                  "--z": z,
+                  "--rotateX": rotateX,
+                  "--rotateZ": rotateZ,
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <g strokeWidth="0.5" stroke="var(--second-color)" fill="none">
+                  {/* Squares */}
+                  {[...Array(12)].map((_, row) =>
+                    [...Array(12)].map((_, col) => (
+                      <rect
+                        key={`${row}-${col}`}
+                        width="60"
+                        height="60"
+                        x={col * 80}
+                        y={row * 80}
+                        transform={`rotate(45 ${col * 80 + 30} ${
+                          row * 80 + 30
+                        })`}
+                        opacity={0.6}
+                      />
+                    ))
+                  )}
+                </g>
+              </motion.svg>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* <motion.p className="stack-text">
+        I craft modern web experiences with JavaScript—building dynamic
+        interfaces, scalable backends, and seamless full-stack solutions.
+      </motion.p> */}
+        <div className="stacks-container">
+          <div ref={textContainerRef} className="s-container">
+            <motion.div className="s-timeline" style={{ x: textX }}>
+              {stacks.map(({ title, description, icon, link }, i) => {
+                return (
+                  <div className="s-item">
+                    <div className="s-item-img__container">
+                      <img src={icon} alt={title} />
+                    </div>
+                    <span className="s-title">{title}</span>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+          <div ref={textContainerRef} className="s-container">
+            <motion.div className="s-timeline" style={{ x: stackTwotextX }}>
+              {stacksTwo.map(({ title, description, icon, link }, i) => {
+                return (
+                  <div className="s-item">
+                    <div className="s-item-img__container">
+                      <img src={icon} alt={title} />
+                    </div>
+                    <span className="s-title">{title}</span>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="stack">
+          {/* <div className="stack-text__container">
+        <motion.p className="stack-text" style={{ top: textY }}>
+            I craft modern web experiences with JavaScript—building dynamic
+            interfaces, scalable backends, and seamless full-stack solutions.
+          </motion.p>  
+        </div> */}
+          {/* <div ref={textContainerRef} className="stack-languages">
+          {stacks.map(({ title, description, icon, link }, i) => {
+            return (
+              <StackBox
+                key={i}
+                title={title}
+                description={description}
+                icon={icon}
+                link={link}
+              />
+            );
+          })}
+        </div> */}
         </div>
       </div>
-    </>
+    </Section>
   );
 }
 
@@ -58,7 +259,7 @@ const IconWrapper = ({ children, className, animation }) => (
   </motion.span>
 );
 
-const JavascriptIcon = ({ className }) => (
+const JavascriptIcon = ({ className, isCardInView }) => (
   <motion.span
     initial={{ scale: 0.8, opacity: 0 }}
     whileInView={{ scale: 1, opacity: 1 }}
@@ -95,31 +296,48 @@ C433.706,340.486,474.331,355.693,470.696,409.917z"
     </svg>
     <motion.span
       initial={{ opacity: 0.5, scale: 1 }}
-      animate={{
-        opacity: [0.5, 1, 0.8, 0.5],
-        scale: [1, 1.2, 1.1, 1],
-      }}
-      transition={{
-        delay: 0,
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "mirror",
-      }}
-    ></motion.span>
+      animate={
+        isCardInView
+          ? {
+              opacity: [0.5, 1, 0.8, 0.5],
+              scale: [1, 1.2, 1.1, 1],
+            }
+          : { opacity: 0.5, scale: 1 } // freeze
+      }
+      transition={
+        isCardInView
+          ? {
+              delay: 0,
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "mirror",
+            }
+          : { duration: 0 }
+      }
+    />
 
     <motion.span
       initial={{ opacity: 0.5, scale: 1 }}
-      animate={{
-        opacity: [0.5, 0.9, 0.7, 0.5],
-        scale: [1, 1.15, 1.05, 1],
-      }}
-      transition={{
-        delay: 0.5, // Slight delay to create a staggered, cohesive effect
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "mirror",
-      }}
-    ></motion.span>
+      animate={
+        isCardInView
+          ? {
+              opacity: [0.5, 0.9, 0.7, 0.5],
+              scale: [1, 1.15, 1.05, 1],
+            }
+          : { opacity: 0.5, scale: 1 } // freeze
+      }
+      transition={
+        isCardInView
+          ? {
+              delay: 0.5, // staggered effect
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "mirror",
+            }
+          : { duration: 0 }
+      }
+    />
+
     <motion.span
       animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
     ></motion.span>
@@ -236,33 +454,4 @@ const ExpressIcon = () => (
   <svg viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
     <path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z" />
   </svg>
-);
-
-const StackHeader = () => (
-  <motion.span style={{ overflow: "hidden" }}>
-    <motion.h1
-      className="about__title"
-      initial={{ y: 120, opacity: 0 }}
-      whileInView={{ y: 0, opacity: [0, 1] }}
-      transition={{ delay: 1, duration: 1 }}
-      style={{ textShadow: `0px 6px 2px #ffae0079` }}
-    >
-      {/* One Path, Limitless Potential. */}
-      Infinite Possibilities in One Ecosystem.
-    </motion.h1>
-  </motion.span>
-);
-
-const RotateIcon = ({ children }) => (
-  <motion.div
-    initial={{ rotate: "360deg" }}
-    animate={{ rotate: "0deg" }}
-    transition={{
-      duration: 6,
-      repeat: Infinity,
-      repeatType: "loop",
-    }}
-  >
-    {children}
-  </motion.div>
 );
