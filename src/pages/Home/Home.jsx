@@ -5,15 +5,160 @@ import Experience from "../../components/experience/Experience";
 import About from "../../components/About/About";
 import Services from "../../components/Services/Services";
 import "./Home.css";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ProgressBar from "../../components/animations/ProgressBar";
+import TechStackBanner from "../../components/Services/TechStackBanner";
+import Section from "../../components/Section";
+import { FaServicestack } from "react-icons/fa6";
+import { MouseProvider } from "../../hooks/useMouse";
+import {
+  GlowCard,
+  GlowCardGrid,
+  MouseDebugger,
+} from "../../components/GlowingCard";
+import { useRef } from "react";
+import AnimatedText from "../../components/animations/AnimatedText";
 
 const Home = () => {
+  const iconRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: iconRef,
+    offset: ["start start", "end end"],
+  });
+
+  const Y = useTransform(scrollYProgress, [0, 1], [-30, 100]);
+
+  const cardSetting = {
+    baseHue: 200,
+    spread: 0,
+    saturation: 300,
+    lightness: 20,
+    size: 300,
+    radius: 20,
+    border: 3,
+    bgSpotOpacity: 0.1,
+    outerGlow: false,
+  };
   return (
-    <main className="home">
-      <Hero />
+    <main className="home container ">
+      {/* <Hero /> */}
       <LatestProjects />
-      <Services />
+
+      <Section
+        sectionTitle="services"
+        icon={<FaServicestack />}
+        sectionSubtitle="what i offer to you as client"
+      >
+        <MouseProvider>
+          <div className="home__quotes">
+            <GlowCard className="ss one" {...cardSetting}>
+              <div ref={iconRef} className="content-container">
+                <h1>Frontend Excellence, Backend Mastery</h1>
+                <p>
+                  <AnimatedText
+                    speed={0.02}
+                    text="I design sleek, responsive interfaces and build powerful
+                      server-side systems—delivering complete, end-to-end web
+                      solutions with efficiency and scalability."
+                  />
+                </p>
+                <div className="img__container ">
+                  <motion.img
+                    style={{ y: Y }}
+                    src="./front-icon.png"
+                    alt="frontend icon"
+                  />
+                </div>
+              </div>
+            </GlowCard>
+
+            <GlowCard className="ss two" {...cardSetting} baseHue={700}>
+              <div className="content-container">
+                <h1>From UI to API, I’ve Got It Covered</h1>
+                <p>
+                  <AnimatedText
+                    speed={0.02}
+                    text="With expertise in frontend frameworks, backend
+                      architectures, and databases, I create seamless
+                      applications that connect performance with usability."
+                  />
+                </p>
+
+                <div className="img__container ">
+                  <motion.img
+                    style={{ y: Y }}
+                    src="./ui-icon.png"
+                    alt="ui icon"
+                  />
+                </div>
+              </div>
+            </GlowCard>
+
+            <GlowCard className="ss three" {...cardSetting} baseHue={840}>
+              <div className="content-container">
+                <h1>Scaling Ideas into Real-World Products</h1>
+                <p>
+                  <AnimatedText
+                    speed={0.02}
+                    text="Whether building interactive user interfaces or
+                      engineering secure, high-performance backends, I turn
+                      concepts into impactful digital products."
+                  />
+                </p>
+
+                <div className="img__container ">
+                  <motion.img
+                    style={{ y: Y }}
+                    src="./back-icon.png"
+                    alt="backend icon"
+                  />
+                </div>
+              </div>
+            </GlowCard>
+
+            {/* Optional fourth card */}
+            <GlowCard className="ss four" {...cardSetting} baseHue={400}>
+              <div className="content-container">
+                <h1>Full-Stack Development, One Skillset</h1>
+                <p>
+                  <AnimatedText
+                    speed={0.02}
+                    text="I integrate frontend, backend, and cloud technologies to
+                      deliver complete web applications—scalable, maintainable,
+                      and built for long-term growth."
+                  />
+                </p>
+
+                <div className="img__container ">
+                  <motion.img
+                    style={{ y: Y }}
+                    src="./cloud-icon.png"
+                    alt="cloud icon"
+                  />
+                </div>
+              </div>
+            </GlowCard>
+          </div>
+        </MouseProvider>
+      </Section>
+      <TechStackBanner />
+
+      {/* <div>
+        <h1>More than a decade building for the web</h1>
+        <p>
+          Design is at the heart of everything I do, I believe that a close
+          relationship between visual design, UX and front-end engineering
+          expertise leads to a better customer experience within digital
+          products. As a specialist in modular design systems and component
+          libraries, I work to bridge the gap between design and engineering
+          disciplines and am a catalyst for fast, iterative processes within
+          agile product teams. My technical experience spans a wealth of
+          front-end technologies ranging from modern SPA frameworks to run-time
+          performance profiling, testing and accessibility.
+        </p>
+      </div> */}
+      {/* <Services /> */}
+
       {/* <About /> */}
       {/* <Experience /> */}
       <Contact />
