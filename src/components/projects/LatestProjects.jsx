@@ -24,14 +24,14 @@ export default function LatestProjects() {
     container: conRef,
     offset: ["start end", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 0.75, 1.5]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1.4]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 1], [-3000, 0]);
-  useEffect(() => {
-    return scrollYProgresss.onChange((latest) => {
-      console.log("Page scroll: ", latest);
-    });
-  }, [scrollYProgresss]);
+  const x = useTransform(scrollYProgress, [0, 1], [-3500, 0]);
+  // useEffect(() => {
+  //   return scrollYProgresss.onChange((latest) => {
+  //     console.log("Page scroll: ", latest);
+  //   });
+  // }, [scrollYProgresss]);
 
   return (
     <Section
@@ -58,16 +58,18 @@ export default function LatestProjects() {
           );
         })}
         <div ref={conRef} className="explore__all__projects">
-          <motion.h1
-            style={{
-              // scale,
-              opacity,
+          <div>
+            <motion.h1
+              style={{
+                scale,
+                opacity,
 
-              x,
-            }}
-          >
-            You want to see more ?
-          </motion.h1>
+                x,
+              }}
+            >
+              Want More Projects ?
+            </motion.h1>
+          </div>
           <Link to={"/projects"}>
             <Button
               // to={"/projects"}
