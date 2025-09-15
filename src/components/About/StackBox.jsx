@@ -1,12 +1,18 @@
+import { motion } from "framer-motion";
 import "./StackBox.css";
-
-import { Link } from "react-router-dom";
 
 import { TiArrowRightThick } from "react-icons/ti";
 
 export default function StackBox({ title, description, icon, link }) {
   return (
-    <a href={link} target="_blank" rel="noreferrer">
+    <motion.a
+      initial={{ y: 20, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.6 }}
+      href={link}
+      target="_blank"
+      rel="noreferrer"
+    >
       <div className="stack__container">
         <div className="stack__item">
           <div>
@@ -21,6 +27,6 @@ export default function StackBox({ title, description, icon, link }) {
           <TiArrowRightThick />
         </div>
       </div>
-    </a>
+    </motion.a>
   );
 }

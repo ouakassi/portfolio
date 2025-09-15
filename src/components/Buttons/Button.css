@@ -2,33 +2,45 @@
   display: flex;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 30px;
   background-color: #6421f2;
-  background: radial-gradient(circle, #6421f2 80%, #7a718d 200%),
-    url("../../images/patterns/nnnoisee.svg");
-  background: radial-gradient(circle, #0690c7 20%, #000000 200%);
+  background: radial-gradient(circle, #000000 20%, #ffffff 200%);
+  background: radial-gradient(ellipse at top, #3b3b3b 20%, #000000 200%);
   text-transform: capitalize;
-  color: white;
+  color: rgb(255 255 255);
   font-size: var(--fs-m);
   font-weight: var(--font-bold);
   font-family: var(--font-4);
   border: none;
-  border: 1px solid #357892;
+  border: 1px solid #ffffff18;
   cursor: pointer;
-  /* box-shadow: #6321f279 0px 0px 30px 2px; */
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 1px 2px;
+
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  background-color: #6421f2;
+  background: radial-gradient(circle, #000000 20%, #ffffff 200%);
+  background: radial-gradient(ellipse at top, #00f5ff21 20%, #000000 200%);
+  text-transform: capitalize;
+  color: rgb(255 255 255);
+  font-size: var(--fs-m);
+  font-weight: var(--font-bold);
+  font-family: var(--font-4);
+  border: none;
+  border: 1px solid #ffffff18;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgb(0 255 198 / 30%) 0px 0px 2px;
 }
 .button:hover {
-  background-color: var(--bg-color);
-  /* filter: brightness(1.1); */
-  padding: 1rem 1.8rem;
+  /* background: radial-gradient(circle, #031720 60%, #133331 200%); */
+  background-color: #03a8c5;
 
-  /* box-shadow: #22c0ff 0px 0px 10px 1px; */
-  background: radial-gradient(circle, #04608f 60%, #22c0ff 200%);
-  /* background: radial-gradient(circle at 20% 20%, #22c0ff 80%, #22c0ff 200%); */
-
-  border: 1px solid var(--main-color);
-  /* scale: 1.05; */
+  /* border: 1px solid var(--main-color); */
+  box-shadow: rgb(0, 255, 234) 0px 0px 1px 1px;
 }
 .button:active {
   scale: 0.9;

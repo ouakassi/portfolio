@@ -1,48 +1,119 @@
 import "./ContactPage.css";
-import IMAGES from "../images";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+
+import React, { useState } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 export default function ContactPage() {
-  const imgRef = useRef(null);
-  const containerRef = useRef(null);
-  const { scrollY } = useScroll({ container: containerRef });
-
-  // Use scroll position to transform the element properties
-  // const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  // const transformX = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
-  // const transformY = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
-
-  const images = [
-    { id: "1", imgUrl: IMAGES.projectOneImg, title: "Project 1" },
-    { id: "2", imgUrl: IMAGES.projectTwoImg, title: "Project 2" },
-    { id: "3", imgUrl: IMAGES.projectTwoImg, title: "Project 3" },
-    { id: "4", imgUrl: IMAGES.projectTwoImg, title: "Project 4" },
-    { id: "5", imgUrl: IMAGES.projectTwoImg, title: "Project 5" },
-  ];
-
-  // transform: translate(24.4397%, 0%) translate3d(0px, 0px, 0.1px)
-  // rotate(-4.8879deg) skew(7.3319deg, 0deg) scale(1.0244, 1);
-
   return (
-    <div>
-      <motion.div ref={containerRef} className="grid-container" style={{}}>
-        {images.map(({ id, imgUrl, title }) => (
-          <motion.div
-            className="grid-item"
-            style={{
-              opacity: scrollY,
-              //   x: scrollYProgress,
-              //   y: scrollYProgress,
-            }}
-            transition={{
-              duration: 0.5, // Adjust transition duration
-            }}
-          >
-            <motion.img key={id} src={imgUrl} alt={title} />
-          </motion.div>
-        ))}
-      </motion.div>
+    <div
+      style={{
+        padding: "2rem",
+        fontFamily: "Arial, sans-serif",
+        fontSize: "2rem",
+      }}
+    >
+      <h1>Hover Over the Text Below</h1>
+      <TextAnimator text="Hello, World!" />
     </div>
   );
 }
+
+const lettersAndSymbols = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "-",
+  "_",
+  "+",
+  "=",
+  ";",
+  ":",
+  "<",
+  ">",
+  ",",
+];
+
+// Helper to split text into individual characters
+const splitText = (text) => text.split("");
+
+const TextAnimator = ({ text }) => {
+  const [chars] = useState(() => splitText(text)); // Store the original text as an array of characters
+
+  const randomChar = () =>
+    lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
+
+  console.log(lettersAndSymbols);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: "0.2em",
+        cursor: "pointer",
+        fontSize: "2rem",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      {chars.map((char, index) => (
+        <motion.span
+          key={index}
+          initial={{ opacity: 1, y: 0 }}
+          animate={{
+            y: -10, // Move up
+            opacity: [1, 0, 1], // Fade out and back in
+            transition: {
+              duration: 0.5,
+              repeat: 2,
+              repeatType: "reverse",
+              delay: index * 0.1, // Stagger the animation
+            },
+          }}
+          style={{
+            display: "inline-block",
+            position: "relative",
+          }}
+        >
+          <motion.span
+            initial={{ opacity: 1 }}
+            animate={{
+              transition: { duration: 0.2, repeat: 2, repeatType: "reverse" },
+            }}
+          >
+            {randomChar()}
+          </motion.span>
+        </motion.span>
+      ))}
+    </div>
+  );
+};

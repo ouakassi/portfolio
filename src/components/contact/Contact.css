@@ -20,3 +20,8 @@
 .contact__container button {
   justify-self: end;
 }
+
+.contact .second__arrow {
+  max-width: 20rem;
+  max-height: 20rem;
+}

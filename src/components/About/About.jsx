@@ -54,7 +54,7 @@ export default function About() {
 
   return (
     <Section
-      className="about"
+      className="about__page"
       id="about"
       icon={<FaUserNinja />}
       sectionTitle="About me"
@@ -116,8 +116,6 @@ export default function About() {
             <span className="about__me-quote">&rdquo;</span>
           </div>
         </div>
-       
-        
 
         <p className="about__text">
           Backed by 4+ years of web development experience, I prefer JavaScript

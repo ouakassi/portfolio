@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa6";
 import IMAGES from "../../images";
 import Button from "../Buttons/Button";
+import SecondArrow from "./SecondArrow";
 
 const Contact = () => {
   const CONTACT_DATA = [
@@ -49,6 +50,7 @@ const Contact = () => {
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           viewBox="0 0 800 800"
+          aria-label="Decorative arrow"
         >
           <g
             strokeWidth="9"
@@ -82,9 +84,10 @@ const Contact = () => {
           </defs>
         </svg>
       </motion.div>
-      <a href="mailto:ouakassicontactcontac@gmail.com">
+      <a href="mailto:ouakassi.oussama@gmail.com" aria-label="Send email">
         <Button title="Send me a message" icon={<FaEnvelope />} />
       </a>
+      <SecondArrow />
     </Section>
   );
 };

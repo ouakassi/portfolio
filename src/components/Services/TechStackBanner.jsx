@@ -62,6 +62,8 @@ export default function TechStackBanner() {
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   const textX = useTransform(stackScrollYProgress, [0, 1], [100, -100]);
+  const titleX = useTransform(stackScrollYProgress, [0, 1], [0.9, 1.2]);
+
   const stackTwotextX = useTransform(
     stackTwoScrollYProgress,
     [0, 1],
@@ -76,6 +78,14 @@ export default function TechStackBanner() {
       sectionTitle="Stack"
       sectionSubtitle="my go to stack"
     >
+      {/* <div ref={textContainerRef} className="">
+        <motion.h1 className="stack-text" style={{ scale: titleX }}>
+          <AnimatedText
+            speed={0.02}
+            text={"Over 4 years of experience building for the web."}
+          />
+        </motion.h1>
+      </div> */}
       <div className="home__techstack">
         <div ref={cardRef} className="stack-entry">
           <div className="home__techstack-text">
@@ -86,7 +96,15 @@ export default function TechStackBanner() {
                 text={"Code. Create. Scale. With JavaScript."}
               />
             </h1>
-          </div>{" "}
+            <p className="stack-text">
+              <AnimatedText
+                speed={0.01}
+                text="Over 4 years of experience building for the web.
+            I craft modern web experiences with JavaScript—building dynamic
+              interfaces, scalable backends, and seamless full-stack solutions."
+              />
+            </p>
+          </div>
           <div className="techstack__container">
             <motion.div
               style={{
@@ -192,10 +210,6 @@ export default function TechStackBanner() {
           </div>
         </div>
 
-        {/* <motion.p className="stack-text">
-        I craft modern web experiences with JavaScript—building dynamic
-        interfaces, scalable backends, and seamless full-stack solutions.
-      </motion.p> */}
         <div className="stacks-container">
           <div ref={textContainerRef} className="s-container">
             <motion.div className="s-timeline" style={{ x: textX }}>
@@ -225,15 +239,20 @@ export default function TechStackBanner() {
               })}
             </motion.div>
           </div>
+
+          {/* <motion.p className="stack-text">
+            The adaptability and extensive ecosystem empower me to deliver rapid
+            and scalable solutions with ease.
+          </motion.p> */}
         </div>
 
         <div className="stack">
           {/* <div className="stack-text__container">
-        <motion.p className="stack-text" style={{ top: textY }}>
-            I craft modern web experiences with JavaScript—building dynamic
-            interfaces, scalable backends, and seamless full-stack solutions.
-          </motion.p>  
-        </div> */}
+            <motion.p className="stack-text">
+              I craft modern web experiences with JavaScript—building dynamic
+              interfaces, scalable backends, and seamless full-stack solutions.
+            </motion.p>
+          </div> */}
           {/* <div ref={textContainerRef} className="stack-languages">
           {stacks.map(({ title, description, icon, link }, i) => {
             return (

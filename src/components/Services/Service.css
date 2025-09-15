@@ -1,10 +1,16 @@
 .service__box {
-  max-width: 40rem;
+  max-width: 60rem;
+  /* min-height: 20rem; */
   padding: 4rem;
   border: 2px solid var(--second-color-lite);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-  min-height: 42rem;
+  background: radial-gradient(circle, var(--bg-color-3) 0%, rgb(0, 0, 0) 100%);
+  /* position: absolute; */
+  /* transform: translateY(100px); */
+}
+.service__box:hover {
+  background: radial-gradient(circle, var(--bg-color-3) 10%, rgb(0, 0, 0) 100%);
 }
 .service__box .code {
   font-family: var(--font-1);
@@ -20,7 +26,7 @@
   /* justify-content: center; */
 }
 .service__box img {
-  width: 6rem;
+  width: 5rem;
   filter: invert();
 }
 
@@ -36,7 +42,7 @@
   /* background: transparent; */
 }
 .service__box header .hline {
-  z-index: -1;
+  z-index: 1;
   position: absolute;
   content: "";
   left: 0;
@@ -48,6 +54,7 @@
 }
 
 .service__box p {
+  text-transform: capitalize;
   font-size: var(--fs-m);
 }
 

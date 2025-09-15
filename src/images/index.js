@@ -1,4 +1,5 @@
 const IMAGES = {
+  // Logos / Tech Stack
   jsImg: require("./languages/js.svg").default,
   reactImg: require("./languages/react.svg").default,
   nodeImg: require("./languages/node.svg").default,
@@ -9,6 +10,22 @@ const IMAGES = {
   expressImg: require("./languages/express.svg").default,
   nextImg: require("./languages/next.svg").default,
   defaultLanguageImg: require("./languages/code.svg").default,
+
+  tailwindImg: "./tailwind.svg",
+  reduxImg: "./redux.svg",
+  framerImg: "./framer-motion.svg",
+  sassImg: "./sass.svg",
+  // graphqlImg: "./graphql.svg",
+  // strapiImg: "./strapi.svg",
+  // stripeImg: "./stripe.svg",
+  // postgresImg: "./postgres.svg",
+  mysqlImg: "./mysql.svg",
+  // sequelizeImg: "./sequelize.svg",
+  gitImg: "./git.svg",
+  // jestImg: "./jest.svg",
+  // webpackImg: "./webpack.svg",
+  viteImg: "./vite.svg",
+  dockerImg: "./docker.svg",
 
   logo: require("./logos/logo.png"),
   highSchoolLogo: require("./logos/high-school.jpg"),
@@ -21,25 +38,29 @@ const IMAGES = {
 
   pageNotfound: require("./errors/page-notfound.png"),
 
-  allIcon: require("./projects/all.png"),
-  backendIcon: require("./projects/backend.png"),
-  frontendIcon: require("./projects/frontend.png"),
-  fullstackIcon: require("./projects/fullstack.png"),
-  landingPageIcon: require("./projects/landing-page.png"),
-  uiElementsIcon: require("./projects/ui.png"),
+  allIcon: require("./projects/icons/all.png"),
+  backendIcon: require("./projects/icons/backend.png"),
+  frontendIcon: require("./projects/icons/frontend.png"),
+  fullstackIcon: require("./projects/icons/fullstack.png"),
+  landingPageIcon: require("./projects/icons/landing-page.png"),
+  uiElementsIcon: require("./projects/icons/ui.png"),
 
-  oussamaImg: require("./photos/me.webp"),
+  oussamaImg: require("./photos/me.png"),
   cartoonImg: require("./photos/my-image.webp"),
 
+  // services bgs
   serviceBackendIcon: require("./services/backend.png"),
   serviceFrontendIcon: require("./services/frontend.png"),
   serviceSoftwareIcon: require("./services/software.png"),
   codeBg: require("./services/code.png"),
 
-  projectSodev: require("./projects/sodev.png"),
-  projectOneImg: require("./projects/project-1.jpg"),
-  projectTwoImg: require("./projects/project-2.jpg"),
+  // projects images
+  projectSodev: require("./projects/sodev/sodev-web-mockup.png"),
+  projectSodevMobile: require("./projects/sodev/sodev-mobile-mockup.png"),
+  projectCryptoVault: require("./projects/crypto-vault/crypto-vault-web-mockup.png"),
+  projectCryptoVaultMobile: require("./projects/crypto-vault/crypto-vault-mobile-mockup.png"),
 
+  // backgrounds
   background: require("./patterns/background.png"),
   patternOne: require("./patterns/pattern.svg").default,
   patternTwo: require("./patterns/pattern2.png"),
@@ -49,6 +70,7 @@ const IMAGES = {
   // homeBg: require("./patterns/home-bg.svg").default,
 
   contactIcon: require("./contact/email-me.png"),
+  heroBg: require("./hero/hero-bg.avif"),
 
   // grain: require("./patterns/gggrain.svg"),
 

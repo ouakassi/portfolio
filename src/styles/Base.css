@@ -58,9 +58,3 @@ input:focus,
 textarea:focus {
   outline: none;
 }
-
-@media screen and (max-width: 767px) {
-  body {
-    margin: 0 0 var(--header-height) 0;
-  }
-}

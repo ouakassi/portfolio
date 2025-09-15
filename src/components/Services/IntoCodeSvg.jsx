@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "./HeroSvg.css";
+import "./IntoCodeSvg.css";
 
 export default function HeroSvg() {
   const firstWord = "Ideas";

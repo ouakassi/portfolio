@@ -17,7 +17,7 @@ const routes = [
   { path: "/projects", element: <ProjectsPage /> },
   { path: "projects/:slug", element: <ProjectPage /> },
   { path: "/about", element: <AboutPage /> },
-  { path: "/contact", element: <ContactPage /> },
+  // { path: "/contact", element: <ContactPage /> },
   { path: "*", element: <NotFoundPage /> },
 ];
 

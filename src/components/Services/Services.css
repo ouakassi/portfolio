@@ -1,14 +1,13 @@
 .services {
-  margin-bottom: 15rem;
+  /* margin-bottom: 15rem; */
+  position: relative;
 }
+
 .services__container {
   display: flex;
-  max-width: 1200px;
-  gap: 1rem;
-  position: relative;
-  top: 0;
-  left: 0;
-  /* transform: translateY(-40rem); */
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
 }
 
 .services__container .bgg {
@@ -19,19 +18,113 @@
   width: 100%;
   background: linear-gradient(
     108deg,
-    rgba(255, 15, 251, 0.25) 15%,
-    rgba(0, 229, 255, 0.4) 70%,
-    rgba(0, 255, 115, 0.25) 70%
+    rgba(255, 15, 251, 0.2) 15%,
+    rgba(0, 229, 255, 0.2) 70%,
+    rgba(0, 255, 115, 0.2) 70%
   );
-  filter: blur(150px);
+  filter: blur(100px);
   z-index: -1;
 }
 
-.code__bg {
+.code__bg img {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
   /* top: 7rem; */
-  transform: translateY(25rem);
-  max-width: 80%;
-  opacity: 0.1;
+  /* transform: translateY(25rem); */
+  /* max-width: 80%; */
+  opacity: 1;
   z-index: -1;
+}
+
+.ccontainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Grid background */
+.grid-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Central knob */
+.knob {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.knob-inner {
+  width: 60px;
+  height: 60px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+/* Floating nodes */
+.left-nodes {
+  position: absolute;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.node {
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Right node */
+.right-node {
+  position: absolute;
+  right: 10%;
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Connecting lines */
+.connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  stroke: white;
+  stroke-width: 2;
+  opacity: 0.5;
 }

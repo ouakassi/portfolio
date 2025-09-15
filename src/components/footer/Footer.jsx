@@ -8,39 +8,6 @@ import { socialData } from "../../data/socialData";
 const Footer = () => (
   <footer>
     <div className="footer__container container">
-      <div className="footer__nav">
-        <div className="profession">
-          <h2>oussama ouakassi</h2>
-          <h3>Software Engineer at Procol</h3>
-          <h3>Open for side-projects & collaborations</h3>
-        </div>
-        <div style={{ display: "flex", gap: "4rem" }}>
-          <nav>
-            <span>navigate</span>
-            <ul>
-              <li>
-                <Link to={"projects"}>projects</Link>
-              </li>
-              <li>
-                <Link to={"about"}> about me</Link>
-              </li>
-              <li>
-                <Link to={"contact"}>contact</Link>
-              </li>
-            </ul>
-          </nav>
-          <nav>
-            <span>connect</span>
-            <ul>
-              {socialData.map(({ link, title }) => (
-                <li key={title}>
-                  <a href={link}>{title}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
       <div className="footer__links">
         {socialData.map(({ link, icon }) => {
           return <SocialLink key={link} link={link} icon={icon} />;

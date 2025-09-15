@@ -10,21 +10,24 @@ export const socialData = [
     title: "linkedin",
     link: "https://www.linkedin.com/in/oussama-ouakassi-28372216a/",
     icon: <FaLinkedin />,
+    color: "#0A66C2",
   },
   {
     title: "mail",
-
     link: "mailto:ouakassicontact@gmail.com",
     icon: <FaEnvelope />,
+    color: "#EA4335",
   },
   {
-    title: "twitter",
+    title: "twitter | X",
     link: "https://twitter.com/OuakassiOussama",
     icon: <FaSquareXTwitter />,
+    color: "#1DA1F2",
   },
   {
     title: "github",
     link: "https://github.com/ouakassi",
     icon: <FaGithub />,
+    color: "rgb(207, 207, 207)",
   },
 ];

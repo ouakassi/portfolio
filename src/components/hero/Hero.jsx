@@ -5,20 +5,25 @@ import {
   AnimatePresence,
   motion,
   useAnimation,
+  useInView,
   useScroll,
+  useTransform,
 } from "framer-motion";
 import { socialData } from "../../data/socialData";
 import { ShowMoreButton } from "../Buttons/ShowMoreButton";
 import GlowingText from "../GlowingText";
 import HeroSvg from "../Services/IntoCodeSvg";
 import Button from "../Buttons/Button";
-import { FaFolderTree, FaUserNinja } from "react-icons/fa6";
+import { FaCircleDot, FaFolderTree, FaUserNinja } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import AnimatedText from "../animations/AnimatedText";
 import VerticalLines from "../backgrounds/VerticalLines";
 import TechStackBanner from "../Services/TechStackBanner";
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../../images";
+import { DiDotnet } from "react-icons/di";
+import { BsDot } from "react-icons/bs";
+import SocialIcon from "../contact/SocialIcon";
 
 const BlurAnimation = ({ text }) => {
   // const words = sentence.split(/(\s+)/);
@@ -72,45 +77,86 @@ const BlurAnimation = ({ text }) => {
 };
 
 const Hero = () => {
+  const texts = ["Oussama Ouakassi", "Software Engineer"];
+  const [index, setIndex] = useState(0);
+
+  const isMyName = index === 0;
+
+  useEffect(() => {
+    // Duration of one cycle = length * speed + pause
+    const typingSpeed = 0.1 * 1000; // convert to ms
+    const currentText = texts[index];
+    const typingDuration = currentText.length * typingSpeed;
+
+    const timer = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % texts.length); // loop back
+    }, typingDuration + 1200); // wait typing + 1s pause
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const rotateY = useTransform(scrollY, [0, 400], [0, 360]);
+  const rotateX = useTransform(scrollY, [0, 400], [0, 360]);
+
   return (
     <section className="hero__section">
-      {/* <div className="hero__header">
-        <GlitchText text="oussana" />
-        <h1>
-          <GlowingText
-            className="profession"
-            text={<AnimatedText text={"Hi you, I'm"} />}
-          />
-        </h1>
-        <div>
-          <BlurAnimation text={"oussama"} />
-          <BlurAnimation text={"ouakassi"} />
-        </div>
-
-        <GlowingText
-          className="profession"
-          text={<AnimatedText text={"oussama"} />}
-        />
-      </div> */}
       <div className="hero__content">
-        <img src={IMAGES.heroBg} alt="" />
-        <div className="bg"></div>
+        <motion.img
+          className="hero__img-background"
+          initial={{ scale: 0.2 }}
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 1, delay: 0.5 }}
+          src={IMAGES.heroBg}
+          alt=""
+        />
+        <motion.div
+          initial={{ opacity: 0.2 }}
+          animate={{ opacity: 0.1 }}
+          transition={{ duration: 1.5, delay: 0.6 }}
+          className="bg"
+        ></motion.div>
         <div className="hero__body">
+          <span className="work-badge">
+            <FaCircleDot fontSize={"1rem"} />
+            open for work
+          </span>
           <div className="hero__intro">
-            <h3 className="hero__subtitle">
-              <GlowingText
-                fs={"1.8rem"}
-                color={"var(--second-color)"}
-                text={<AnimatedText speed={0.1} text={"Software Engineer"} />}
-              />
+            <h3 className="hero__subtitle ">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={texts[index]} // 🔑 important so AnimatePresence knows it's new
+                  initial={{ opacity: 0, x: -40 }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                    // color: isMyName
+                    //   ? "var(--main-color)"
+                    //   : "var(--second-color)",
+                    // textTransform: isMyName ? "uppercase" : "capitalize",
+                    // fontFamily: isMyName ? "var(--font-6)" : null,
+                  }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute w-full text-center"
+                  style={{ width: "100%" }}
+                >
+                  <GlowingText
+                    fs={"1.8rem"}
+                    color={"inherit"}
+                    text={<AnimatedText speed={0.1} text={texts[index]} />}
+                  />
+                </motion.div>
+              </AnimatePresence>
             </h3>
             <h1 className="hero__title">
-              {/* Building next-generation user interfaces out of the UK */}
               <AnimatedText
                 speed={0.05}
                 text={"Designing & developing the future of the web."}
               />
             </h1>
+
             <div className="hero__actions">
               <a href={"#projects"}>
                 <Button
@@ -124,8 +170,15 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <SpotlightCard>
-            <motion.div className="hero__image-container">
+
+          <motion.div className="hero__main">
+            {/* <SpotlightCard> */}
+
+            <motion.div
+              style={{}}
+              transition={{ ease: "easeOut", duration: 0.2 }}
+              className="hero__image-container"
+            >
               <div>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -141,23 +194,29 @@ const Hero = () => {
                   alt="it's me"
                 />
               </div>
-              <motion.div
-                initial={{ y: -10, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.2, delay: 0.8 }}
-                className="hero__social"
-              >
-                {socialData.map(({ link, icon }, i) => {
-                  return <SocialLink key={i} link={link} icon={icon} />;
-                })}
-              </motion.div>
-              {/* <span>Web Developer</span> */}
               <motion.span className="image__bg"></motion.span>
             </motion.div>
-          </SpotlightCard>
-
-          {/* <GlowingText text={<AnimatedText text={"Web Developer"} />} /> */}
+            <motion.div
+              initial={{ y: -10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.2, delay: 0.8 }}
+              className="hero__social"
+            >
+              {socialData.map(({ link, icon, title, color }, i) => {
+                return (
+                  <SocialIcon
+                    key={title}
+                    link={link}
+                    title={title}
+                    icon={icon}
+                    color={color}
+                  />
+                );
+              })}
+            </motion.div>
+            {/* </SpotlightCard> */}
+          </motion.div>
         </div>
 
         <div className="hero__bg-gradient"></div>
@@ -230,7 +289,7 @@ const SpotlightCard = ({ children }) => {
       onMouseLeave={handleMouseLeave}
       style={{
         borderRadius: "25px",
-        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.4), #000 60%)`,
+        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(1, 255, 255, 0.4), #000 60%)`,
         boxShadow: "0 15px 25px rgba(0, 0, 0, 0.2)",
         position: "relative",
         overflow: "hidden",
@@ -293,24 +352,34 @@ const GlitchText = ({ text }: { text: string }) => {
   );
 };
 
-// timelineData.js
-export const timelineData = [
-  {
-    company: "vfs global",
-    icon: "/companies/vfs-logo.png",
-  },
+const timelineData = [
   {
     company: "Sodev",
     icon: "/companies/sodev.png",
   },
   {
+    company: "vfs global",
+    icon: "/companies/vfs-logo.png",
+  },
+  {
+    company: "fiverr",
+    icon: "/companies/fiver-logo.png",
+  },
+  {
     company: "sanipro",
     icon: "/companies/sanipro-logo.png",
+  },
+  {
+    company: "upwork",
+    icon: "/companies/upwork-logo.svg",
   },
 ];
 
 const HorizontalTimeline = () => {
-  const tripleData = [...timelineData, ...timelineData, ...timelineData];
+  const timelineRef = useRef();
+  const isTimelineInView = useInView(timelineRef, { amount: 0.8 });
+
+  const timeLineDataArray = Array(5).fill(timelineData).flat();
 
   return (
     <motion.div
@@ -318,18 +387,25 @@ const HorizontalTimeline = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8, delay: 1.2 }}
       className="timeline-container"
+      ref={timelineRef}
     >
       <motion.div
         className="timeline-track"
-        animate={{ x: ["0%", "-100%"] }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 30,
-          ease: "linear",
-        }}
+        key={isTimelineInView ? "running" : "stopped"}
+        animate={isTimelineInView ? { x: ["0%", "-100%"] } : {}}
+        transition={
+          isTimelineInView
+            ? {
+                delay: 1.2,
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              }
+            : { duration: 0 }
+        }
       >
-        {tripleData.map((item, index) => (
+        {timeLineDataArray.map((item, index) => (
           <div key={index} className="timeline-item">
             <div className="timeline-icon">
               <img src={item.icon} alt={item.company} />
@@ -340,5 +416,82 @@ const HorizontalTimeline = () => {
         ))}
       </motion.div>
     </motion.div>
+  );
+};
+
+const Noise = ({
+  patternSize = 250,
+  patternScaleX = 1,
+  patternScaleY = 1,
+  patternRefreshInterval = 2,
+  patternAlpha = 15,
+}) => {
+  const grainRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = grainRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    let frame = 0;
+    let animationId;
+    const canvasSize = 1024;
+
+    const resize = () => {
+      if (!canvas) return;
+      canvas.width = canvasSize;
+      canvas.height = canvasSize;
+
+      canvas.style.width = "100vw";
+      canvas.style.height = "100vh";
+    };
+
+    const drawGrain = () => {
+      const imageData = ctx.createImageData(canvasSize, canvasSize);
+      const data = imageData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const value = Math.random() * 255;
+        data[i] = value;
+        data[i + 1] = value;
+        data[i + 2] = value;
+        data[i + 3] = patternAlpha;
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+    };
+
+    const loop = () => {
+      if (frame % patternRefreshInterval === 0) {
+        drawGrain();
+      }
+      frame++;
+      animationId = window.requestAnimationFrame(loop);
+    };
+
+    window.addEventListener("resize", resize);
+    resize();
+    loop();
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.cancelAnimationFrame(animationId);
+    };
+  }, [
+    patternSize,
+    patternScaleX,
+    patternScaleY,
+    patternRefreshInterval,
+    patternAlpha,
+  ]);
+
+  return (
+    <canvas
+      className="noise-overlay"
+      ref={grainRef}
+      style={{ imageRendering: "pixelated" }}
+    />
   );
 };

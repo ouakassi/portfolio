@@ -1,5 +1,5 @@
 .grid-container {
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
 }
