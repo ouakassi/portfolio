@@ -1,0 +1,63 @@
+.icon-container {
+  position: relative;
+  transition: 0.6s all;
+  color: white;
+}
+
+.circles-container {
+  height: 4rem;
+  width: 4rem;
+}
+
+.icon-container .icon {
+  font-size: 2rem;
+  position: absolute;
+  margin: auto;
+  inset: 0;
+  transition: 0.6s all;
+}
+
+.icon-container svg:not(.icon) {
+  position: absolute;
+  margin: auto;
+  inset: 0;
+}
+
+.icon-container .first-circle circle {
+  stroke-dasharray: 20;
+  stroke: rgb(61, 61, 61);
+  stroke-width: 4;
+
+  /* padding: 1rem; */
+  z-index: 1rem;
+}
+
+.icon-container .second-circle circle {
+  fill: none;
+  /* stroke: rgb(207, 207, 207); */
+  stroke-width: 8;
+}
+
+.icon-container:hover .icon {
+  transform: scale(1.2);
+  padding: 0rem;
+}
+
+.tooltip {
+  background-color: rgba(75, 75, 75, 0.2);
+  border: 1px solid rgba(148, 148, 148, 0.349);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0.2rem 1rem;
+  /* width: fit-content; */
+  border-radius: 10px;
+  z-index: -1;
+  backdrop-filter: blur(16px);
+  word-break: keep-all;
+  min-width: max-content;
+}
