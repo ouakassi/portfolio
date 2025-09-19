@@ -36,7 +36,7 @@ export default function PageAnimation({ children }) {
 
   const slider = {
     initial: { top: "100vh" },
-    enter: { top: "-100vh", transition: { duration: 0.8 } },
+    enter: { top: "-100vh", transition: { duration: 2 } },
     exit: {
       top: "-100vh",
       transition: { easing: [0.76, 0, 0.24, 1] },
@@ -53,10 +53,17 @@ export default function PageAnimation({ children }) {
   // };
   return (
     <div>
-      <motion.div className="slider" {...anim(slider)}></motion.div>
-      <motion.div {...anim(perspective)}>
-        <motion.div {...anim(opacity)}>{children}</motion.div>
+      {/* <motion.div className="slider" {...anim(slider)}></motion.div> */}
+      {/* <motion.div {...anim(perspective)}> */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+      >
+        {children}
       </motion.div>
+      {/* </motion.div> */}
     </div>
   );
 }

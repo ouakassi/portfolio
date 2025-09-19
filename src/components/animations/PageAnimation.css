@@ -4,6 +4,8 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: var(--background-color-2);
+  background: red;
+  background: var(--bg-color);
+
   z-index: calc(var(--z-fixed) - 1);
 }
