@@ -33,6 +33,7 @@ const Header = () => {
   const [toggleNav, setToggleNav] = useState(false);
   const [prevScroll, setPrevScroll] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,18 +73,21 @@ const Header = () => {
           <motion.nav
             initial={{ gap: "16rem" }}
             animate={{ gap: "8rem" }}
-            transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
+            transition={{ delay: 0.4, duration: 0.6 }}
             className="nav"
           >
             <Link to="/">
               <motion.div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 // whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="nav__logo"
                 style={{ position: "relative" }}
               >
-                <svg
+                <motion.svg
+                  animate={isHovered ? { x: "120%" } : { x: "0%" }}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 800 800"
                   style={{ width: "100%", height: "100%", maxWidth: "3rem" }}
@@ -197,11 +201,10 @@ const Header = () => {
                       transition={{ duration: 2, delay: 0.5 }}
                     />
                   </motion.g>
-                </svg>
+                </motion.svg>
                 <motion.span
                   initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
+                  animate={isHovered ? { opacity: 0 } : { opacity: 1, x: 0 }}
                 >
                   uakassi
                 </motion.span>
