@@ -1,22 +1,30 @@
+.contact-section {
+}
+
 .contact__container {
   display: flex;
   align-items: center;
-  gap: 5rem;
-  position: relative;
-  margin-bottom: 4rem;
+  gap: 4rem;
+  /* margin-bottom: 4rem; */
+  padding: 8rem 1rem;
+}
+
+.contact__container .img-container {
+  overflow-x: hidden;
+  /* padding: 2rem; */
+}
+.contact__container img {
+  width: 20rem;
 }
 .contact__container H2 {
   font-size: var(--fs-2xl);
   font-family: var(--font-2);
+  font-weight: 300;
+  max-width: 50rem;
+  line-height: 1.6;
+  /* letter-spacing: 4px; */
 }
-.contact__container svg {
-  max-width: 20rem;
-  max-height: 20rem;
-  position: absolute;
-  bottom: -100%;
-  right: 5%;
-  transform: rotate(90deg);
-}
+
 .contact__container button {
   justify-self: end;
 }
@@ -24,4 +32,18 @@
 .contact .second__arrow {
   max-width: 20rem;
   max-height: 20rem;
+}
+
+.button-container {
+  position: relative;
+}
+
+.contact-arrow {
+  max-width: 20rem;
+  max-height: 20rem;
+  position: absolute;
+  bottom: -4%;
+  right: -71%;
+  transform: rotate(56deg);
+  z-index: -1;
 }
