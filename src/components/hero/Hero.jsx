@@ -77,6 +77,7 @@ const BlurAnimation = ({ text }) => {
 };
 
 const Hero = () => {
+  const [isHovered, setIsHovered] = useState(false);
   const texts = ["Oussama Ouakassi", "Software Engineer"];
   const [index, setIndex] = useState(0);
 
@@ -175,7 +176,8 @@ const Hero = () => {
             {/* <SpotlightCard> */}
 
             <motion.div
-              style={{}}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
               transition={{ ease: "easeOut", duration: 0.2 }}
               className="hero__image-container"
             >
@@ -195,6 +197,12 @@ const Hero = () => {
                 />
               </div>
               <motion.span className="image__bg"></motion.span>
+              <motion.div
+                initial={false}
+                animate={isHovered ? { x: "100%" } : { x: "-100%" }}
+                transition={{ duration: 0.4 }}
+                className="glow"
+              ></motion.div>
             </motion.div>
             <motion.div
               initial={{ y: -10, opacity: 0 }}

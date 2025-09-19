@@ -4,8 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Moirai+One&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 @font-face {
   font-family: "Cubano";
@@ -62,7 +61,6 @@
   --font-3: "Rakkas", serif;
   --font-4: "Oxanium", sans-serif;
   --font-5: "Russo One", sans-serif;
-  --font-6: "Moirai One", system-ui;
   --font-7: "Space Grotesk", sans-serif;
 
   /* --fs-6xl: 10rem;
