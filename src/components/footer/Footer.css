@@ -9,54 +9,10 @@
   justify-content: center;
   gap: 2rem;
 }
-.footer__link:hover {
-  color: var(--main-color-liteer);
-}
 
 .footer__copyright {
   font-size: var(--fs-xs);
   text-align: center;
   color: var(--title-color);
   margin-top: 2rem;
-}
-
-.footer__link,
-.footer__social {
-  color: #fff;
-}
-
-.footer__nav {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 4rem;
-  text-transform: capitalize;
-}
-footer a {
-  color: var(--main-color-lite);
-  color: rgb(223, 223, 223);
-
-  transition: 0.2s;
-}
-footer a:hover {
-  color: var(--main-color);
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
-.footer__nav span {
-  font-size: var(--fs-xl);
-  font-weight: bold;
-  color: white;
-}
-
-footer .profession h2 {
-  font-size: 3.6rem;
-  letter-spacing: -3px;
-  font-family: var(--font-4);
-}
-
-footer .profession h3 {
-  color: rgb(223, 223, 223);
-  font-weight: normal;
-  font-size: var(--fs-m);
 }
