@@ -62,38 +62,33 @@ export default function ProjectPage() {
 
   // extract headers from markdown
   useEffect(() => {
-    if (projectMarkdown) {
-      const headers = document.querySelectorAll(
-        ".markdown h1 , .markdown h2 , .markdown h3 , .markdown h4 , .markdown h5 , .markdown h6"
-      );
-      setTocHeaders([...headers]);
-    }
+    if (!projectMarkdown) return;
+
+    const headers = document.querySelectorAll(
+      ".markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6"
+    );
+    setTocHeaders([...headers]);
   }, [projectMarkdown]);
 
   // IntersectionObserver to highlight the active header
   useEffect(() => {
-    if (projectMarkdown) {
-      const headers = document.querySelectorAll(
-        ".markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6"
-      );
-      setTocHeaders([...headers]);
+    if (!tocHeaders.length) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveId(entry.target.id);
-            }
-          });
-        },
-        { rootMargin: "0% 0px -80% 0px", threshold: 0 }
-      );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "0% 0px -80% 0px", threshold: 0 }
+    );
 
-      headers.forEach((header) => observer.observe(header));
+    tocHeaders.forEach((header) => observer.observe(header));
 
-      return () => observer.disconnect();
-    }
-  }, [projectMarkdown]);
+    return () => observer.disconnect();
+  }, [tocHeaders]);
 
   // Handle click on header links to scroll to the corresponding section smoothly
   const handleLinkClick = useCallback((e, id) => {
@@ -150,7 +145,6 @@ export default function ProjectPage() {
               return (
                 <Link
                   onClick={(e) => handleLinkClick(e, header.id)}
-                  reloadDocument
                   to={`#${header.id}`}
                   key={index}
                 >
