@@ -5,6 +5,7 @@ import {
   motion,
   useInView,
   useMotionValue,
+  useSpring,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -23,6 +24,9 @@ export default function Card({ project }) {
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 30, mass: 2 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 30, mass: 2 });
 
   // Format project type
   const formattedProjectType = useMemo(
@@ -87,8 +91,8 @@ export default function Card({ project }) {
     >
       <motion.span
         style={{
-          top: mouseY,
-          left: mouseX,
+          top: springY,
+          left: springX,
         }}
         animate={
           isHovering
@@ -104,10 +108,9 @@ export default function Card({ project }) {
               }
         }
         transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 20,
-          opacity: { duration: 0.4 },
+          scale: { type: "spring", stiffness: 300, damping: 20 },
+          y: { type: "spring", stiffness: 300, damping: 20 },
+          opacity: { duration: 0.4, ease: "easeInOut" },
         }}
         className="card__link"
       >
