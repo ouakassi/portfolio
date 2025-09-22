@@ -1,6 +1,6 @@
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-  padding: 8rem 1rem 3rem 1rem;
+  padding: 5rem 1rem 3rem 1rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -74,8 +74,8 @@
   z-index: -1;
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .section {
     padding: 5rem 0 3rem;
   }
-}
+} */
