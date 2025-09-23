@@ -24,6 +24,7 @@ import IMAGES from "../../images";
 import { DiDotnet } from "react-icons/di";
 import { BsDot } from "react-icons/bs";
 import SocialIcon from "../contact/SocialIcon";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const BlurAnimation = ({ text }) => {
   // const words = sentence.split(/(\s+)/);
@@ -104,14 +105,14 @@ const Hero = () => {
   return (
     <section className="hero__section">
       <div className="hero__content">
-        <motion.img
+        {/* <motion.img
           className="hero__img-background"
           initial={{ scale: 0.2 }}
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 1, delay: 0.5 }}
           src={IMAGES.heroBg}
           alt=""
-        />
+        /> */}
         <motion.div
           initial={{ opacity: 0.2 }}
           animate={{ opacity: 0.1 }}
@@ -309,7 +310,7 @@ const SpotlightCard = ({ children }) => {
   );
 };
 
-const GlitchText = ({ text }: { text: string }) => {
+const GlitchText = ({ text }) => {
   const [glitch, setGlitch] = useState(false);
 
   // Random glitch activation
@@ -387,13 +388,17 @@ const HorizontalTimeline = () => {
   const timelineRef = useRef();
   const isTimelineInView = useInView(timelineRef, { amount: 0.8 });
 
+  const { isMobile } = useWindowSize();
+
   const timeLineDataArray = Array(5).fill(timelineData).flat();
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 1.2 }}
+      transition={
+        isMobile ? { duration: 0.6, delay: 0.2 } : { duration: 0.8, delay: 1 }
+      }
       className="timeline-container"
       ref={timelineRef}
     >
@@ -404,13 +409,15 @@ const HorizontalTimeline = () => {
         transition={
           isTimelineInView
             ? {
-                delay: 1.2,
+                delay: isMobile ? 0.5 : 0.8,
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 30,
+                duration: isMobile ? 15 : 30,
                 ease: "linear",
               }
-            : { duration: 0 }
+            : {
+                duration: 0,
+              }
         }
       >
         {timeLineDataArray.map((item, index) => (
