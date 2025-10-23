@@ -214,6 +214,10 @@
   /* laptops/tablets ↓ */
 }
 @media (max-width: 768px) {
+  .card__content .img__container img {
+    width: 100%;
+  }
+
   .card__content .img__container img:nth-child(2) {
     max-width: 15rem;
   }

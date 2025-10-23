@@ -47,3 +47,26 @@
   transform: rotate(56deg);
   z-index: -1;
 }
+
+@media (max-width: 768px) {
+  .contact__container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .contact-arrow {
+    max-width: 15rem;
+    max-height: 15rem;
+    bottom: 20%;
+    right: -20%;
+  }
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 360px) {
+  .contact-arrow {
+    bottom: 0%;
+    right: 0%;
+  }
+}

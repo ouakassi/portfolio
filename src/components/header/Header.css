@@ -63,7 +63,7 @@
 
 .nav__link:hover {
   /* color: var(--main-color); */
-  font-weight: 600;
+  /* font-weight: 600; */
   background-color: rgb(5, 35, 36);
 }
 

@@ -4,9 +4,6 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  /* overflow-x: hidden; */
-  /* position: relative; */
-  /* position: relative; */
 }
 
 .section__title {
@@ -15,21 +12,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  font-size: calc(var(--fs-2xl) + 1rem);
+  font-size: clamp(4rem, 4vw, 6rem);
   font-family: var(--font-2);
-  /* background: var(--text-gradient-color);
-  --text-gradient-color: linear-gradient(
-    120deg,
-    rgb(29 181 236),
-    rgb(58 231 179) 50%,
-    rgb(58 231 179) 70%
-  ); */
   background-repeat: no-repeat;
   border-radius: 5px;
-  /* max-width: fit-content; */
   margin: 0 auto;
   text-transform: uppercase;
-  /* font-weight: 700; */
   line-height: 1.2;
   letter-spacing: 0.5rem;
   text-shadow: 0px 1px 10px #ffffff6c;

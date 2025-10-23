@@ -67,7 +67,7 @@ export default function LatestProjects() {
                 x,
               }}
             >
-              Want More Projects ?
+              More Projects ?
             </motion.h1>
           </div>
           <Link to={"/projects"}>

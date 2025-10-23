@@ -168,3 +168,35 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+
+@media (max-width: 768px) {
+  .exp-box {
+    backdrop-filter: blur(20px);
+  }
+
+  .jobs,
+  .education {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jobs .name-container,
+  .education .name-container {
+    z-index: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .exp-content ul {
+    margin-left: 3rem;
+  }
+}
+@media (max-width: 360px) {
+  .exp-box {
+    padding: 4rem 1rem;
+  }
+}

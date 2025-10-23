@@ -3,9 +3,16 @@ import {
   FaGithub,
   FaLinkedin,
   FaSquareXTwitter,
+  FaWhatsapp,
 } from "react-icons/fa6";
 
 export const socialData = [
+  {
+    title: "whatsapp",
+    link: "https://wa.me/+212611423116",
+    icon: <FaWhatsapp />,
+    color: "#25D366",
+  },
   {
     title: "linkedin",
     link: "https://www.linkedin.com/in/oussama-ouakassi-28372216a/",

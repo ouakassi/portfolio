@@ -42,7 +42,7 @@ const Contact = () => {
       className="contact-section"
       id="contact"
       icon={<IoCallSharp />}
-      sectionTitle="contact me"
+      sectionTitle="contact"
       sectionSubtitle="get in touch with me!"
     >
       <motion.div ref={sectionRef} className="contact__container ">

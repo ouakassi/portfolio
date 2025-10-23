@@ -34,7 +34,8 @@
 
 .self-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+
   /* flex-wrap: wrap; */
   align-items: start;
   gap: 2rem;
@@ -61,7 +62,6 @@
 @media (max-width: 768px) {
   .self-container {
     flex-direction: column;
-    padding: 2rem 1rem;
   }
   .self-container h1 {
     margin-bottom: 2rem;
