@@ -25,7 +25,7 @@ const App = () => {
       <Header />
       <ScrollToTop />
       <Routes />
-      <Footer />
+      {/* <Footer /> */}
       {/* <ContactIcon /> */}
       {/* <ScrollUpComponent /> */}
     </ReactLenis>

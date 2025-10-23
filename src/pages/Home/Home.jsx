@@ -54,8 +54,8 @@ const Home = () => {
 
       {/* <About /> */}
       {/* <Experience /> */}
-      <Exp />
-      <Contact />
+      {/* <Exp /> */}
+      {/* <Contact /> */}
       {/* <ProgressBar /> */}
 
       {/* <div>

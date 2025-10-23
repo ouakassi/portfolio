@@ -2,24 +2,6 @@
   display: flex;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  border-radius: 30px;
-  background-color: #6421f2;
-  background: radial-gradient(circle, #000000 20%, #ffffff 200%);
-  background: radial-gradient(ellipse at top, #3b3b3b 20%, #000000 200%);
-  text-transform: capitalize;
-  color: rgb(255 255 255);
-  font-size: var(--fs-m);
-  font-weight: var(--font-bold);
-  font-family: var(--font-4);
-  border: none;
-  border: 1px solid #ffffff18;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: rgba(255, 255, 255, 0.24) 0px 1px 2px;
-
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
   border-radius: 10px;
   background-color: #6421f2;
   background: radial-gradient(circle, #000000 20%, #ffffff 200%);
@@ -34,6 +16,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: rgb(0 255 198 / 30%) 0px 0px 2px;
+  width: max-content;
 }
 .button:hover {
   /* background: radial-gradient(circle, #031720 60%, #133331 200%); */

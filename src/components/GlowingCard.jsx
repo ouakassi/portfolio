@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useMouse } from "../hooks/useMouse";
+import { motion } from "framer-motion";
 
 const useGlowCardStyles = () => {
   useEffect(() => {
@@ -176,10 +177,18 @@ const GlowCard = ({
   };
 
   return (
-    <div className={`glow-card ${className}`} style={cardStyle} {...props}>
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ stiffness: 100, damping: 10, delay: 0.2 }}
+      viewport={{ amount: 0.6 }}
+      className={`glow-card ${className}`}
+      style={cardStyle}
+      {...props}
+    >
       {outerGlow && <div className="glow-outer" />}
       {children}
-    </div>
+    </motion.div>
   );
 };
 

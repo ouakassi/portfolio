@@ -27,8 +27,11 @@
 
 .ss p {
   /* display: none; */
-  color: rgb(163, 163, 163);
+  color: rgb(226, 226, 226);
+  text-shadow: 1px 1px 1px #000000;
   font-family: var(--font-7);
+  position: relative;
+  z-index: 1;
 }
 
 .ss + .two h1,
@@ -42,12 +45,6 @@
   /* grid-area: one; */
   grid-row: span 2;
   grid-column: span 1;
-  /* overflow: hidden; */
-  /* background-image: url("/public/react.svg"); */
-  /* background-position: top left; */
-  /* background-repeat: no-repeat; */
-  /* background-size: contain; */
-  /* background-clip: border-box; */
 }
 .two {
   /* grid-area: two; */
@@ -136,7 +133,42 @@
   box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.5);
 } */
 
-@media (max-width: 700px) {
+@media (max-width: 1280px) {
+  /* desktops ↓ */
+}
+@media (max-width: 1100px) {
+  /* laptops/tablets ↓ */
+  .home__quotes {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  /* .one {
+    grid-row: 1 / span;
+    grid-column: 1;
+  }
+  .two {
+    grid-row: 1 / span;
+    grid-column: 2;
+  }
+
+  .three {
+    grid-row: 3;
+    grid-column: span;
+  }
+
+  .four {
+    grid-row: 4;
+    grid-column: span;
+  } */
+
+  .home__quotes .img__container {
+    max-width: 20rem;
+    right: 0;
+    bottom: -10%;
+  }
+}
+@media (max-width: 768px) {
   .home__quotes {
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: 1fr;
@@ -155,10 +187,15 @@
   }
 
   .ss p {
-    max-width: 60%;
+    /* max-width: 60%; */
+    margin-bottom: 6rem;
   }
 
   .ss {
     padding: 1rem;
   }
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 360px) {
 }
