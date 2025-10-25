@@ -12,6 +12,10 @@ import "./ProjectPage.css";
 import Loader from "../../components/animations/Loader";
 import checkColor from "../../utils/checkColor";
 import { motion } from "framer-motion";
+import Button from "../../components/Buttons/Button";
+import { BsGithub } from "react-icons/bs";
+import { TbBrowserMaximize } from "react-icons/tb";
+import { FaUserGear } from "react-icons/fa6";
 
 export default function ProjectPage() {
   const [projectMarkdown, setProjectMarkdown] = useState("");
@@ -116,14 +120,38 @@ export default function ProjectPage() {
   };
 
   return (
-    <div className="project__page  ">
-      <Section className="project" id="project" sectionTitle={title} />
-      <span className="created">{`Created on ${formattedDate}`}</span>
-      <div className="project__tags">
+    <div className="project__page container ">
+      <header>
+        <h1 className="project__title">{title}</h1>
+        <p>
+          Fluence AI is a high-performance Framer template designed for AI
+          startups, SaaS businesses, and tech innovators. With a sleek UI,
+          responsive design, and conversion-optimized structure, it helps
+          AI-powered platforms launch fast and maximize engagement.
+        </p>
+        <div className="project-btns">
+          <Button
+            link={"https://github.com"}
+            title={"Github Code"}
+            icon={<BsGithub />}
+          />
+          <Button
+            link={"https://fluence-ai.vercel.app/"}
+            title={"live demo"}
+            icon={<TbBrowserMaximize />}
+          />
+          <Button
+            link={"https://fluence-ai.vercel.app/"}
+            title={"client website"}
+            icon={<FaUserGear />}
+          />
+        </div>
+      </header>
+      {/* <div className="project__tags">
         {tags.map((tag, i) => {
           return checkColor(tag, i, "project__language");
         })}
-      </div>
+      </div> */}
       <div className="content">
         <ReactMarkdown
           className={"markdown"}
@@ -162,8 +190,8 @@ export default function ProjectPage() {
           </motion.div>
         </nav>
       </div>
-      <div className="lines__background"></div>
-      <div className="gradient__background"></div>
+      {/* <div className="lines__background"></div> */}
+      {/* <div className="gradient__background"></div> */}
     </div>
   );
 }
