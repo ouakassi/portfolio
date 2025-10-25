@@ -67,7 +67,9 @@ export default function Card({ project }) {
   // Reset rotation and gradient on mouse leave
   const handleMouseLeave = useCallback(() => {
     setIsHovering(false);
-    const card = cardRef.current;
+    const card = cardRef?.current;
+
+    if (!card) return; // ✅ Prevents crash if card is not in DOM yet
 
     // Reset to center and no rotation
     card.style.setProperty("--mouseX", "250px");
@@ -121,7 +123,7 @@ export default function Card({ project }) {
         <motion.div
           className="card__content"
           onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
+          // onMouseLeave={handleMouseLeave}
           transition={{
             duration: isHovering ? 0.1 : 2,
             ease: "easeOut",

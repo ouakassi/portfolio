@@ -28,7 +28,7 @@ const ProjectsPage = () => {
 
   return (
     <Section
-      className="projects__page"
+      className="projects__page container"
       id="projects"
       icon={<FaFolderTree />}
       sectionTitle="Projects"
