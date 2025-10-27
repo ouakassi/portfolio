@@ -31,7 +31,7 @@ const projects = [
     tags: ["html", "css", "javascript"],
     projectType: "frontend",
     githubLink: "https://github.com/ouakassi/crypto-landing-page",
-    websiteLink: "https://ouakassi-crypto.netlify.app/",
+    demoLink: "https://ouakassi-crypto.netlify.app/",
     realLink: null,
   },
   {
@@ -45,7 +45,7 @@ const projects = [
       "SoDev The Real World is a multi-language landing page built precisely to client ",
     tags: ["html", "css", "javascript"],
     projectType: "frontend",
-    websiteLink: "https://sodevtherealworld.com/",
+    demoLink: "https://sodevtherealworld.com/",
     realLink: "https://sodevtherealworld.com/",
   },
   {

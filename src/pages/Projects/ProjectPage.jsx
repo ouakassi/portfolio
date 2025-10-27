@@ -15,7 +15,9 @@ import { motion } from "framer-motion";
 import Button from "../../components/Buttons/Button";
 import { BsGithub } from "react-icons/bs";
 import { TbBrowserMaximize } from "react-icons/tb";
-import { FaUserGear } from "react-icons/fa6";
+import { FaEye, FaLeftLong, FaUserGear } from "react-icons/fa6";
+import { IoReturnUpBackOutline } from "react-icons/io5";
+import { FaCode, FaClock, FaGlobe, FaLayerGroup } from "react-icons/fa";
 
 export default function ProjectPage() {
   const [projectMarkdown, setProjectMarkdown] = useState("");
@@ -26,30 +28,54 @@ export default function ProjectPage() {
   const { slug: projectSlug } = useParams();
 
   const {
-    title,
     // id,
-    // slug,
-    // imgUrl,
-    // description,
+    title,
+    slug,
+    imgUrl,
+    mobileImgUrl,
+    color,
+    description,
+
     tags,
-    // projectType,
-    // websiteLink,
-    // githubLink,
-    createdAt,
-    updatedAt,
+    projectType,
+    githubLink,
+    demoLink,
+    realLink,
   } = projects.find((project) => project.slug === projectSlug);
 
-  const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const projectDetails = [
+    {
+      id: 1,
+      icon: <FaLayerGroup />,
+      title: "Type",
+      info: projectType,
+    },
+    {
+      id: 2,
+      icon: <FaCode />,
+      title: "Technologies",
+      info: tags.join(", "),
+    },
+    {
+      id: 3,
+      icon: <FaClock />,
+      title: "Duration",
+      info: "2 weeks",
+    },
+
+    {
+      id: 4,
+      icon: <FaEye />,
+      title: "Views",
+      info: "1.2K",
+    },
+  ];
 
   // function to fetch the markdown file content
   const fetchProjectMarkdown = useCallback(async () => {
     try {
       setIsLoading(true);
-      const res = await fetch("/projects/" + projectSlug + ".md");
+      const res = await fetch("/projects/markdown/" + projectSlug + ".md");
       const result = await res.text();
       setProjectMarkdown(result);
     } catch (error) {
@@ -122,6 +148,9 @@ export default function ProjectPage() {
   return (
     <div className="project__page container ">
       <header>
+        <Link to="/projects" className="back__link">
+          <FaLeftLong /> Back to Projects
+        </Link>
         <h1 className="project__title">{title}</h1>
         <p>
           Fluence AI is a high-performance Framer template designed for AI
@@ -130,21 +159,69 @@ export default function ProjectPage() {
           AI-powered platforms launch fast and maximize engagement.
         </p>
         <div className="project-btns">
-          <Button
-            link={"https://github.com"}
-            title={"Github Code"}
-            icon={<BsGithub />}
-          />
-          <Button
-            link={"https://fluence-ai.vercel.app/"}
-            title={"live demo"}
-            icon={<TbBrowserMaximize />}
-          />
-          <Button
-            link={"https://fluence-ai.vercel.app/"}
-            title={"client website"}
-            icon={<FaUserGear />}
-          />
+          {githubLink && (
+            <Button
+              link={"https://github.com"}
+              title={"Github Code"}
+              icon={<BsGithub />}
+            />
+          )}
+          {demoLink && (
+            <Button
+              link={"https://fluence-ai.vercel.app/"}
+              title={"live demo"}
+              icon={<TbBrowserMaximize />}
+            />
+          )}
+          {realLink && (
+            <Button
+              link={"https://fluence-ai.vercel.app/"}
+              title={"client website"}
+              icon={<FaUserGear />}
+            />
+          )}
+        </div>
+        <div className="project-data">
+          {projectDetails.map((item) => (
+            <div key={item.id} className="data-card">
+              <span className="data-card__title ">
+                {item.icon}
+                {item.title}
+              </span>
+              <span className="data-card__info ">{item.info}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="project-presentation">
+          <div className="img-container">
+            <img
+              src={imgUrl}
+              alt={title}
+              className="project-presentation__image desktop-image"
+            />
+          </div>
+          <div className="img-container">
+            <img
+              src={mobileImgUrl}
+              alt={title}
+              className="project-presentation__image mobile-image"
+            />
+          </div>
+          <div className="img-container">
+            <img
+              src={mobileImgUrl}
+              alt={title}
+              className="project-presentation__image mobile-image"
+            />
+          </div>{" "}
+          <div className="img-container">
+            <img
+              src={mobileImgUrl}
+              alt={title}
+              className="project-presentation__image mobile-image"
+            />
+          </div>
         </div>
       </header>
       {/* <div className="project__tags">
@@ -152,6 +229,7 @@ export default function ProjectPage() {
           return checkColor(tag, i, "project__language");
         })}
       </div> */}
+
       <div className="content">
         <ReactMarkdown
           className={"markdown"}
@@ -162,7 +240,6 @@ export default function ProjectPage() {
         </ReactMarkdown>
 
         <nav className="content__table">
-          <header className="title">On this Page:</header>
           <motion.div
             className="headers"
             variants={tocContainerAnimation}
@@ -190,6 +267,7 @@ export default function ProjectPage() {
           </motion.div>
         </nav>
       </div>
+
       {/* <div className="lines__background"></div> */}
       {/* <div className="gradient__background"></div> */}
     </div>
