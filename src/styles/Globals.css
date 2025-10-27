@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap");
 
 @font-face {
   font-family: "Cubano";
@@ -62,6 +63,7 @@
   --font-4: "Oxanium", sans-serif;
   --font-5: "Russo One", sans-serif;
   --font-7: "Space Grotesk", sans-serif;
+  --article-font: "Rethink Sans", sans-serif;
 
   /* --fs-6xl: 10rem;
   --fs-5xl: 5rem;
