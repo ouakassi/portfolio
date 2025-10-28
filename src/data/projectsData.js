@@ -1,6 +1,6 @@
 import IMAGES from "../images";
 
-const projects = [
+const projectsData = [
   // {
   //   id: 1,
   //   slug: "crypto-vault",
@@ -65,24 +65,78 @@ const projects = [
     createdAt: "2023-01-15",
     updatedAt: "2023-09-10",
   },
-  // {
-  //   id: 4,
-  //   slug: "blog-platform",
-  //   imgUrl: IMAGES.projectSodev,
-  //   mobileImgUrl: IMAGES.projectSodevMobile,
-  //   color: "rgb(20 20 20)",
-  //   title: "blog platform",
+  {
+    id: 4,
+    slug: "blog-platform",
+    imgUrl: IMAGES.projectSodev,
+    mobileImgUrl: IMAGES.projectSodevMobile,
+    color: "rgb(20 20 20)",
+    title: "blog platform",
 
-  //   description:
-  //     "SoDev The Real World is a multi-language landing page built precisely to client ",
+    description:
+      "SoDev The Real World is a multi-language landing page built precisely to client ",
 
-  //   tags: ["nextjs", "css", "javascript", "mongodb"],
-  //   projectType: "fullstack",
-  //   githubLink: "github.com",
-  //   websiteLink: "https://sodevtherealworld.com/",
-  //   createdAt: "2023-03-22",
-  //   updatedAt: "2023-10-05",
-  // },
+    tags: ["nextjs", "css", "javascript", "mongodb"],
+    projectType: "fullstack",
+    githubLink: "github.com",
+    websiteLink: "https://sodevtherealworld.com/",
+    createdAt: "2023-03-22",
+    updatedAt: "2023-10-05",
+  },
+  {
+    id: 5,
+    slug: "blog-platform",
+    imgUrl: IMAGES.projectSodev,
+    mobileImgUrl: IMAGES.projectSodevMobile,
+    color: "rgb(20 20 20)",
+    title: "blog platform",
+
+    description:
+      "SoDev The Real World is a multi-language landing page built precisely to client ",
+
+    tags: ["nextjs", "css", "javascript", "mongodb"],
+    projectType: "fullstack",
+    githubLink: "github.com",
+    websiteLink: "https://sodevtherealworld.com/",
+    createdAt: "2023-03-22",
+    updatedAt: "2023-10-05",
+  },
+  {
+    id: 6,
+    slug: "blog-platform",
+    imgUrl: IMAGES.projectSodev,
+    mobileImgUrl: IMAGES.projectSodevMobile,
+    color: "rgb(20 20 20)",
+    title: "blog platform",
+
+    description:
+      "SoDev The Real World is a multi-language landing page built precisely to client ",
+
+    tags: ["nextjs", "css", "javascript", "mongodb"],
+    projectType: "fullstack",
+    githubLink: "github.com",
+    websiteLink: "https://sodevtherealworld.com/",
+    createdAt: "2023-03-22",
+    updatedAt: "2023-10-05",
+  },
+  {
+    id: 7,
+    slug: "blog-platform",
+    imgUrl: IMAGES.projectSodev,
+    mobileImgUrl: IMAGES.projectSodevMobile,
+    color: "rgb(20 20 20)",
+    title: "blog platform",
+
+    description:
+      "SoDev The Real World is a multi-language landing page built precisely to client ",
+
+    tags: ["nextjs", "css", "javascript", "mongodb"],
+    projectType: "fullstack",
+    githubLink: "github.com",
+    websiteLink: "https://sodevtherealworld.com/",
+    createdAt: "2023-03-22",
+    updatedAt: "2023-10-05",
+  },
 ];
 
-export default projects;
+export default projectsData;
