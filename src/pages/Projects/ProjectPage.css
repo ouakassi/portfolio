@@ -29,13 +29,43 @@
   gap: 1rem;
   margin-bottom: 4rem;
 }
+.project-data-header {
+  padding: 1rem 5rem;
+}
 
 .project__page header .project__title {
   font-family: var(--font-2);
   font-size: var(--fs-2xl);
   /* color: var(--main-color); */
-  text-shadow: 0px 5px 1px var(--second-color-lite);
+  color: #e4e4e4;
+  /* text-shadow: 0px 0px 5px #aaa, 0 0 2px #fff; */
+  text-shadow: 0px 0px 13px #aaaaaab0, 0px 5px 5px black;
+  position: relative;
+  padding-left: 1rem;
+  padding: 1rem;
+  max-width: fit-content;
+  margin-bottom: 2rem;
 }
+
+.project__page header .project__title::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  left: 0;
+  right: unset;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--main-color-extra-lite),
+    transparent
+  );
+  z-index: -1;
+  border-radius: 10px;
+  /* box-shadow: -10px 0px 50px -10px var(--main-color-lite); */
+}
+
 .project__page header p {
   max-width: 80rem;
 }
@@ -79,7 +109,7 @@
     var(--main-color-extra-lite),
     transparent
   );
-  opacity: 0.5;
+  opacity: 0.3;
 }
 .project__page .project-data::after {
   bottom: 0;
@@ -102,12 +132,12 @@
 
 .project__page .data-card .data-card__title svg {
   color: var(--second-color);
+  filter: drop-shadow(0px 5px 10px var(--main-color));
   opacity: 0.8;
   font-size: 2.5rem;
 }
 
 .project__page .data-card .data-card__info {
-  font-size: 1.8rem;
   text-transform: capitalize;
 }
 
@@ -144,6 +174,12 @@
 
 .project__page .project__tags {
   display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  filter: grayscale(1);
+  align-items: center;
+  justify-content: center;
 }
 
 .lines__background,
@@ -194,6 +230,9 @@
 .project__page .content {
   display: flex;
   justify-content: space-between;
+  /* max-width: 1200px; */
+  margin: auto;
+  gap: 1rem;
   /* gap: 4rem; */
   /* height: 100%; */
   /* position: relative; */
@@ -233,7 +272,7 @@
   /* max-width: 30rem; */
   /* max-height: 60vh; */
   /* overflow-y: auto; */
-  line-height: 1.8;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -245,7 +284,6 @@
   --pad: 1rem;
   color: rgba(116, 116, 116, 0.75);
   font-weight: 500;
-  letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
 
@@ -254,13 +292,12 @@
 }
 
 .project__page .content__table .active {
-  background-color: hsla(170, 88%, 10%, 0.5);
   position: relative;
   color: white;
+  color: var(--main-color);
   /* font-weight: bold; */
-  padding-left: 2em;
+  padding-left: 1em;
   transition: all 0.4s;
-  border-radius: 0 50px 50px 0;
 }
 
 .project__page .content__table .active::before {
@@ -294,27 +331,45 @@
 }
 
 /* ------------------------------- Markdown ------------------------------- */
-.project__page .markdown {
-  max-width: 70%;
+
+.project__page .markdown * {
   font-family: var(--article-font);
+}
+.project__page .markdown {
+  max-width: 900px;
   line-height: 1.6;
   color: white;
   padding: 0 1rem;
 }
 
 .markdown :is(h1, h2, h3, h4, h5, h6) {
-  margin: 4rem auto;
-  text-shadow: 0px 5px 1px var(--second-color-lite);
+  margin: 3rem auto;
+  /* text-shadow: 0px 5px 1px black; */
   font-weight: bold;
 }
 
 .markdown h1 {
-  color: var(--main-color);
-  font-size: var(--fs-2xl);
+  /* color: var(--main-color); */
+  /* font-size: var(--fs-2xl); */
+  position: relative;
+  padding-left: 1.5rem;
 }
+.markdown h1::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  left: 0;
+  right: unset;
+  margin: auto;
+  height: 50%;
+  width: 4px;
+  background: var(--main-color);
+  z-index: -1;
+  border-radius: 20px;
+}
+
 .markdown h2 {
   font-size: var(--fs-xl);
-  /* color: var(--second-color); */
 }
 
 .markdown h3 {
@@ -327,11 +382,12 @@
 
 .markdown p {
   margin: 2rem auto;
-  color: #e4e4e4;
+  color: #bbbbbb;
 }
 
 .markdown :is(ul, ol, blockquote) {
   margin: 2rem auto;
+  color: #bbbbbb;
 }
 .markdown blockquote {
   position: relative;
@@ -417,9 +473,117 @@
 
 .markdown img {
   display: block;
-  border-radius: 5px;
+  border-radius: 20px;
   width: 100%;
   height: 100%;
+  position: relative;
+  padding: 1rem;
+}
+
+.markdown img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: red;
+  z-index: 1;
+}
+
+/* --------------- More Projects ----------------- */
+
+.more-projects {
+  margin-top: 6rem;
+  padding: 1rem;
+}
+
+.more-projects .more-projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+  /* font-size: 1.4rem; */
+}
+
+.more-projects .more-projects-header a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.2s all;
+  color: white;
+}
+
+.more-projects .more-projects-header p {
+  color: white;
+  font-size: 1.8rem;
+  /* font-family: var(--font-3); */
+}
+
+.more-projects .more-projects-header a:hover {
+  color: var(--second-color);
+}
+
+.more-projects .more-projects-header a:hover svg {
+  transform: translateX(4px) rotate(45deg);
+}
+
+.mini-card-container {
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  /* justify-content: center; */
+}
+
+.project-mini-card {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  max-width: 44rem;
+  border-radius: 10px;
+  gap: 1rem;
+}
+
+.project-mini-card .data svg {
+  color: gray;
+}
+.project-mini-card:hover .data svg {
+  color: var(--main-color);
+  transform: rotate(45deg);
+}
+.project-mini-card .img-container {
+  border-radius: 10px;
+  border: 1px solid #071c1a;
+  background: radial-gradient(circle at center, #b4b4b485, #000000);
+}
+
+.project-mini-card:hover .img-container {
+  overflow: hidden;
+}
+
+.project-mini-card:hover .img-container img {
+  transform: scale(1.05) translateY(15px);
+}
+.project-mini-card .data {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
+.project-mini-card:hover .data h3 {
+  color: var(--main-color);
+}
+
+.more-projects .more-projects-header svg,
+.project-mini-card,
+.project-mini-card .img-container,
+.project-mini-card .img-container img,
+.project-mini-card .data svg,
+.project-mini-card:hover .data h3 {
+  transition: all 0.2s;
 }
 
 @media (width <= 1024px) {

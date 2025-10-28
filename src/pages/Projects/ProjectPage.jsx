@@ -15,9 +15,17 @@ import { motion } from "framer-motion";
 import Button from "../../components/Buttons/Button";
 import { BsGithub } from "react-icons/bs";
 import { TbBrowserMaximize } from "react-icons/tb";
-import { FaEye, FaLeftLong, FaUserGear } from "react-icons/fa6";
+import {
+  FaEye,
+  FaLeftLong,
+  FaUpRightFromSquare,
+  FaUserGear,
+} from "react-icons/fa6";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import { FaCode, FaClock, FaGlobe, FaLayerGroup } from "react-icons/fa";
+import { BiLink, BiRightArrow } from "react-icons/bi";
+import { FiArrowUpRight } from "react-icons/fi";
+import projectsData from "../../data/projectsData";
 
 export default function ProjectPage() {
   const [projectMarkdown, setProjectMarkdown] = useState("");
@@ -50,12 +58,18 @@ export default function ProjectPage() {
       title: "Type",
       info: projectType,
     },
-    {
-      id: 2,
-      icon: <FaCode />,
-      title: "Technologies",
-      info: tags.join(", "),
-    },
+    // {
+    //   id: 2,
+    //   icon: <FaCode />,
+    //   title: "Technologies",
+    //   info: (
+    //     <div className="project__tags">
+    //       {tags.map((tag, i) => {
+    //         return checkColor(tag, i, "project__language");
+    //       })}
+    //     </div>
+    //   ),
+    // },
     {
       id: 3,
       icon: <FaClock />,
@@ -146,51 +160,42 @@ export default function ProjectPage() {
   };
 
   return (
-    <div className="project__page container ">
+    <main className="project__page container ">
+      <Link to="/projects" className="back__link">
+        <FaLeftLong /> Back to Projects
+      </Link>
       <header>
-        <Link to="/projects" className="back__link">
-          <FaLeftLong /> Back to Projects
-        </Link>
-        <h1 className="project__title">{title}</h1>
-        <p>
-          Fluence AI is a high-performance Framer template designed for AI
-          startups, SaaS businesses, and tech innovators. With a sleek UI,
-          responsive design, and conversion-optimized structure, it helps
-          AI-powered platforms launch fast and maximize engagement.
-        </p>
-        <div className="project-btns">
-          {githubLink && (
-            <Button
-              link={"https://github.com"}
-              title={"Github Code"}
-              icon={<BsGithub />}
-            />
-          )}
-          {demoLink && (
-            <Button
-              link={"https://fluence-ai.vercel.app/"}
-              title={"live demo"}
-              icon={<TbBrowserMaximize />}
-            />
-          )}
-          {realLink && (
-            <Button
-              link={"https://fluence-ai.vercel.app/"}
-              title={"client website"}
-              icon={<FaUserGear />}
-            />
-          )}
-        </div>
-        <div className="project-data">
-          {projectDetails.map((item) => (
-            <div key={item.id} className="data-card">
-              <span className="data-card__title ">
-                {item.icon}
-                {item.title}
-              </span>
-              <span className="data-card__info ">{item.info}</span>
-            </div>
-          ))}
+        <div className="project-data-header">
+          <h1 className="project__title">{title}</h1>
+          <p>
+            Fluence AI is a high-performance Framer template designed for AI
+            startups, SaaS businesses, and tech innovators. With a sleek UI,
+            responsive design, and conversion-optimized structure, it helps
+            AI-powered platforms launch fast and maximize engagement.
+          </p>
+          <div className="project-btns">
+            {githubLink && (
+              <Button
+                link={"https://github.com"}
+                title={"Github Code"}
+                icon={<BsGithub />}
+              />
+            )}
+            {demoLink && (
+              <Button
+                link={"https://fluence-ai.vercel.app/"}
+                title={"live demo"}
+                icon={<TbBrowserMaximize />}
+              />
+            )}
+            {realLink && (
+              <Button
+                link={"https://fluence-ai.vercel.app/"}
+                title={"client website"}
+                icon={<FaUserGear />}
+              />
+            )}
+          </div>
         </div>
 
         <div className="project-presentation">
@@ -223,12 +228,18 @@ export default function ProjectPage() {
             />
           </div>
         </div>
+        <div className="project-data">
+          {projectDetails.map((item) => (
+            <div key={item.id} className="data-card">
+              <span className="data-card__title ">
+                {item.icon}
+                {item.title}
+              </span>
+              <span className="data-card__info ">{item.info}</span>
+            </div>
+          ))}
+        </div>
       </header>
-      {/* <div className="project__tags">
-        {tags.map((tag, i) => {
-          return checkColor(tag, i, "project__language");
-        })}
-      </div> */}
 
       <div className="content">
         <ReactMarkdown
@@ -270,6 +281,35 @@ export default function ProjectPage() {
 
       {/* <div className="lines__background"></div> */}
       {/* <div className="gradient__background"></div> */}
-    </div>
+      <div className="more-projects">
+        <div className="more-projects-header">
+          <p>more projects</p>
+          <Link to={"/projects/"}>
+            see all <FiArrowUpRight />
+          </Link>
+        </div>
+        <div className="mini-card-container">
+          {projectsData
+            .filter((data) => data.slug !== slug)
+            .map((data) => {
+              if (data.id > 3) return;
+
+              return (
+                <Link to={"/projects/" + data.slug}>
+                  <div key={data.id} className="project-mini-card">
+                    <div className="img-container">
+                      <img src={data.imgUrl} alt={data.title} />
+                    </div>
+                    <div className="data">
+                      <h3>{data.title}</h3>
+                      <FaUpRightFromSquare />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+        </div>
+      </div>
+    </main>
   );
 }
