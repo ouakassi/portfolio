@@ -1,141 +1,84 @@
 import IMAGES from "../images";
 
-const projectsData = [
-  // {
-  //   id: 1,
-  //   slug: "crypto-vault",
-  //   imgUrl: IMAGES.projectCryptoVault,
-  //   mobileImgUrl: IMAGES.projectCryptoVaultMobile,
-  //   color: "rgb(33 5 73)",
-  //   title: "crypto vault",
-  //   description:
-  //     "SoDev The Real World is a multi-language landing page built precisely to client ",
+const projectsNature = {
+  frontend: "frontend",
+  backend: "backend",
+};
 
-  //   tags: ["html", "css", "javascript"],
-  //   projectType: "frontend",
-  //   githubLink: "github.com",
-  //   websiteLink: "https://sodevtherealworld.com/",
-  //   realLink: "https://sodevtherealworld.com/",
-  //   createdAt: "2022-08-01",
-  //   updatedAt: "2023-08-02",
-  // },
+const projectsType = {
+  work: "work",
+  freelance: "freelance",
+  sideProject: "side-project",
+};
+
+const projectsData = [
   {
     id: 1,
     title: "Crypto vault",
     slug: "crypto-vault",
-    imgUrl: IMAGES.projectCryptoVault,
-    mobileImgUrl: IMAGES.projectCryptoVaultMobile,
+    duration: "1 week",
+    projectType: projectsType.sideProject,
+    projectNature: projectsNature.frontend,
     color: "rgb(33 5 73)",
     description:
       "Crypto vault is a modern NFT marketplace where users can explore, bid, and purchase digital assets seamlessly.",
     tags: ["html", "css", "javascript"],
-    projectType: "frontend",
+    imgUrl: IMAGES.projectCryptoVault,
+    mobileImgUrl: IMAGES.projectCryptoVaultMobile,
+
+    projectImages: [
+      IMAGES.projectCryptoVault1,
+      IMAGES.projectCryptoVault,
+      IMAGES.projectCryptoVault2,
+      IMAGES.projectCryptoVaultMobile,
+    ],
     githubLink: "https://github.com/ouakassi/crypto-landing-page",
-    demoLink: "https://ouakassi-crypto.netlify.app/",
+    demoLink: "https://ouakassi-crypto.netlify.app",
     realLink: null,
   },
   {
     id: 2,
     title: "SODEV",
     slug: "sodev",
-    imgUrl: IMAGES.projectSodev,
-    mobileImgUrl: IMAGES.projectSodevMobile,
+    projectType: projectsType.work,
+    projectNature: projectsNature.frontend,
     color: "rgb(59 57 44)",
     description:
       "SoDev The Real World is a multi-language landing page built precisely to client ",
     tags: ["html", "css", "javascript"],
-    projectType: "frontend",
-    demoLink: "https://sodevtherealworld.com/",
+    imgUrl: IMAGES.projectSodev,
+    mobileImgUrl: IMAGES.projectSodevMobile,
+    projectImages: [
+      IMAGES.projectCryptoVault1,
+      IMAGES.projectSodev,
+      IMAGES.projectCryptoVault2,
+      IMAGES.projectSodevMobile,
+    ],
+    githubLink: "https://github.com/ouakassi/sodev",
+    demoLink: "https://ouakassi-sodev.netlify.app",
     realLink: "https://sodevtherealworld.com/",
   },
   {
     id: 3,
-    slug: "e-commerce",
-    imgUrl: IMAGES.projectCryptoVault,
-    mobileImgUrl: IMAGES.projectCryptoVaultMobile,
-    color: "rgb(49 49 49)",
-    title: "e-commerce",
+    title: "Sanipro",
+    slug: "sanipro",
+    projectType: projectsType.freelance,
+    projectNature: projectsNature.frontend,
+    color: "#062b52 ",
     description:
-      "SoDev The Real World is a multi-language landing page built precisely to client ",
-
-    tags: ["react", "css", "javascript", "firebase"],
-    projectType: "fullstack",
-    githubLink: "github.com",
-    websiteLink: "https://sodevtherealworld.com/",
-    createdAt: "2023-01-15",
-    updatedAt: "2023-09-10",
-  },
-  {
-    id: 4,
-    slug: "blog-platform",
-    imgUrl: IMAGES.projectSodev,
-    mobileImgUrl: IMAGES.projectSodevMobile,
-    color: "rgb(20 20 20)",
-    title: "blog platform",
-
-    description:
-      "SoDev The Real World is a multi-language landing page built precisely to client ",
-
-    tags: ["nextjs", "css", "javascript", "mongodb"],
-    projectType: "fullstack",
-    githubLink: "github.com",
-    websiteLink: "https://sodevtherealworld.com/",
-    createdAt: "2023-03-22",
-    updatedAt: "2023-10-05",
-  },
-  {
-    id: 5,
-    slug: "blog-platform",
-    imgUrl: IMAGES.projectSodev,
-    mobileImgUrl: IMAGES.projectSodevMobile,
-    color: "rgb(20 20 20)",
-    title: "blog platform",
-
-    description:
-      "SoDev The Real World is a multi-language landing page built precisely to client ",
-
-    tags: ["nextjs", "css", "javascript", "mongodb"],
-    projectType: "fullstack",
-    githubLink: "github.com",
-    websiteLink: "https://sodevtherealworld.com/",
-    createdAt: "2023-03-22",
-    updatedAt: "2023-10-05",
-  },
-  {
-    id: 6,
-    slug: "blog-platform",
-    imgUrl: IMAGES.projectSodev,
-    mobileImgUrl: IMAGES.projectSodevMobile,
-    color: "rgb(20 20 20)",
-    title: "blog platform",
-
-    description:
-      "SoDev The Real World is a multi-language landing page built precisely to client ",
-
-    tags: ["nextjs", "css", "javascript", "mongodb"],
-    projectType: "fullstack",
-    githubLink: "github.com",
-    websiteLink: "https://sodevtherealworld.com/",
-    createdAt: "2023-03-22",
-    updatedAt: "2023-10-05",
-  },
-  {
-    id: 7,
-    slug: "blog-platform",
-    imgUrl: IMAGES.projectSodev,
-    mobileImgUrl: IMAGES.projectSodevMobile,
-    color: "rgb(20 20 20)",
-    title: "blog platform",
-
-    description:
-      "SoDev The Real World is a multi-language landing page built precisely to client ",
-
-    tags: ["nextjs", "css", "javascript", "mongodb"],
-    projectType: "fullstack",
-    githubLink: "github.com",
-    websiteLink: "https://sodevtherealworld.com/",
-    createdAt: "2023-03-22",
-    updatedAt: "2023-10-05",
+      "Sanipro is a professional plumbing and renovation website built for a Dijon-based company. The landing page highlights key services such as plumbing, heating, leaks, tiling, and full bathroom renovation, with modern animations, responsive design, and a clean UX focused on quick contact and trust.",
+    tags: ["html", "css", "next", "Vite", "Framer Motion", "EmailJS"],
+    imgUrl: IMAGES.projectSanipro,
+    mobileImgUrl: IMAGES.projectSaniproMobile,
+    projectImages: [
+      IMAGES.projectSanipro,
+      IMAGES.projectSanipro1,
+      IMAGES.projectSaniproMobile,
+      IMAGES.projectSanipro2,
+    ],
+    githubLink: "https://github.com/ouakassi/sanipro",
+    demoLink: "https://ouakassi-sanipro.netlify.app/",
+    realLink: "https:///saniprosarl.fr/",
   },
 ];
 

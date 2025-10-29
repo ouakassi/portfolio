@@ -178,7 +178,7 @@ const GlowCard = ({
 
   return (
     <motion.div
-      initial={{ scale: 0, opacity: 0 }}
+      initial={{ scale: 0.95, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ stiffness: 100, damping: 10, delay: 0.2 }}
       viewport={{ amount: 0.6 }}

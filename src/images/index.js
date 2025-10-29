@@ -54,12 +54,21 @@ const IMAGES = {
   serviceSoftwareIcon: "/services/software.png",
   codeBg: "/services/code.png",
 
-  // projects images
+  //  ---------------     projects images
   projectSodev: "/projects/sodev/sodev-web-mockup.png",
   projectSodevMobile: "/projects/sodev/sodev-mobile-mockup.png",
+
+  // --- sanipro
   projectCryptoVault: "/projects/crypto-vault/crypto-vault-web-mockup.png",
   projectCryptoVaultMobile:
     "/projects/crypto-vault/crypto-vault-mobile-mockup.png",
+  projectCryptoVault1: "/projects/crypto-vault/image-1.png",
+  projectCryptoVault2: "/projects/crypto-vault/image-2.png",
+  // --- sanipro
+  projectSanipro: "/projects/sanipro/sanipro-web-mockup.png",
+  projectSaniproMobile: "/projects/sanipro/sanipro-mobile-mockup.png",
+  projectSanipro1: "/projects/sanipro/image-1.png",
+  projectSanipro2: "/projects/sanipro/image-2.png",
 
   // backgrounds
   background: "/patterns/background.png",

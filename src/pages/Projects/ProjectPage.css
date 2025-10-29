@@ -79,7 +79,6 @@
   display: flex;
   gap: 2rem;
   justify-content: space-between;
-  margin-top: 4rem;
   position: relative;
   padding: 2rem;
 
@@ -156,13 +155,7 @@
   height: 100%;
   max-height: 50rem;
   border-radius: 10px;
-  /* overflow: hidden; */
-  /* box-shadow: 0 4px 8px rgba(172, 20, 20, 0.2); */
-  /* border: 2px solid var(--main-color); */
-  padding: 2rem;
-  background: radial-gradient(circle at center, #021b49, #050127);
-  background: radial-gradient(circle at center, #021b49, #050127);
-  background: radial-gradient(circle at center, #0c585885, #000);
+  background: radial-gradient(circle at center, #55555585, #000);
   border: 1px solid #071c1a;
 }
 
@@ -381,7 +374,7 @@
 }
 
 .markdown p {
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
   color: #bbbbbb;
 }
 

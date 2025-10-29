@@ -30,8 +30,8 @@ export default function Card({ project }) {
 
   // Format project type
   const formattedProjectType = useMemo(
-    () => project.projectType.split("-").join(" "),
-    [project.projectType]
+    () => project.projectNature.split("-").join(" "),
+    [project.projectNature]
   );
 
   // Handle mouse movement for rotation and gradient

@@ -43,9 +43,11 @@ export default function ProjectPage() {
     mobileImgUrl,
     color,
     description,
-
+    duration,
+    projectImages,
     tags,
     projectType,
+    projectNature,
     githubLink,
     demoLink,
     realLink,
@@ -56,25 +58,19 @@ export default function ProjectPage() {
       id: 1,
       icon: <FaLayerGroup />,
       title: "Type",
-      info: projectType,
+      info: projectType.split("-").join(" "),
     },
-    // {
-    //   id: 2,
-    //   icon: <FaCode />,
-    //   title: "Technologies",
-    //   info: (
-    //     <div className="project__tags">
-    //       {tags.map((tag, i) => {
-    //         return checkColor(tag, i, "project__language");
-    //       })}
-    //     </div>
-    //   ),
-    // },
+    {
+      id: 2,
+      icon: <FaCode />,
+      title: "Nature",
+      info: projectNature,
+    },
     {
       id: 3,
       icon: <FaClock />,
       title: "Duration",
-      info: "2 weeks",
+      info: duration,
     },
 
     {
@@ -167,69 +163,45 @@ export default function ProjectPage() {
       <header>
         <div className="project-data-header">
           <h1 className="project__title">{title}</h1>
-          <p>
-            Fluence AI is a high-performance Framer template designed for AI
-            startups, SaaS businesses, and tech innovators. With a sleek UI,
-            responsive design, and conversion-optimized structure, it helps
-            AI-powered platforms launch fast and maximize engagement.
-          </p>
+          <p>{description}</p>
           <div className="project-btns">
             {githubLink && (
-              <Button
-                link={"https://github.com"}
-                title={"Github Code"}
-                icon={<BsGithub />}
-              />
+              <Link target="_blank" to={githubLink}>
+                <Button title={"Github Code"} icon={<BsGithub />} />
+              </Link>
             )}
             {demoLink && (
-              <Button
-                link={"https://fluence-ai.vercel.app/"}
-                title={"live demo"}
-                icon={<TbBrowserMaximize />}
-              />
+              <Link target="_blank" to={demoLink}>
+                <Button title={"live demo"} icon={<TbBrowserMaximize />} />
+              </Link>
             )}
             {realLink && (
-              <Button
-                link={"https://fluence-ai.vercel.app/"}
-                title={"client website"}
-                icon={<FaUserGear />}
-              />
+              <Link target="_blank" to={realLink}>
+                <Button title={"client website"} icon={<FaUserGear />} />
+              </Link>
             )}
           </div>
         </div>
 
         <div className="project-presentation">
-          <div className="img-container">
-            <img
-              src={imgUrl}
-              alt={title}
-              className="project-presentation__image desktop-image"
-            />
-          </div>
-          <div className="img-container">
-            <img
-              src={mobileImgUrl}
-              alt={title}
-              className="project-presentation__image mobile-image"
-            />
-          </div>
-          <div className="img-container">
-            <img
-              src={mobileImgUrl}
-              alt={title}
-              className="project-presentation__image mobile-image"
-            />
-          </div>{" "}
-          <div className="img-container">
-            <img
-              src={mobileImgUrl}
-              alt={title}
-              className="project-presentation__image mobile-image"
-            />
-          </div>
+          {projectImages?.map((img, index) => (
+            <div
+              key={index}
+              className="img-container"
+              style={{
+                background: `radial-gradient(circle at center, ${color}, #000)`,
+              }}
+            >
+              <img
+                src={img}
+                alt={img + index}
+                className="project-presentation__image desktop-image"
+              />
+            </div>
+          ))}
         </div>
         <div className="project-data">
-          {projectDetails.map((item) => (
+          {projectDetails?.map((item) => (
             <div key={item.id} className="data-card">
               <span className="data-card__title ">
                 {item.icon}
@@ -257,7 +229,7 @@ export default function ProjectPage() {
             initial="hidden"
             animate="visible"
           >
-            {tocHeaders.map((header, index) => {
+            {tocHeaders?.map((header, index) => {
               return (
                 <Link
                   onClick={(e) => handleLinkClick(e, header.id)}
@@ -291,12 +263,12 @@ export default function ProjectPage() {
         <div className="mini-card-container">
           {projectsData
             .filter((data) => data.slug !== slug)
-            .map((data) => {
+            ?.map((data) => {
               if (data.id > 3) return;
 
               return (
-                <Link to={"/projects/" + data.slug}>
-                  <div key={data.id} className="project-mini-card">
+                <Link key={data.id} to={"/projects/" + data.slug}>
+                  <div className="project-mini-card">
                     <div className="img-container">
                       <img src={data.imgUrl} alt={data.title} />
                     </div>
