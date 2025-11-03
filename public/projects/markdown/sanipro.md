@@ -1,82 +1,118 @@
-# Sanipro – Plumbing & Renovation Website
+# Overview
 
-## Overview
-Sanipro is a responsive and visually refined landing page developed for a professional plumbing and renovation company based in Dijon, France.  
+**Sanipro** is a responsive and visually refined landing page developed for a professional plumbing and renovation company based in Dijon, France.  
 The goal was to design a fast, modern, and trustworthy website that showcases the company’s services while making it easy for visitors to get in touch.  
 The result is a clean, animated interface that balances usability with brand identity.
 
----
+# Tech Stack
 
-## 🧱 Tech Stack
-- React – Modular and scalable front-end framework  
-- Vite – Ultra-fast development and build tool  
-- TailwindCSS – Utility-first styling for flexible, responsive design  
-- Framer Motion – Smooth motion animations and scroll effects  
-- EmailJS – Seamless email handling for contact forms  
-- Vercel – Cloud platform for deployment and hosting  
+- **React** – Modular and scalable front-end framework
+- **Vite** – Ultra-fast development and build tool
+- **Css** – Styling
+- **Framer Motion** – Smooth motion animations and scroll effects
+- **EmailJS** – Seamless email handling for contact forms
+- **Vercel** – Cloud platform for deployment and hosting
 
----
+# pages
 
-## 🧩 Sections Breakdown
+- Home page
+- Mentions Légales page
+- Politique de Confidentialité page
+- Conditions Générales d’Utilisation page
+- 404 not found page
 
-### 1. Hero Section
+# Website Breakdown
+
+## Website Loader
+
+<video autoplay loop preload="none" muted playsInline >
+
+  <source src="/projects/sanipro/content/website-loader.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+The website begins with a smooth animated loader that showcases the Sanipro logo using the brand’s exact color palette.
+
+This opening animation sets a professional tone, reinforces brand identity, and creates a polished first impression before revealing the main content.
+
+## Hero Section
+
+![Sanipro Website](/projects/sanipro/content/hero-section.png)
+
 The homepage immediately introduces Sanipro’s brand with the logo, a brief tagline, and a clear call-to-action.  
-It uses Framer Motion animations to draw user attention to the main message while maintaining visual balance.
+It uses **Framer Motion** animations to draw user attention to the main message while maintaining visual balance.
 
-### 2. About Section
-This section presents Sanipro’s expertise and mission.  
-It highlights trust, professionalism, and client satisfaction using minimal text and a well-structured layout that adapts to all screen sizes.
+1. Top Contact Bar – Displays hours, email, phone, and socials for instant trust and accessibility.
+2. Navigation Bar – Sticky responsive menu with logo for smooth navigation and brand recall.
+3. Availability Tagline – signals reliability and 24/7 service.
+4. Main Headline – Bold message to build authority and focus and showcase multiple services of the company.
+5. Call-to-Action Buttons – “Devis Gratuit” and “Nous Contacter” drive engagement and conversions.
+6. Hero Image – Professional plumber photo adds credibility and visual balance.
+7. Services Timeline – Quick access to key services with icons; boosts clarity and SEO.
+8. Floating Contact Buttons – WhatsApp and call shortcuts for easy one click call.
 
-### 3. Services Section
-Each service—plumbing, heating, leak detection, tiling, and bathroom renovation—is displayed as a responsive card with icons and brief descriptions.  
-Motion effects on scroll enhance the browsing experience without compromising performance.
+![hero section text animation](/projects/sanipro/content/hero-animation.png)
+When discussing with the client, he mentioned offering a wide range of services.
+That sparked the idea to animate the header text using **Framer Motion**, dynamically cycling through each service with **smooth add/remove transitions.**
 
-### 4. Gallery  Portfolio
-A showcase of past projects demonstrates quality and reliability.  
-The section uses optimized images and lazy loading to maintain speed while providing a rich visual experience.
+<video autoplay loop preload="none" muted playsInline>
 
-### 5. Contact Section
-Visitors can directly reach Sanipro through a functional contact form powered by EmailJS.  
-It includes form validation, status feedback (successerror messages), and essential contact details like phone, email, and address.
+  <source src="/projects/sanipro/content/hero-animation-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-### 6. Footer
-A compact footer with copyright information and quick navigation links.  
-It reinforces brand identity and ensures accessibility.
+✨ Result: A hero section that immediately communicates Sanipro’s expertise and adaptability through fluid motion and smart design.
 
----
+## about section
 
-## ⚙️ Features
-- Fully responsive design across all devices  
-- Smooth animations powered by Framer Motion  
-- Client-side contact form with EmailJS  
-- Optimized performance and quick load times via Vite  
-- Reusable components for maintainability and scalability  
-- SEO-friendly structure with semantic HTML  
+![about section](/projects/sanipro/content/about-section.png)
 
----
+- Blue color reinforces trust and reliability (color psychology).
+- Counters act as social proof, displaying experience, clients, and projects.
+- Rounded edges and soft icons add modernity and friendliness.
+- Responsive layout ensures perfect viewing across all devices.
 
-## 🎯 Challenges & Solutions
- Challenge  Solution 
------------------------
- Handling email submissions without a backend  Integrated EmailJS for direct and secure form delivery. 
- Implementing motion effects without overloading the UI  Used Framer Motion variants for lightweight, declarative animations. 
- Maintaining fast load times with image-heavy sections  Optimized and lazy-loaded all visuals to reduce initial payload. 
+<video autoplay loop preload="none" muted playsInline>
 
----
+  <source src="/projects/sanipro/content/features.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-## 🚀 Deployment
-The website was deployed using Vercel, ensuring reliable hosting, instant previews, and automated builds for future updates.
+- This design choice gives a sense of stability, trust, and expertise, using color psychology to convey reliability (blue = trust).
+- The counters not only serve as social proof but also balance the section visually, making it feel structured and data-driven.
+- Rounded edges and subtle icons add a modern, approachable touch, aligning with the brand’s image of professionalism and friendliness.
 
----
+## services section
 
-## 💡 Lessons Learned
-This project reinforced the value of combining modern React tooling with minimalistic design principles.  
-Using Vite and TailwindCSS streamlined the development process, while Framer Motion allowed for smooth, polished animations without performance trade-offs.
+![services slider](/projects/sanipro/content/services-1.png)
 
----
+The services section presents all of Sanipro’s offerings in an interactive, visually structured format.
 
-## 🔗 Links
-- Live Site [httpssanipro-rho.vercel.app](httpssanipro-rho.vercel.app)  
-- GitHub Repository _Add your repository link if public_  
+<video autoplay loop preload="none" muted playsInline>
 
----
+  <source src="/projects/sanipro/content/services-slider.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+A scrollable slider and animated service boxes enhance exploration and maintain visual engagement across devices.
+
+![services boxes](/projects/sanipro/content/services-2.png)
+Well-designed service boxes with icons and short descriptions that clearly present the company’s main services in an attractive, easy-to-scan layout.
+
+## steps section
+
+<video autoplay loop preload="none" muted playsInline>
+  <source src="/projects/sanipro/content/steps.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+In this section, I aimed to clearly illustrate the step-by-step process a client follows to benefit from the company’s services.
+It features interactive boxes with custom-designed images (all created by me) and a dynamic connecting line that animates as the user scrolls, making the experience both informative and engaging.
+
+## Mobile version
+
+<video autoplay loop preload="none" muted playsInline>
+
+  <source src="/projects/sanipro/content/header--mobile.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>

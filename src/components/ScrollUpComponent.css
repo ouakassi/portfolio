@@ -2,7 +2,7 @@
 .scrollup {
   position: fixed;
   right: 5%;
-  bottom: 10%;
+  bottom: 5%;
   z-index: var(--z-tooltip);
 }
 

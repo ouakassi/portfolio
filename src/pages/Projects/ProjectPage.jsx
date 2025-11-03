@@ -11,7 +11,7 @@ import Section from "../../components/Section";
 import "./ProjectPage.css";
 import Loader from "../../components/animations/Loader";
 import checkColor from "../../utils/checkColor";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import Button from "../../components/Buttons/Button";
 import { BsGithub } from "react-icons/bs";
 import { TbBrowserMaximize } from "react-icons/tb";
@@ -26,12 +26,19 @@ import { FaCode, FaClock, FaGlobe, FaLayerGroup } from "react-icons/fa";
 import { BiLink, BiRightArrow } from "react-icons/bi";
 import { FiArrowUpRight } from "react-icons/fi";
 import projectsData from "../../data/projectsData";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function ProjectPage() {
   const [projectMarkdown, setProjectMarkdown] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [tocHeaders, setTocHeaders] = useState([]);
   const [activeId, setActiveId] = useState(null);
+  const [isBottom, setIsBottom] = useState(false);
+
+  const btnsRef = useRef();
+
+  const isHeaderBtnsInView = useInView(btnsRef);
 
   const { slug: projectSlug } = useParams();
 
@@ -130,6 +137,26 @@ export default function ProjectPage() {
     return () => observer.disconnect();
   }, [tocHeaders]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Check if the user is near the bottom (5px margin)
+      if (scrollTop + windowHeight >= documentHeight - 5) {
+        setIsBottom(true);
+        console.log("last");
+      } else {
+        setIsBottom(false);
+        console.log("not last");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Handle click on header links to scroll to the corresponding section smoothly
   const handleLinkClick = useCallback((e, id) => {
     e.preventDefault(); // Prevent default jump-to-top behavior
@@ -161,26 +188,14 @@ export default function ProjectPage() {
         <FaLeftLong /> Back to Projects
       </Link>
       <header>
-        <div className="project-data-header">
+        <div ref={btnsRef} className="project-data-header">
           <h1 className="project__title">{title}</h1>
           <p>{description}</p>
-          <div className="project-btns">
-            {githubLink && (
-              <Link target="_blank" to={githubLink}>
-                <Button title={"Github Code"} icon={<BsGithub />} />
-              </Link>
-            )}
-            {demoLink && (
-              <Link target="_blank" to={demoLink}>
-                <Button title={"live demo"} icon={<TbBrowserMaximize />} />
-              </Link>
-            )}
-            {realLink && (
-              <Link target="_blank" to={realLink}>
-                <Button title={"client website"} icon={<FaUserGear />} />
-              </Link>
-            )}
-          </div>
+          <ProjectBtns
+            githubLink={githubLink}
+            demoLink={demoLink}
+            realLink={realLink}
+          />
         </div>
 
         <div className="project-presentation">
@@ -218,6 +233,18 @@ export default function ProjectPage() {
           className={"markdown"}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, rehypeSlug]}
+          components={{
+            code({ className, children }) {
+              const language = className?.replace("language-", "");
+              return (
+                <SyntaxHighlighter style={oneDark} language={language}>
+                  {children}
+                </SyntaxHighlighter>
+              );
+            },
+            img: ({ node, ...props }) => <ImageContainer {...props} />,
+            // video: ({ node, ...props }) => <AutoPlayVideo {...props} />,
+          }}
         >
           {projectMarkdown}
         </ReactMarkdown>
@@ -282,6 +309,51 @@ export default function ProjectPage() {
             })}
         </div>
       </div>
+      <AnimatePresence>
+        {!isHeaderBtnsInView && !isBottom && (
+          <motion.div
+            initial={{ y: -30, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 30, opacity: 0 }}
+            className="project-btns-fixed"
+          >
+            <ProjectBtns
+              githubLink={githubLink}
+              demoLink={demoLink}
+              realLink={realLink}
+              withTitle={false}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
+
+const ImageContainer = ({ src, alt }) => {
+  return (
+    <div className="image-container">
+      <img loading="lazy" src={src} alt={alt} />
+    </div>
+  );
+};
+
+const ProjectBtns = ({ githubLink, demoLink, realLink, withTitle = true }) => (
+  <div className="project-btns">
+    {githubLink && (
+      <Link target="_blank" to={githubLink}>
+        <Button title={withTitle && "Github Code"} icon={<BsGithub />} />
+      </Link>
+    )}
+    {demoLink && (
+      <Link target="_blank" to={demoLink}>
+        <Button title={withTitle && "live demo"} icon={<TbBrowserMaximize />} />
+      </Link>
+    )}
+    {realLink && (
+      <Link target="_blank" to={realLink}>
+        <Button title={withTitle && "client website"} icon={<FaUserGear />} />
+      </Link>
+    )}
+  </div>
+);

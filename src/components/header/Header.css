@@ -73,7 +73,8 @@
 
 .nav__link .line {
   position: absolute;
-  bottom: -10%;
+  bottom: -15%;
+  opacity: 0.5;
 }
 
 .nav .active {

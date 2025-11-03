@@ -4,8 +4,7 @@
   gap: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 10px;
-  background-color: #6421f2;
-  background: radial-gradient(circle, #000000 20%, #ffffff 200%);
+  /* background-color: #080118; */
   background: radial-gradient(ellipse at top, #00f5ff21 20%, #000000 200%);
   text-transform: capitalize;
   color: rgb(255 255 255);
