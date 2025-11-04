@@ -28,6 +28,7 @@
     rgb(255 255 255 / 65%) 100%
   );
   background-clip: text;
+  z-index: 1;
 }
 .section__title-container {
   position: relative;
