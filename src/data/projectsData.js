@@ -62,6 +62,7 @@ const projectsData = [
     id: 3,
     title: "Sanipro",
     slug: "sanipro",
+    timeline: "4 weeks",
     projectType: projectsType.freelance,
     projectNature: projectsNature.frontend,
     color: "#062b52 ",

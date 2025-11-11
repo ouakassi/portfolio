@@ -18,10 +18,10 @@ const Home = () => {
   return (
     <main className="home container ">
       <Hero />
-      <LatestProjects />
-      <ServicesGlow />
+      {/* <LatestProjects /> */}
+      {/* <ServicesGlow /> */}
       <TechStackBanner />
-      <div className="self-container">
+      {/* <div className="self-container">
         <div>
           <h1>
             <AnimatedText speed={0.05} text={"More than half "} />
@@ -49,13 +49,13 @@ const Home = () => {
           technologies ranging from modern SPA frameworks to run-time
           performance profiling, testing and accessibility.
         </p>
-      </div>
-      {/* <Services /> */}
+      </div> */}
+      <Services />
 
       {/* <About /> */}
       {/* <Experience /> */}
-      <Exp />
-      <Contact />
+      {/* <Exp /> */}
+      {/* <Contact /> */}
       {/* <ProgressBar /> */}
 
       {/* <div>

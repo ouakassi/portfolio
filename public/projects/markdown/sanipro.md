@@ -6,9 +6,9 @@ The result is a clean, animated interface that balances usability with brand ide
 
 # Tech Stack
 
-- **React** – Modular and scalable front-end framework
+- **NEXTjs** – Modular and scalable front-end framework
 - **Vite** – Ultra-fast development and build tool
-- **Css** – Styling
+- **vanilla Css** – for Styling
 - **Framer Motion** – Smooth motion animations and scroll effects
 - **EmailJS** – Seamless email handling for contact forms
 - **Vercel** – Cloud platform for deployment and hosting
@@ -51,6 +51,8 @@ It uses **Framer Motion** animations to draw user attention to the main message 
 7. Services Timeline – Quick access to key services with icons; boosts clarity and SEO.
 8. Floating Contact Buttons – WhatsApp and call shortcuts for easy one click call.
 
+### hero header text idea
+
 ![hero section text animation](/projects/sanipro/content/hero-animation.png)
 When discussing with the client, he mentioned offering a wide range of services.
 That sparked the idea to animate the header text using **Framer Motion**, dynamically cycling through each service with **smooth add/remove transitions.**
@@ -58,6 +60,18 @@ That sparked the idea to animate the header text using **Framer Motion**, dynami
 <video autoplay loop preload="none" muted playsInline>
 
   <source src="/projects/sanipro/content/hero-animation-video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### hero timeline how to
+
+Animated timeline to show the full services provideed by sanipro.
+
+![hero section timeline explination](/projects/sanipro/content/timeline-exp.png)
+
+<video autoplay loop preload="none" muted playsInline>
+
+  <source src="/projects/sanipro/content/timeline.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -109,6 +123,11 @@ Well-designed service boxes with icons and short descriptions that clearly prese
 In this section, I aimed to clearly illustrate the step-by-step process a client follows to benefit from the company’s services.
 It features interactive boxes with custom-designed images (all created by me) and a dynamic connecting line that animates as the user scrolls, making the experience both informative and engaging.
 
+## steps section
+
+![reviews section](/projects/sanipro/content/reviews.png)
+section where we provide clients reviews with option to add new review with ease
+
 ## Mobile version
 
 <video autoplay loop preload="none" muted playsInline>
@@ -116,3 +135,5 @@ It features interactive boxes with custom-designed images (all created by me) an
   <source src="/projects/sanipro/content/header--mobile.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
+
+Responsive header with moderne design and easy access

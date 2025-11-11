@@ -50,7 +50,7 @@ export default function ProjectPage() {
     mobileImgUrl,
     color,
     description,
-    duration,
+    timeline,
     projectImages,
     tags,
     projectType,
@@ -76,15 +76,15 @@ export default function ProjectPage() {
     {
       id: 3,
       icon: <FaClock />,
-      title: "Duration",
-      info: duration,
+      title: "Timeline",
+      info: timeline,
     },
 
     {
       id: 4,
       icon: <FaEye />,
-      title: "Views",
-      info: "1.2K",
+      title: "Role",
+      info: "full-stack dev",
     },
   ];
 
@@ -243,7 +243,6 @@ export default function ProjectPage() {
               );
             },
             img: ({ node, ...props }) => <ImageContainer {...props} />,
-            // video: ({ node, ...props }) => <AutoPlayVideo {...props} />,
           }}
         >
           {projectMarkdown}

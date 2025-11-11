@@ -506,20 +506,22 @@
   display: block;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  /* aspect-ratio: 24/18; */
 }
 
 .markdown .image-container {
   margin: 4rem 0 1rem 0;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: rgba(204, 196, 196, 0.05) 0px 0px 0px 1px,
+  /* box-shadow: rgba(204, 196, 196, 0.05) 0px 0px 0px 1px,
     rgba(15, 173, 160, 0.226) 0px 0px 0px 1px inset;
   background: linear-gradient(
     to bottom,
     var(--bg-color-2, #333) 0%,
     rgb(31, 31, 31) 50%,
     #000000 100%
-  );
+  ); */
   padding: 1rem;
 }
 
