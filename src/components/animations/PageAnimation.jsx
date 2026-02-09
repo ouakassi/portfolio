@@ -56,10 +56,10 @@ export default function PageAnimation({ children }) {
       {/* <motion.div className="slider" {...anim(slider)}></motion.div> */}
       {/* <motion.div {...anim(perspective)}> */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.4 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
       >
         {children}
       </motion.div>
