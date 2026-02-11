@@ -141,44 +141,6 @@ const Illustration = ({ children, forwardRef }) => {
   );
 };
 
-function DarkUIHero() {
-  return (
-    <section className="dui-wrap" aria-label="Dark UI elements hero">
-      <div className="dui-frame">
-        {/* Window bar */}
-        <div className="dui-titlebar" aria-hidden="true">
-          <span className="dui-dot red" />
-          <span className="dui-dot amber" />
-          <span className="dui-dot green" />
-          <div className="dui-search" />
-        </div>
-
-        {/* Content grid */}
-        <div className="dui-grid">
-          {/* Sidebar card */}
-          <div className="dui-card dui-sidebar" aria-label="Sidebar mock">
-            <div className="dui-line long" />
-            <div className="dui-line" />
-            <div className="dui-line" />
-            <div className="dui-line short" />
-          </div>
-
-          {/* Middle rail with draggable style card */}
-          <div className="dui-rail">
-            <div className="dui-panel" />
-            <div className="dui-floating" aria-label="Draggable card">
-              <div className="dui-handle" />
-            </div>
-          </div>
-
-          {/* Placeholder panel (dashed) */}
-          <div className="dui-dashed" aria-label="Empty drop zone" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const requestJsonBlocks = [
   { type: "k", className: "key1" },
   { type: "v", className: "v1" },
@@ -244,8 +206,8 @@ function ApiBackendHero() {
 
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      // onMouseEnter={() => setIsHovered(true)}
+      // onMouseLeave={() => setIsHovered(false)}
       className="api-grid"
     >
       {/* Left: Endpoints list */}

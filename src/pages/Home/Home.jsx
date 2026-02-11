@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <main className="home container ">
       <Hero />
-      {/* <LatestProjects /> */}
+      <LatestProjects />
       {/* <ServicesGlow /> */}
       <TechStackBanner />
       {/* <div className="self-container">
@@ -55,7 +55,7 @@ const Home = () => {
       {/* <About /> */}
       {/* <Experience /> */}
       {/* <Exp /> */}
-      {/* <Contact /> */}
+      <Contact />
       {/* <ProgressBar /> */}
 
       {/* <div>
@@ -114,7 +114,7 @@ export default Home;
                 delay: (row + col) * 0.05, // Stagger animation based on position
               }}
             />
-          ))
+          )),
         )}
       </g>
     </svg>
@@ -155,7 +155,7 @@ export default Home;
                 delay: (row + col) * 0.1, // Stagger animation based on position
               }}
             />
-          ))
+          )),
         )}
       </g>
     </svg>

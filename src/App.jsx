@@ -16,7 +16,7 @@ const App = () => {
     <ReactLenis
       root
       options={{
-        duration: 1.6, // smaller duration feels more natural
+        duration: 0.8, // smaller duration feels more natural
         smoothWheel: true, // smooth mousewheel
         smoothTouch: false, // prevent jank on touch devices
       }}

@@ -78,6 +78,7 @@ const BlurAnimation = ({ text }) => {
 };
 
 const Hero = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const texts = ["Oussama Ouakassi", "Software Engineer"];
   const [index, setIndex] = useState(0);
@@ -188,6 +189,7 @@ const Hero = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
                 ></motion.div>
+                {!imageLoaded && <div>loading...</div>}
                 <motion.img
                   initial={{ clipPath: "circle(10% at -5% -8%)" }}
                   whileInView={{ clipPath: "circle(110% at 40% 11%)" }}
@@ -195,6 +197,7 @@ const Hero = () => {
                   viewport={{ once: true }}
                   src={IMAGES.oussamaImg}
                   alt="it's me"
+                  onLoad={() => setImageLoaded(true)}
                 />
               </div>
               <motion.span className="image__bg"></motion.span>
