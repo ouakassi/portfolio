@@ -71,7 +71,7 @@ export default function Services() {
                   animate={
                     isCardInView
                       ? { y: 0, opacity: 1, zIndex: -1 }
-                      : { y: 100, opacity: 0, zIndex: 1 }
+                      : { y: 50, opacity: 0, zIndex: 1 }
                   }
                   transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
                 >
@@ -84,7 +84,7 @@ export default function Services() {
                 </Illustration>
                 <motion.p
                   initial={{ opacity: 0, y: -10, filter: "blur(20px)", x: 50 }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", x: 50 }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", x: 0 }}
                   transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
                   viewport={{ once: true }}
                 >
@@ -330,117 +330,292 @@ function ApiBackendHero() {
     </div>
   );
 }
+// I animate the whole card when it enters the view
+const cardVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      staggerChildren: 0.12, // I let steps appear one after another
+    },
+  },
+};
+
+// I animate each pipeline step
+const stepVariants = {
+  hidden: { opacity: 0, x: -8 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.3, ease: "easeOut" },
+  },
+};
+
+// I animate the progress bar width
+const barVariants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+// I animate the whole row progressively from left to right
+const rowVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.18,
+    },
+  },
+};
+
+// I animate each environment card
+const envVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+};
+
+// I animate the slot fill
+const slotVariants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+// I animate the flow arrow line
+const flowVariants = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
+
+// I animate cloud items with a soft pop
+const cloudVariants = {
+  hidden: { opacity: 0, y: 8, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+};
 
 function CloudDeployHero() {
   return (
     <div className="cd-grid">
       {/* Left: CI/CD pipeline */}
-      <aside className="card pipeline" aria-label="CI/CD pipeline">
+      <motion.aside
+        className="card pipeline"
+        aria-label="CI/CD pipeline"
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+      >
         <div className="sec-title">Pipeline</div>
 
-        <div className="step ok">
+        <motion.div className="step ok" variants={stepVariants}>
           <span className="pill build">Build</span>
-          <div className="bar" />
-          <span className="badge good">2m 14s</span>
-        </div>
+          <motion.div
+            className="bar"
+            variants={barVariants}
+            style={{ originX: 0 }} // I scale from the left like a real progress bar
+          />
+          <motion.span
+            className="badge good"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.15 }}
+          >
+            2m 14s
+          </motion.span>
+        </motion.div>
 
-        <div className="step ok">
+        <motion.div className="step ok" variants={stepVariants}>
           <span className="pill test">Test</span>
-          <div className="bar mid" />
-          <span className="badge info">128 passed</span>
-        </div>
+          <motion.div
+            className="bar mid"
+            variants={barVariants}
+            style={{ originX: 0 }}
+          />
+          <motion.span className="badge info">128 passed</motion.span>
+        </motion.div>
 
-        <div className="step ok">
+        <motion.div className="step ok" variants={stepVariants}>
           <span className="pill image">Image</span>
-          <div className="bar short" />
-          <span className="badge good">v1.12.3</span>
-        </div>
+          <motion.div
+            className="bar short"
+            variants={barVariants}
+            style={{ originX: 0 }}
+          />
+          <motion.span className="badge good">v1.12.3</motion.span>
+        </motion.div>
 
-        <div className="step">
+        <motion.div className="step" variants={stepVariants}>
           <span className="pill deploy">Deploy</span>
-          <div className="bar tiny" />
-          <span className="badge warn">awaiting</span>
-        </div>
+          <motion.div
+            className="bar tiny"
+            variants={barVariants}
+            style={{ originX: 0 }}
+          />
+          <motion.span
+            className="badge warn"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            awaiting
+          </motion.span>
+        </motion.div>
 
         <div className="divider" />
 
-        <div className="meta">
+        <motion.div className="meta" variants={stepVariants}>
           <span className="chip branch">main</span>
           <span className="chip pr">PR #248</span>
           <span className="chip commit">c7a9e2f</span>
-        </div>
-      </aside>
+        </motion.div>
+      </motion.aside>
 
       {/* Center: Environments flow */}
       <main className="card envs" aria-label="Environments">
         <div className="sec-title">Environments</div>
 
-        <div className="env-row">
-          <div className="env dev">
+        <motion.div
+          className="env-row"
+          variants={rowVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
+          <motion.div className="env dev" variants={envVariants}>
             <div className="env-top">
-              <span className="dot ok" />
+              <motion.span
+                className="dot ok"
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              />
               <span className="env-name">Dev</span>
               <span className="badge good">Healthy</span>
             </div>
             <div className="env-body">
-              <div className="slot" />
-              <div className="slot" />
+              <motion.div
+                className="slot"
+                variants={slotVariants}
+                style={{ originX: 0 }}
+              />
+              <motion.div
+                className="slot"
+                variants={slotVariants}
+                style={{ originX: 0 }}
+              />
             </div>
-          </div>
+          </motion.div>
 
           <div className="flow-arrow" aria-hidden="true">
-            <span className="flow-line" />
+            <motion.span
+              className="flow-line"
+              variants={flowVariants}
+              style={{ originX: 0 }}
+            />
           </div>
 
-          <div className="env stage">
-            <div className="env-top">
-              <span className="dot ok" />
-              <span className="env-name">Stage</span>
-              <span className="badge info">Warm</span>
-            </div>
-            <div className="env-body">
-              <div className="slot" />
-              <div className="slot short" />
-            </div>
-          </div>
-
-          <div className="flow-arrow" aria-hidden="true">
-            <span className="flow-line" />
-          </div>
-
-          <div className="env prod">
+          <motion.div className="env stage" variants={envVariants}>
             <div className="env-top">
               <span className="dot ok" />
               <span className="env-name">Prod</span>
-              <span className="badge good">Live</span>
+              <span className="badge info">Live</span>
             </div>
             <div className="env-body">
-              <div className="slot long" />
-              <div className="slot" />
+              <motion.div
+                className="slot"
+                variants={slotVariants}
+                style={{ originX: 0 }}
+              />
+              <motion.div
+                className="slot short"
+                variants={slotVariants}
+                style={{ originX: 0 }}
+              />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="cloud-item svc">
+        <motion.div
+          className="cloud-item svc"
+          variants={cloudVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
           <div className="icon bubble" />
           <div className="text">
             <div className="t1" />
             <div className="t2" />
           </div>
-          <span className="badge good">OK</span>
-        </div>
+          <motion.span
+            className="badge good"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+          >
+            OK
+          </motion.span>
+        </motion.div>
 
-        <div className="cloud-item fn">
-          <div className="icon bolt" />
+        <motion.div
+          className="cloud-item fn"
+          variants={cloudVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
+          <motion.div
+            className="icon bolt"
+            animate={{ y: [0, -3, 0] }}
+            transition={{ repeat: Infinity, duration: 1.6 }}
+          />
           <div className="text">
-            <div className="t1 short" />
-            <div className="t2" />
+            <motion.div
+              variants={slotVariants}
+              style={{ originX: 0 }}
+              className="t1 short"
+            />
+
+            <motion.div
+              variants={slotVariants}
+              style={{ originX: 0 }}
+              className="t2"
+            />
           </div>
-          <span className="badge info">Cold→Warm</span>
-        </div>
+          <motion.span
+            className="badge info"
+            animate={{ opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 1.4 }}
+          >
+            Cold→Warm
+          </motion.span>
+        </motion.div>
 
         {/* Floating release card */}
-        <div className="floating release" aria-label="Release">
+        <motion.div
+          initial={{ y: 50, x: 50, opacity: 0 }}
+          whileInView={{
+            y: 0,
+            x: 0,
+            scale: 1,
+            opacity: 1,
+          }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="floating release"
+          aria-label="Release"
+        >
           <div className="sec-title tiny">Release</div>
           <div className="rel-row">
             <span className="chip tag">v1.12.3</span>
@@ -451,7 +626,7 @@ function CloudDeployHero() {
             <span className="badge size">3 pods</span>
           </div>
           <div className="rel-bar" />
-        </div>
+        </motion.div>
       </main>
     </div>
   );
