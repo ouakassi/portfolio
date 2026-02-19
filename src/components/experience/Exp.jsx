@@ -11,7 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import { jobsData } from "../../data/experienceData";
+import { jobsData, educationData } from "../../data/experienceData";
 import { IoBriefcase } from "react-icons/io5";
 
 export default function Exp() {
@@ -92,7 +92,7 @@ export default function Exp() {
                       color={color}
                       highlights={highlights}
                     />
-                  )
+                  ),
                 )}
             </div>
           </div>
@@ -104,28 +104,28 @@ export default function Exp() {
               </h1>
             </div>
             <div className="containerrr">
-              {jobsData
+              {educationData
                 .sort((a, b) => b.id - a.id)
                 .map(
                   ({
-                    companyImg,
-                    companyName,
-                    tenure,
-                    position,
+                    schoolImg,
+                    schoolName,
+                    date,
+                    grade,
                     desc,
                     color,
                     highlights,
                   }) => (
                     <ExpBox
-                      companyImg={companyImg}
-                      companyName={companyName}
-                      tenure={tenure}
-                      position={position}
+                      companyImg={schoolImg}
+                      companyName={schoolName}
+                      tenure={date}
+                      position={grade}
                       desc={desc}
                       color={color}
                       highlights={highlights}
                     />
-                  )
+                  ),
                 )}
             </div>
           </div>
@@ -148,6 +148,8 @@ const ExpBox = ({
   const cardRef = useRef();
   const isCardInView = useInView(cardRef, { amount: 0.5 });
 
+  const DEFAULT_COLOR = "var(--main-color)";
+
   return (
     <motion.div
       onMouseEnter={() => setisCardHovered(true)}
@@ -168,7 +170,7 @@ const ExpBox = ({
         <header>
           <div className="entreprise-data">
             <motion.img
-              style={{ borderColor: color }}
+              style={{ borderColor: color ? color : DEFAULT_COLOR }}
               animate={
                 isCardInView
                   ? { scale: 1, opacity: 1, x: 0 }

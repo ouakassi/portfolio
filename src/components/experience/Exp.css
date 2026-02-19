@@ -8,7 +8,7 @@
   /* display: flex; */
   /* border: 1px rgb(73, 73, 73) dashed; */
   border-radius: 30px;
-  width: 100%;
+  width: clamp(100%, 70vw, 100rem);
   padding: 4rem 3rem;
   font-size: 2rem;
   gap: 2rem;
@@ -79,11 +79,14 @@
 }
 .role {
   font-size: 1.6rem;
+  text-transform: capitalize;
 }
 
 .tenure {
   font-style: italic;
   font-size: 1.3rem;
+  min-width: max-content;
+  text-transform: capitalize;
 }
 
 .linnn {
@@ -150,7 +153,8 @@
   min-width: 17rem;
 
   background-color: #041218;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       93% 87% at 87% 89%,
       rgba(0, 0, 0, 0.23) 0%,
       transparent 86.18%
@@ -161,7 +165,8 @@
       rgba(255, 255, 255, 0) 69.79%,
       rgba(255, 255, 255, 0) 100%
     );
-  box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25),
+  box-shadow:
+    inset -3px -3px 9px rgba(255, 255, 255, 0.25),
     inset 0px 3px 9px rgba(255, 255, 255, 0.3);
 
   user-select: none;
