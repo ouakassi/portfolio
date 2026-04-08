@@ -42,21 +42,24 @@ export default function LatestProjects() {
       sectionSubtitle="latest projects"
     >
       <motion.div ref={containerRef} className="projects__container container">
-        {projects?.slice(0, LIMIT).map((project, index) => {
-          const targetScale = 1 - (projects.length - index) * 0.05;
-          const range = [index * 0.25, 1];
-          const positionSpace = `calc(-0% + ${index * 50}px)`;
-          return (
-            <CardContainer
-              key={project.id}
-              project={project}
-              scrollYProgress={scrollYProgress}
-              targetScale={targetScale}
-              range={range}
-              positionSpace={positionSpace}
-            />
-          );
-        })}
+        {projects
+          ?.slice(0, LIMIT)
+          .sort((a, b) => b.id - a.id)
+          .map((project, index) => {
+            const targetScale = 1 - (projects.length - index) * 0.05;
+            const range = [index * 0.25, 1];
+            const positionSpace = `calc(-0% + ${index * 50}px)`;
+            return (
+              <CardContainer
+                key={project.id}
+                project={project}
+                scrollYProgress={scrollYProgress}
+                targetScale={targetScale}
+                range={range}
+                positionSpace={positionSpace}
+              />
+            );
+          })}
         <div ref={conRef} className="explore__all__projects">
           <div>
             <motion.h1
